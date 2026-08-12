@@ -7,7 +7,9 @@
   --page: 980px;
 }
 
-/* ---------- Base ---------- */
+/* =========================================================
+   BASE
+   ========================================================= */
 
 * {
   box-sizing: border-box;
@@ -20,18 +22,24 @@ html {
 }
 
 body {
-  min-height: 100dvh;
+  min-height: 100vh;
   margin: 0;
+
   background: var(--paper);
   color: var(--text);
-  font-family: Inter, -apple-system, BlinkMacSystemFont,
-    "Helvetica Neue", Arial, sans-serif;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
   font-size: 12px;
   line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
 
-  display: flex;
-  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
 }
 
 button {
@@ -40,14 +48,18 @@ button {
 }
 
 
-/* ---------- Header ---------- */
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 .site-header {
   position: fixed;
-  z-index: 20;
+
   top: 0;
   left: 0;
   right: 0;
+
+  z-index: 20;
 
   display: flex;
   justify-content: flex-end;
@@ -69,12 +81,14 @@ button {
 
   display: inline-flex;
   align-items: center;
+
   gap: 10px;
 
   padding: 0;
   border: 0;
 
   background: transparent;
+
   text-align: right;
 
   cursor: zoom-in;
@@ -84,21 +98,27 @@ button {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+
   gap: 1px;
 }
 
 .identity-kicker {
   color: var(--muted);
+
   font-size: 8px;
   line-height: 1.2;
+
   letter-spacing: 0.09em;
+
   text-transform: uppercase;
 }
 
 .identity-name {
   font-size: 11px;
   line-height: 1.25;
+
   font-weight: 500;
+
   letter-spacing: -0.015em;
 }
 
@@ -126,26 +146,25 @@ button {
 }
 
 
-/* ---------- Main ---------- */
+/* =========================================================
+   MAIN
+   ========================================================= */
 
 main {
-  width: min(calc(100% - 56px), var(--page));
+  width: min(
+    calc(100% - 56px),
+    var(--page)
+  );
 
   margin: 0 auto;
 
   padding: 150px 0 110px;
-
-  /*
-    This makes the main area consume the
-    remaining viewport height when the
-    content is short.
-  */
-  flex: 1 0 auto;
 }
 
 .gallery {
   display: flex;
   flex-direction: column;
+
   gap: 96px;
 }
 
@@ -177,7 +196,12 @@ main {
   height: auto;
 
   transition:
-    transform 0.8s cubic-bezier(0.2, 0.65, 0.2, 1);
+    transform 0.8s cubic-bezier(
+      0.2,
+      0.65,
+      0.2,
+      1
+    );
 }
 
 .photo-button:hover img {
@@ -185,7 +209,9 @@ main {
 }
 
 
-/* ---------- Captions ---------- */
+/* =========================================================
+   CAPTIONS
+   ========================================================= */
 
 figcaption {
   display: grid;
@@ -204,30 +230,38 @@ figcaption span:first-child {
 }
 
 
-/* ---------- Footer ---------- */
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+/*
+   Footer is intentionally fixed to the viewport.
+
+   This is appropriate here because the footer contains
+   only a small copyright line and no interactive content.
+*/
 
 .site-footer {
-  /*
-    The footer stays at the bottom
-    when the page content is short,
-    but naturally moves below the
-    content when the page becomes long.
-  */
-  margin-top: auto;
+  position: fixed;
 
-  display: flex;
-  justify-content: flex-start;
+  left: 32px;
+  bottom: 28px;
 
-  padding: 0 32px 28px;
+  z-index: 20;
 
   color: var(--muted);
 
   font-size: 9px;
+
   letter-spacing: 0.03em;
+
+  pointer-events: none;
 }
 
 
-/* ---------- Lightbox ---------- */
+/* =========================================================
+   LIGHTBOX
+   ========================================================= */
 
 .lightbox {
   position: fixed;
@@ -251,6 +285,7 @@ figcaption span:first-child {
 
 .lightbox-image {
   max-width: min(92vw, 1500px);
+
   max-height: 84vh;
 
   object-fit: contain;
@@ -292,7 +327,9 @@ figcaption span:first-child {
 }
 
 
-/* ---------- Mobile ---------- */
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 700px) {
 
@@ -329,7 +366,8 @@ figcaption span:first-child {
   }
 
   .site-footer {
-    padding: 0 18px 20px;
+    left: 18px;
+    bottom: 20px;
   }
 
   .lightbox {
