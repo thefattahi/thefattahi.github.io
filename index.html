@@ -3,47 +3,64 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Fattahi — photography portfolio.">
+  <meta name="description" content="Fattahi — photography by Rasool Fattahi.">
+  <meta name="theme-color" content="#f6f5f2">
   <title>Fattahi — Photography</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="site-header">
-    <a class="wordmark" href="/" aria-label="Fattahi home">fattahi</a>
-    <a class="profile" href="#about" aria-label="About">RF</a>
+    <button class="identity" type="button" aria-label="Open portrait of Rasool Fattahi">
+      <span class="identity-copy">
+        <span class="identity-kicker">Photos by</span>
+        <span class="identity-name">Rasool Fattahi</span>
+      </span>
+      <span class="portrait-frame">
+        <img src="images/profile.png" alt="Portrait of Rasool Fattahi">
+      </span>
+    </button>
   </header>
 
   <main>
-    <section class="intro">
-      <p>Photography</p>
-      <p>Berlin / Germany</p>
+    <section class="intro" aria-label="Portfolio information">
+      <p>Photography archive</p>
+      <p>Berlin · Germany</p>
     </section>
 
     <section class="gallery" aria-label="Photography portfolio">
       <figure class="photo-card">
-        <img src="images/photo-01.jpg" alt="Photography portfolio image 01">
-        <figcaption>Late afternoon</figcaption>
+        <button class="photo-button" type="button" data-src="images/photo-01.jpg" data-caption="Late afternoon">
+          <img src="images/photo-01.jpg" alt="Photography portfolio image 01" loading="eager">
+        </button>
+        <figcaption><span>01</span><span>Late afternoon</span></figcaption>
       </figure>
 
       <figure class="photo-card">
-        <img src="images/photo-02.jpg" alt="Photography portfolio image 02">
-        <figcaption>Between places</figcaption>
+        <button class="photo-button" type="button" data-src="images/photo-02.jpg" data-caption="Between places">
+          <img src="images/photo-02.jpg" alt="Photography portfolio image 02" loading="lazy">
+        </button>
+        <figcaption><span>02</span><span>Between places</span></figcaption>
       </figure>
 
       <figure class="photo-card">
-        <img src="images/photo-03.jpg" alt="Photography portfolio image 03">
-        <figcaption>No particular place</figcaption>
+        <button class="photo-button" type="button" data-src="images/photo-03.jpg" data-caption="No particular place">
+          <img src="images/photo-03.jpg" alt="Photography portfolio image 03" loading="lazy">
+        </button>
+        <figcaption><span>03</span><span>No particular place</span></figcaption>
       </figure>
-    </section>
-
-    <section id="about" class="about">
-      <p>Fattahi is a personal photography archive by Rasool Fattahi.</p>
     </section>
   </main>
 
   <footer class="site-footer">
     <span>© <span id="year"></span> Fattahi</span>
+    <span>Photography</span>
   </footer>
+
+  <div class="lightbox" aria-hidden="true">
+    <button class="lightbox-close" type="button" aria-label="Close image">×</button>
+    <img class="lightbox-image" src="" alt="">
+    <p class="lightbox-caption"></p>
+  </div>
 
   <script src="script.js"></script>
 </body>
