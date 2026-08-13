@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -21,11 +22,16 @@
 
   <title>Fattahi - Photo Archive</title>
 
-  <!-- Cache busting -->
-  <link rel="stylesheet" href="style.css?v=8">
+  <link
+    rel="stylesheet"
+    href="style.css?v=9"
+  >
+
 </head>
 
+
 <body>
+
 
   <!-- =====================================================
        HEADER
@@ -35,6 +41,7 @@
 
     <button
       class="identity"
+      id="profileButton"
       type="button"
       aria-label="Open portrait of Rasool Fattahi"
     >
@@ -66,108 +73,84 @@
   </header>
 
 
+
   <!-- =====================================================
-       GALLERY
+       MAIN
   ====================================================== -->
 
   <main>
 
+
+    <!-- CATEGORY FILTER -->
+
+    <nav
+      class="category-filter"
+      aria-label="Photography categories"
+    >
+
+      <button
+        class="category-button is-active"
+        data-category="All"
+        type="button"
+      >
+        All
+      </button>
+
+
+      <button
+        class="category-button"
+        data-category="Street"
+        type="button"
+      >
+        Street
+      </button>
+
+
+      <button
+        class="category-button"
+        data-category="Portrait"
+        type="button"
+      >
+        Portrait
+      </button>
+
+
+      <button
+        class="category-button"
+        data-category="Documentary"
+        type="button"
+      >
+        Documentary
+      </button>
+
+
+      <button
+        class="category-button"
+        data-category="Places"
+        type="button"
+      >
+        Places
+      </button>
+
+    </nav>
+
+
+
+    <!-- GALLERY -->
+
     <section
       class="gallery"
+      id="gallery"
       aria-label="Photography portfolio"
     >
 
-
-      <!-- PHOTO 01 -->
-
-      <figure class="photo-card photo-card-landscape">
-
-        <button
-          class="photo-button"
-          type="button"
-          data-src="images/photo-01.jpg"
-          data-caption="Late afternoon"
-          aria-label="Open photograph"
-        >
-
-          <img
-            src="images/photo-01.jpg"
-            alt="Late afternoon"
-            loading="eager"
-            decoding="async"
-          >
-
-        </button>
-
-
-        <figcaption>
-          Late afternoon
-        </figcaption>
-
-      </figure>
-
-
-      <!-- PHOTO 02 -->
-
-      <figure class="photo-card photo-card-portrait">
-
-        <button
-          class="photo-button"
-          type="button"
-          data-src="images/photo-02.jpg"
-          data-caption="Between places"
-          aria-label="Open photograph"
-        >
-
-          <img
-            src="images/photo-02.jpg"
-            alt="Between places"
-            loading="lazy"
-            decoding="async"
-          >
-
-        </button>
-
-
-        <figcaption>
-          Between places
-        </figcaption>
-
-      </figure>
-
-
-      <!-- PHOTO 03 -->
-
-      <figure class="photo-card photo-card-square">
-
-        <button
-          class="photo-button"
-          type="button"
-          data-src="images/photo-03.jpg"
-          data-caption="No particular place"
-          aria-label="Open photograph"
-        >
-
-          <img
-            src="images/photo-03.jpg"
-            alt="No particular place"
-            loading="lazy"
-            decoding="async"
-          >
-
-        </button>
-
-
-        <figcaption>
-          No particular place
-        </figcaption>
-
-      </figure>
-
+      <!-- JavaScript creates the photographs here -->
 
     </section>
 
+
   </main>
+
 
 
   <!-- =====================================================
@@ -179,6 +162,7 @@
     © <span id="year"></span> Rasool Fattahi
 
   </footer>
+
 
 
   <!-- =====================================================
@@ -217,168 +201,15 @@
   </div>
 
 
+
   <!-- =====================================================
-       JAVASCRIPT
+       SCRIPTS
   ====================================================== -->
 
-  <script>
-    const yearElement = document.getElementById("year");
+  <script src="photos.js?v=9"></script>
 
-    if (yearElement) {
-      yearElement.textContent = new Date().getFullYear();
-    }
+  <script src="script.js?v=9"></script>
 
-
-    /* -------------------------------
-       LIGHTBOX
-    -------------------------------- */
-
-    const lightbox =
-      document.getElementById("lightbox");
-
-    const lightboxImage =
-      document.getElementById("lightboxImage");
-
-    const lightboxCaption =
-      document.getElementById("lightboxCaption");
-
-    const lightboxClose =
-      document.getElementById("lightboxClose");
-
-
-    function openLightbox(imageSrc, imageAlt, caption) {
-
-      lightboxImage.src = imageSrc;
-
-      lightboxImage.alt = imageAlt;
-
-      lightboxCaption.textContent =
-        caption || "";
-
-
-      lightbox.classList.add("is-open");
-
-      lightbox.setAttribute(
-        "aria-hidden",
-        "false"
-      );
-
-
-      document.body.style.overflow =
-        "hidden";
-    }
-
-
-    function closeLightbox() {
-
-      lightbox.classList.remove(
-        "is-open"
-      );
-
-      lightbox.setAttribute(
-        "aria-hidden",
-        "true"
-      );
-
-
-      document.body.style.overflow =
-        "";
-
-
-      lightboxImage.src = "";
-
-    }
-
-
-    /* Header portrait */
-
-    document
-      .querySelector(".identity")
-      .addEventListener(
-        "click",
-        function () {
-
-          openLightbox(
-            "images/profile.png",
-            "Portrait of Rasool Fattahi",
-            "Rasool Fattahi"
-          );
-
-        }
-      );
-
-
-    /* Portfolio images */
-
-    document
-      .querySelectorAll(".photo-button")
-      .forEach(function (button) {
-
-        button.addEventListener(
-          "click",
-          function () {
-
-            const image =
-              button.querySelector("img");
-
-
-            openLightbox(
-              button.dataset.src,
-              image.alt,
-              button.dataset.caption
-            );
-
-          }
-        );
-
-      });
-
-
-    /* Close button */
-
-    lightboxClose.addEventListener(
-      "click",
-      closeLightbox
-    );
-
-
-    /* Click outside image */
-
-    lightbox.addEventListener(
-      "click",
-      function (event) {
-
-        if (
-          event.target === lightbox
-        ) {
-          closeLightbox();
-        }
-
-      }
-    );
-
-
-    /* Escape key */
-
-    document.addEventListener(
-      "keydown",
-      function (event) {
-
-        if (
-          event.key === "Escape" &&
-          lightbox.classList.contains(
-            "is-open"
-          )
-        ) {
-
-          closeLightbox();
-
-        }
-
-      }
-    );
-
-  </script>
 
 </body>
 
