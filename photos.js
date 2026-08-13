@@ -9,13 +9,13 @@ const photos = [
   {
     file: "photo-02.jpg",
     caption: "",
-    category: "Street"
+    category: "Portrait"
   },
 
   {
     file: "photo-03.jpg",
     caption: "",
-    category: "Portrait"
+    category: "Street"
   },
 
   {
