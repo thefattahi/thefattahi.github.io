@@ -1,10 +1,13 @@
 @import url(
+
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap'
+
 );
 
-
 /* =========================================================
+
    ROOT
+
 ========================================================= */
 
 :root {
@@ -19,17 +22,27 @@
 
   --page-width: 980px;
 
+  --header-top: 24px;
+
+  --header-right: 30px;
+
+  --footer-bottom: 28px;
+
+  --footer-left: 32px;
+
 }
 
-
 /* =========================================================
+
    GLOBAL
+
 ========================================================= */
 
 * {
-  box-sizing: border-box;
-}
 
+  box-sizing: border-box;
+
+}
 
 html {
 
@@ -37,12 +50,13 @@ html {
 
   padding: 0;
 
+  min-height: 100%;
+
   background: var(--paper);
 
   scroll-behavior: smooth;
 
 }
-
 
 body {
 
@@ -57,11 +71,17 @@ body {
   color: var(--text);
 
   font-family:
+
     Inter,
+
     -apple-system,
+
     BlinkMacSystemFont,
+
     "Helvetica Neue",
+
     Arial,
+
     sans-serif;
 
   font-size: 12px;
@@ -72,7 +92,6 @@ body {
 
 }
 
-
 button {
 
   font: inherit;
@@ -81,46 +100,45 @@ button {
 
 }
 
-
 /* =========================================================
+
    HEADER
+
+   COMPLETELY FIXED
+
 ========================================================= */
 
 .site-header {
 
   position: fixed;
 
-  top: 0;
+  top: var(--header-top);
 
-  right: 0;
+  right: var(--header-right);
 
-  left: 0;
+  left: auto;
 
-  z-index: 50;
+  z-index: 1000;
 
   display: flex;
 
-  justify-content: flex-end;
-
   align-items: flex-start;
 
-  padding:
-    24px
-    30px;
+  margin: 0;
+
+  padding: 0;
 
   pointer-events: none;
 
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(246,245,242,.96),
-      rgba(246,245,242,0)
-    );
+  background: transparent;
 
 }
 
+/* Header content remains clickable */
 
 .identity {
+
+  position: relative;
 
   display: inline-flex;
 
@@ -128,9 +146,9 @@ button {
 
   gap: 10px;
 
-  padding: 0;
-
   margin: 0;
+
+  padding: 0;
 
   border: 0;
 
@@ -141,7 +159,6 @@ button {
   cursor: zoom-in;
 
 }
-
 
 .identity-copy {
 
@@ -157,7 +174,6 @@ button {
 
 }
 
-
 .identity-kicker {
 
   color: var(--muted);
@@ -166,12 +182,11 @@ button {
 
   line-height: 1.2;
 
-  letter-spacing: .09em;
+  letter-spacing: 0.09em;
 
   text-transform: uppercase;
 
 }
-
 
 .identity-name {
 
@@ -183,10 +198,9 @@ button {
 
   font-weight: 500;
 
-  letter-spacing: -.015em;
+  letter-spacing: -0.015em;
 
 }
-
 
 .portrait-frame {
 
@@ -201,7 +215,6 @@ button {
   background: #dfded9;
 
 }
-
 
 .portrait-frame img {
 
@@ -219,30 +232,48 @@ button {
 
 }
 
-
 /* =========================================================
-   MAIN
+
+   MAIN / GALLERY
+
 ========================================================= */
 
 main {
 
   width:
+
     min(
+
       calc(100% - 56px),
+
       var(--page-width)
+
     );
 
-  margin:
-    0 auto;
+  margin: 0 auto;
+
+  /*
+
+    Extra top space keeps the first photograph
+
+    comfortably below the fixed Header.
+
+  */
 
   padding:
-    118px 0 140px;
+
+    118px
+
+    0
+
+    150px;
 
 }
 
-
 /* =========================================================
+
    CATEGORY FILTER
+
 ========================================================= */
 
 .category-filter {
@@ -255,12 +286,23 @@ main {
 
   gap: 24px;
 
-  margin-bottom: 58px;
+  margin:
+
+    0
+
+    0
+
+    58px
+
+    0;
+
+  padding: 0;
 
 }
 
-
 .category-button {
+
+  margin: 0;
 
   padding: 0;
 
@@ -274,16 +316,15 @@ main {
 
   line-height: 1;
 
-  letter-spacing: .06em;
+  letter-spacing: 0.06em;
 
   text-transform: uppercase;
 
   cursor: pointer;
 
-  transition: color .15s ease;
+  transition: color 0.15s ease;
 
 }
-
 
 .category-button:hover {
 
@@ -291,16 +332,16 @@ main {
 
 }
 
-
 .category-button.is-active {
 
   color: var(--text);
 
 }
 
-
 /* =========================================================
+
    GALLERY
+
 ========================================================= */
 
 .gallery {
@@ -313,11 +354,14 @@ main {
 
   gap: 128px;
 
+  width: 100%;
+
 }
 
-
 /* =========================================================
+
    PHOTO CARD
+
 ========================================================= */
 
 .photo-card {
@@ -330,48 +374,60 @@ main {
 
 }
 
-
 /*
-   JavaScript automatically assigns
-   one of these classes based on
-   the actual image dimensions.
+
+   JavaScript automatically determines
+
+   the image orientation.
+
 */
 
 .photo-card.is-landscape {
 
   width:
+
     min(
+
       100%,
+
       760px
+
     );
 
 }
-
 
 .photo-card.is-portrait {
 
   width:
+
     min(
+
       100%,
+
       620px
+
     );
 
 }
-
 
 .photo-card.is-square {
 
   width:
+
     min(
+
       100%,
+
       680px
+
     );
 
 }
 
-
 /* =========================================================
+
    IMAGE
+
 ========================================================= */
 
 .photo-button {
@@ -394,7 +450,6 @@ main {
 
 }
 
-
 .photo-button img {
 
   display: block;
@@ -409,14 +464,23 @@ main {
 
 }
 
-
 /* =========================================================
+
    CAPTION
+
 ========================================================= */
 
 figcaption {
 
-  margin-top: 12px;
+  margin:
+
+    12px
+
+    0
+
+    0
+
+    0;
 
   padding: 0;
 
@@ -426,20 +490,23 @@ figcaption {
 
   line-height: 1.4;
 
-  letter-spacing: .01em;
+  letter-spacing: 0.01em;
 
 }
 
-
 /* =========================================================
-   EMPTY STATE
+
+   EMPTY GALLERY
+
 ========================================================= */
 
 .empty-gallery {
 
-  padding:
-    90px
-    0;
+  width: 100%;
+
+  margin: 0;
+
+  padding: 90px 0;
 
   color: var(--muted);
 
@@ -449,20 +516,27 @@ figcaption {
 
 }
 
-
 /* =========================================================
+
    FOOTER
+
+   COMPLETELY FIXED
+
 ========================================================= */
 
 .site-footer {
 
   position: fixed;
 
-  left: 32px;
+  left: var(--footer-left);
 
-  bottom: 28px;
+  bottom: var(--footer-bottom);
 
-  z-index: 40;
+  z-index: 1000;
+
+  margin: 0;
+
+  padding: 0;
 
   color: var(--muted);
 
@@ -470,15 +544,16 @@ figcaption {
 
   line-height: 1;
 
-  letter-spacing: .03em;
+  letter-spacing: 0.03em;
 
   pointer-events: none;
 
 }
 
-
 /* =========================================================
+
    LIGHTBOX
+
 ========================================================= */
 
 .lightbox {
@@ -487,7 +562,7 @@ figcaption {
 
   inset: 0;
 
-  z-index: 100;
+  z-index: 2000;
 
   display: none;
 
@@ -496,19 +571,26 @@ figcaption {
   justify-content: center;
 
   padding:
+
     70px
+
     40px;
 
   background:
+
     rgba(
+
       13,
+
       13,
+
       12,
-      .97
+
+      0.97
+
     );
 
 }
-
 
 .lightbox.is-open {
 
@@ -516,23 +598,21 @@ figcaption {
 
 }
 
-
 .lightbox-image {
 
   display: block;
-
-  max-width: 92vw;
-
-  max-height: 84vh;
 
   width: auto;
 
   height: auto;
 
+  max-width: 92vw;
+
+  max-height: 84vh;
+
   object-fit: contain;
 
 }
-
 
 .lightbox-close {
 
@@ -545,6 +625,8 @@ figcaption {
   width: 40px;
 
   height: 40px;
+
+  margin: 0;
 
   padding: 0;
 
@@ -564,7 +646,6 @@ figcaption {
 
 }
 
-
 .lightbox-caption {
 
   position: fixed;
@@ -574,16 +655,25 @@ figcaption {
   bottom: 22px;
 
   transform:
+
     translateX(-50%);
 
   margin: 0;
 
+  padding: 0;
+
   color:
+
     rgba(
+
       255,
+
       255,
+
       255,
-      .72
+
+      0.72
+
     );
 
   font-size: 10px;
@@ -594,21 +684,23 @@ figcaption {
 
 }
 
-
 /* =========================================================
+
    MOBILE
+
 ========================================================= */
 
 @media (max-width: 700px) {
 
+  /* ---------- Fixed Header ---------- */
 
   .site-header {
 
-    padding:
-      18px;
+    top: 18px;
+
+    right: 18px;
 
   }
-
 
   .identity {
 
@@ -616,20 +708,17 @@ figcaption {
 
   }
 
-
   .identity-kicker {
 
     font-size: 8px;
 
   }
 
-
   .identity-name {
 
     font-size: 10px;
 
   }
-
 
   .portrait-frame {
 
@@ -639,21 +728,29 @@ figcaption {
 
   }
 
+  /* ---------- Main ---------- */
 
   main {
 
     width:
+
       calc(
+
         100% - 28px
+
       );
 
     padding:
+
       100px
+
       0
+
       100px;
 
   }
 
+  /* ---------- Categories ---------- */
 
   .category-filter {
 
@@ -667,13 +764,11 @@ figcaption {
 
   }
 
-
   .category-filter::-webkit-scrollbar {
 
     display: none;
 
   }
-
 
   .category-button {
 
@@ -683,6 +778,7 @@ figcaption {
 
   }
 
+  /* ---------- Gallery ---------- */
 
   .gallery {
 
@@ -690,15 +786,15 @@ figcaption {
 
   }
 
-
   .photo-card.is-landscape,
+
   .photo-card.is-portrait,
+
   .photo-card.is-square {
 
     width: 100%;
 
   }
-
 
   figcaption {
 
@@ -708,6 +804,7 @@ figcaption {
 
   }
 
+  /* ---------- Fixed Footer ---------- */
 
   .site-footer {
 
@@ -717,15 +814,17 @@ figcaption {
 
   }
 
+  /* ---------- Lightbox ---------- */
 
   .lightbox {
 
     padding:
+
       50px
+
       18px;
 
   }
-
 
   .lightbox-image {
 
@@ -734,7 +833,6 @@ figcaption {
     max-height: 82vh;
 
   }
-
 
   .lightbox-close {
 
