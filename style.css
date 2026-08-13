@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+@import url(
+  'https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap'
+);
 
 
 /* =========================================================
@@ -25,9 +27,7 @@
 ========================================================= */
 
 * {
-
   box-sizing: border-box;
-
 }
 
 
@@ -113,8 +113,8 @@ button {
   background:
     linear-gradient(
       to bottom,
-      rgba(246, 245, 242, 0.96),
-      rgba(246, 245, 242, 0)
+      rgba(246,245,242,.96),
+      rgba(246,245,242,0)
     );
 
 }
@@ -166,7 +166,7 @@ button {
 
   line-height: 1.2;
 
-  letter-spacing: 0.09em;
+  letter-spacing: .09em;
 
   text-transform: uppercase;
 
@@ -183,7 +183,7 @@ button {
 
   font-weight: 500;
 
-  letter-spacing: -0.015em;
+  letter-spacing: -.015em;
 
 }
 
@@ -236,7 +236,65 @@ main {
     0 auto;
 
   padding:
-    150px 0 140px;
+    118px 0 140px;
+
+}
+
+
+/* =========================================================
+   CATEGORY FILTER
+========================================================= */
+
+.category-filter {
+
+  display: flex;
+
+  justify-content: flex-start;
+
+  align-items: center;
+
+  gap: 24px;
+
+  margin-bottom: 58px;
+
+}
+
+
+.category-button {
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #a09f9a;
+
+  font-size: 9px;
+
+  line-height: 1;
+
+  letter-spacing: .06em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: color .15s ease;
+
+}
+
+
+.category-button:hover {
+
+  color: var(--text);
+
+}
+
+
+.category-button.is-active {
+
+  color: var(--text);
 
 }
 
@@ -259,7 +317,7 @@ main {
 
 
 /* =========================================================
-   PHOTO CARDS
+   PHOTO CARD
 ========================================================= */
 
 .photo-card {
@@ -268,10 +326,18 @@ main {
 
   padding: 0;
 
+  width: 100%;
+
 }
 
 
-.photo-card-landscape {
+/*
+   JavaScript automatically assigns
+   one of these classes based on
+   the actual image dimensions.
+*/
+
+.photo-card.is-landscape {
 
   width:
     min(
@@ -282,7 +348,7 @@ main {
 }
 
 
-.photo-card-portrait {
+.photo-card.is-portrait {
 
   width:
     min(
@@ -293,7 +359,7 @@ main {
 }
 
 
-.photo-card-square {
+.photo-card.is-square {
 
   width:
     min(
@@ -305,7 +371,7 @@ main {
 
 
 /* =========================================================
-   PHOTO BUTTON
+   IMAGE
 ========================================================= */
 
 .photo-button {
@@ -314,9 +380,9 @@ main {
 
   width: 100%;
 
-  padding: 0;
-
   margin: 0;
+
+  padding: 0;
 
   border: 0;
 
@@ -360,7 +426,26 @@ figcaption {
 
   line-height: 1.4;
 
-  letter-spacing: 0.01em;
+  letter-spacing: .01em;
+
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.empty-gallery {
+
+  padding:
+    90px
+    0;
+
+  color: var(--muted);
+
+  font-size: 10px;
+
+  text-align: center;
 
 }
 
@@ -385,7 +470,7 @@ figcaption {
 
   line-height: 1;
 
-  letter-spacing: 0.03em;
+  letter-spacing: .03em;
 
   pointer-events: none;
 
@@ -419,7 +504,7 @@ figcaption {
       13,
       13,
       12,
-      0.97
+      .97
     );
 
 }
@@ -498,7 +583,7 @@ figcaption {
       255,
       255,
       255,
-      0.72
+      .72
     );
 
   font-size: 10px;
@@ -563,9 +648,38 @@ figcaption {
       );
 
     padding:
-      112px
+      100px
       0
       100px;
+
+  }
+
+
+  .category-filter {
+
+    gap: 16px;
+
+    margin-bottom: 42px;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+
+  }
+
+
+  .category-filter::-webkit-scrollbar {
+
+    display: none;
+
+  }
+
+
+  .category-button {
+
+    flex: 0 0 auto;
+
+    font-size: 8px;
 
   }
 
@@ -577,9 +691,9 @@ figcaption {
   }
 
 
-  .photo-card-landscape,
-  .photo-card-portrait,
-  .photo-card-square {
+  .photo-card.is-landscape,
+  .photo-card.is-portrait,
+  .photo-card.is-square {
 
     width: 100%;
 
