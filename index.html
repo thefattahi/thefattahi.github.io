@@ -23,23 +23,25 @@
 
   <main>
     <section class="gallery" aria-label="Photography portfolio">
-      <figure class="photo-card">
-        <button class="photo-button" type="button" data-src="images/photo-01.jpg" data-caption="Late afternoon">
-          <img src="images/photo-01.jpg" alt="Photography portfolio image 01" loading="eager">
+      <figure class="photo-card photo-card--landscape">
+        <button class="photo-button" type="button" data-src="images/photo-01.jpg" data-caption="Late afternoon" aria-label="Open photograph: Late afternoon">
+          <img src="images/photo-01.jpg" alt="Photography portfolio image 01" loading="eager" decoding="async">
         </button>
-        <figcaption><span>01</span><span>Late afternoon</span></figcaption>
+        <figcaption>Late afternoon</figcaption>
       </figure>
-      <figure class="photo-card">
-        <button class="photo-button" type="button" data-src="images/photo-02.jpg" data-caption="Between places">
-          <img src="images/photo-02.jpg" alt="Photography portfolio image 02" loading="lazy">
+
+      <figure class="photo-card photo-card--portrait">
+        <button class="photo-button" type="button" data-src="images/photo-02.jpg" data-caption="Between places" aria-label="Open photograph: Between places">
+          <img src="images/photo-02.jpg" alt="Photography portfolio image 02" loading="lazy" decoding="async">
         </button>
-        <figcaption><span>02</span><span>Between places</span></figcaption>
+        <figcaption>Between places</figcaption>
       </figure>
-      <figure class="photo-card">
-        <button class="photo-button" type="button" data-src="images/photo-03.jpg" data-caption="No particular place">
-          <img src="images/photo-03.jpg" alt="Photography portfolio image 03" loading="lazy">
+
+      <figure class="photo-card photo-card--square">
+        <button class="photo-button" type="button" data-src="images/photo-03.jpg" data-caption="No particular place" aria-label="Open photograph: No particular place">
+          <img src="images/photo-03.jpg" alt="Photography portfolio image 03" loading="lazy" decoding="async">
         </button>
-        <figcaption><span>03</span><span>No particular place</span></figcaption>
+        <figcaption>No particular place</figcaption>
       </figure>
     </section>
   </main>
@@ -49,10 +51,11 @@
   </footer>
 
   <div class="lightbox" aria-hidden="true">
-    <button class="lightbox-close" type="button" aria-label="Close image">×</button>
+    <button class="lightbox-close" type="button" aria-label="Close photograph">×</button>
     <img class="lightbox-image" src="" alt="">
     <p class="lightbox-caption"></p>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
