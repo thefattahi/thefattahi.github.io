@@ -1,143 +1,113 @@
 @import url(
-
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap'
-
 );
 
+
 /* =========================================================
-
    ROOT
-
 ========================================================= */
 
 :root {
-
   --paper: #f6f5f2;
-
   --text: #11110f;
-
   --muted: #7c7b76;
-
   --image-bg: #e9e8e4;
 
   --page-width: 980px;
 
   --header-top: 24px;
-
   --header-right: 30px;
 
   --footer-bottom: 28px;
-
   --footer-left: 32px;
-
 }
 
+
 /* =========================================================
-
    GLOBAL
-
 ========================================================= */
 
 * {
-
   box-sizing: border-box;
-
 }
 
 html {
-
   margin: 0;
-
   padding: 0;
-
   min-height: 100%;
 
   background: var(--paper);
 
   scroll-behavior: smooth;
-
 }
 
 body {
-
   margin: 0;
-
   padding: 0;
 
   min-height: 100vh;
 
   background: var(--paper);
-
   color: var(--text);
 
   font-family:
-
     Inter,
-
     -apple-system,
-
     BlinkMacSystemFont,
-
     "Helvetica Neue",
-
     Arial,
-
     sans-serif;
 
   font-size: 12px;
-
   line-height: 1.5;
 
   -webkit-font-smoothing: antialiased;
-
 }
 
 button {
-
   font: inherit;
-
   color: inherit;
-
 }
 
+
 /* =========================================================
-
-   HEADER
-
-   COMPLETELY FIXED
-
+   FIXED HEADER
 ========================================================= */
 
 .site-header {
+  position: fixed !important;
 
-  position: fixed;
+  top: var(--header-top) !important;
+  right: var(--header-right) !important;
+  bottom: auto !important;
+  left: auto !important;
 
-  top: var(--header-top);
+  width: max-content !important;
+  height: auto !important;
 
-  right: var(--header-right);
+  margin: 0 !important;
+  padding: 0 !important;
 
-  left: auto;
+  z-index: 9999 !important;
 
-  z-index: 1000;
+  display: block !important;
 
-  display: flex;
-
-  align-items: flex-start;
-
-  margin: 0;
-
-  padding: 0;
+  transform: none !important;
+  -webkit-transform: none !important;
 
   pointer-events: none;
 
-  background: transparent;
+  background: transparent !important;
 
+  isolation: isolate;
 }
 
-/* Header content remains clickable */
+
+/* =========================================================
+   HEADER IDENTITY
+========================================================= */
 
 .identity {
-
   position: relative;
 
   display: inline-flex;
@@ -146,8 +116,10 @@ button {
 
   gap: 10px;
 
-  margin: 0;
+  width: auto;
+  height: auto;
 
+  margin: 0;
   padding: 0;
 
   border: 0;
@@ -157,11 +129,10 @@ button {
   pointer-events: auto;
 
   cursor: zoom-in;
-
 }
 
-.identity-copy {
 
+.identity-copy {
   display: flex;
 
   flex-direction: column;
@@ -171,11 +142,10 @@ button {
   justify-content: center;
 
   gap: 1px;
-
 }
 
-.identity-kicker {
 
+.identity-kicker {
   color: var(--muted);
 
   font-size: 8px;
@@ -185,11 +155,10 @@ button {
   letter-spacing: 0.09em;
 
   text-transform: uppercase;
-
 }
 
-.identity-name {
 
+.identity-name {
   color: var(--text);
 
   font-size: 11px;
@@ -199,29 +168,25 @@ button {
   font-weight: 500;
 
   letter-spacing: -0.015em;
-
 }
 
-.portrait-frame {
 
+.portrait-frame {
   display: block;
 
   width: 52px;
-
   height: 66px;
 
   overflow: hidden;
 
   background: #dfded9;
-
 }
 
-.portrait-frame img {
 
+.portrait-frame img {
   display: block;
 
   width: 100%;
-
   height: 100%;
 
   object-fit: cover;
@@ -229,55 +194,34 @@ button {
   object-position: center 38%;
 
   filter: grayscale(100%);
-
 }
 
+
 /* =========================================================
-
-   MAIN / GALLERY
-
+   MAIN
 ========================================================= */
 
 main {
-
   width:
-
     min(
-
       calc(100% - 56px),
-
       var(--page-width)
-
     );
 
   margin: 0 auto;
 
-  /*
-
-    Extra top space keeps the first photograph
-
-    comfortably below the fixed Header.
-
-  */
-
   padding:
-
     118px
-
     0
-
     150px;
-
 }
 
+
 /* =========================================================
-
    CATEGORY FILTER
-
 ========================================================= */
 
 .category-filter {
-
   display: flex;
 
   justify-content: flex-start;
@@ -287,21 +231,16 @@ main {
   gap: 24px;
 
   margin:
-
     0
-
     0
-
     58px
-
     0;
 
   padding: 0;
-
 }
 
-.category-button {
 
+.category-button {
   margin: 0;
 
   padding: 0;
@@ -323,29 +262,24 @@ main {
   cursor: pointer;
 
   transition: color 0.15s ease;
-
 }
+
 
 .category-button:hover {
-
   color: var(--text);
-
 }
+
 
 .category-button.is-active {
-
   color: var(--text);
-
 }
 
+
 /* =========================================================
-
    GALLERY
-
 ========================================================= */
 
 .gallery {
-
   display: flex;
 
   flex-direction: column;
@@ -355,83 +289,60 @@ main {
   gap: 128px;
 
   width: 100%;
-
 }
 
+
 /* =========================================================
-
    PHOTO CARD
-
 ========================================================= */
 
 .photo-card {
+  width: 100%;
 
   margin: 0;
 
   padding: 0;
-
-  width: 100%;
-
 }
 
-/*
 
-   JavaScript automatically determines
-
-   the image orientation.
-
-*/
+/* Landscape */
 
 .photo-card.is-landscape {
-
   width:
-
     min(
-
       100%,
-
       760px
-
     );
-
 }
+
+
+/* Portrait */
 
 .photo-card.is-portrait {
-
   width:
-
     min(
-
       100%,
-
       620px
-
     );
-
 }
+
+
+/* Square */
 
 .photo-card.is-square {
-
   width:
-
     min(
-
       100%,
-
       680px
-
     );
-
 }
 
+
 /* =========================================================
-
-   IMAGE
-
+   PHOTO
 ========================================================= */
 
 .photo-button {
-
   display: block;
 
   width: 100%;
@@ -447,11 +358,10 @@ main {
   background: var(--image-bg);
 
   cursor: zoom-in;
-
 }
 
-.photo-button img {
 
+.photo-button img {
   display: block;
 
   width: 100%;
@@ -461,25 +371,18 @@ main {
   margin: 0;
 
   padding: 0;
-
 }
 
+
 /* =========================================================
-
    CAPTION
-
 ========================================================= */
 
 figcaption {
-
   margin:
-
     12px
-
     0
-
     0
-
     0;
 
   padding: 0;
@@ -491,17 +394,14 @@ figcaption {
   line-height: 1.4;
 
   letter-spacing: 0.01em;
-
 }
 
+
 /* =========================================================
-
    EMPTY GALLERY
-
 ========================================================= */
 
 .empty-gallery {
-
   width: 100%;
 
   margin: 0;
@@ -513,30 +413,33 @@ figcaption {
   font-size: 10px;
 
   text-align: center;
-
 }
 
+
 /* =========================================================
-
-   FOOTER
-
-   COMPLETELY FIXED
-
+   FIXED FOOTER
 ========================================================= */
 
 .site-footer {
+  position: fixed !important;
 
-  position: fixed;
+  top: auto !important;
+  right: auto !important;
+  bottom: var(--footer-bottom) !important;
+  left: var(--footer-left) !important;
 
-  left: var(--footer-left);
+  width: max-content !important;
+  height: auto !important;
 
-  bottom: var(--footer-bottom);
+  margin: 0 !important;
+  padding: 0 !important;
 
-  z-index: 1000;
+  z-index: 9999 !important;
 
-  margin: 0;
+  display: block !important;
 
-  padding: 0;
+  transform: none !important;
+  -webkit-transform: none !important;
 
   color: var(--muted);
 
@@ -548,21 +451,22 @@ figcaption {
 
   pointer-events: none;
 
+  background: transparent !important;
+
+  isolation: isolate;
 }
 
+
 /* =========================================================
-
    LIGHTBOX
-
 ========================================================= */
 
 .lightbox {
-
   position: fixed;
 
   inset: 0;
 
-  z-index: 2000;
+  z-index: 20000;
 
   display: none;
 
@@ -571,35 +475,25 @@ figcaption {
   justify-content: center;
 
   padding:
-
     70px
-
     40px;
 
   background:
-
     rgba(
-
       13,
-
       13,
-
       12,
-
       0.97
-
     );
-
 }
+
 
 .lightbox.is-open {
-
   display: flex;
-
 }
 
-.lightbox-image {
 
+.lightbox-image {
   display: block;
 
   width: auto;
@@ -611,11 +505,10 @@ figcaption {
   max-height: 84vh;
 
   object-fit: contain;
-
 }
 
-.lightbox-close {
 
+.lightbox-close {
   position: fixed;
 
   top: 18px;
@@ -643,11 +536,10 @@ figcaption {
   line-height: 40px;
 
   cursor: pointer;
-
 }
 
-.lightbox-caption {
 
+.lightbox-caption {
   position: fixed;
 
   left: 50%;
@@ -655,7 +547,6 @@ figcaption {
   bottom: 22px;
 
   transform:
-
     translateX(-50%);
 
   margin: 0;
@@ -663,17 +554,11 @@ figcaption {
   padding: 0;
 
   color:
-
     rgba(
-
       255,
-
       255,
-
       255,
-
       0.72
-
     );
 
   font-size: 10px;
@@ -681,79 +566,86 @@ figcaption {
   line-height: 1;
 
   white-space: nowrap;
-
 }
 
+
 /* =========================================================
-
    MOBILE
-
 ========================================================= */
 
 @media (max-width: 700px) {
 
-  /* ---------- Fixed Header ---------- */
+  /* --------------------------------
+     FIXED HEADER
+  -------------------------------- */
 
   .site-header {
+    position: fixed !important;
 
-    top: 18px;
+    top: 18px !important;
 
-    right: 18px;
+    right: 18px !important;
 
+    bottom: auto !important;
+
+    left: auto !important;
+
+    width: max-content !important;
+
+    height: auto !important;
+
+    z-index: 9999 !important;
+
+    transform: none !important;
+
+    -webkit-transform: none !important;
   }
+
 
   .identity {
-
     gap: 8px;
-
   }
+
 
   .identity-kicker {
-
     font-size: 8px;
-
   }
+
 
   .identity-name {
-
     font-size: 10px;
-
   }
 
-  .portrait-frame {
 
+  .portrait-frame {
     width: 42px;
 
     height: 54px;
-
   }
 
-  /* ---------- Main ---------- */
+
+  /* --------------------------------
+     MAIN
+  -------------------------------- */
 
   main {
-
     width:
-
       calc(
-
         100% - 28px
-
       );
 
     padding:
-
       100px
-
       0
-
       100px;
-
   }
 
-  /* ---------- Categories ---------- */
+
+  /* --------------------------------
+     CATEGORY FILTER
+  -------------------------------- */
 
   .category-filter {
-
     gap: 16px;
 
     margin-bottom: 42px;
@@ -761,85 +653,93 @@ figcaption {
     overflow-x: auto;
 
     scrollbar-width: none;
-
   }
+
 
   .category-filter::-webkit-scrollbar {
-
     display: none;
-
   }
 
-  .category-button {
 
+  .category-button {
     flex: 0 0 auto;
 
     font-size: 8px;
-
   }
 
-  /* ---------- Gallery ---------- */
+
+  /* --------------------------------
+     GALLERY
+  -------------------------------- */
 
   .gallery {
-
     gap: 72px;
-
   }
+
 
   .photo-card.is-landscape,
-
   .photo-card.is-portrait,
-
   .photo-card.is-square {
-
     width: 100%;
-
   }
 
-  figcaption {
 
+  figcaption {
     margin-top: 9px;
 
     font-size: 9px;
-
   }
 
-  /* ---------- Fixed Footer ---------- */
+
+  /* --------------------------------
+     FIXED FOOTER
+  -------------------------------- */
 
   .site-footer {
+    position: fixed !important;
 
-    left: 18px;
+    top: auto !important;
 
-    bottom: 20px;
+    right: auto !important;
 
+    bottom: 20px !important;
+
+    left: 18px !important;
+
+    width: max-content !important;
+
+    height: auto !important;
+
+    z-index: 9999 !important;
+
+    transform: none !important;
+
+    -webkit-transform: none !important;
   }
 
-  /* ---------- Lightbox ---------- */
+
+  /* --------------------------------
+     LIGHTBOX
+  -------------------------------- */
 
   .lightbox {
-
     padding:
-
       50px
-
       18px;
-
   }
 
-  .lightbox-image {
 
+  .lightbox-image {
     max-width: 94vw;
 
     max-height: 82vh;
-
   }
 
-  .lightbox-close {
 
+  .lightbox-close {
     top: 12px;
 
     right: 14px;
-
   }
 
 }
