@@ -2,206 +2,51 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    name="description"
-    content="Photography archive by Rasool Fattahi."
-  >
-
-  <meta
-    name="theme-color"
-    content="#f6f5f2"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Photography archive by Rasool Fattahi.">
+  <meta name="theme-color" content="#f6f5f2">
   <title>Fattahi - Photo Archive</title>
-
-  <link
-    rel="stylesheet"
-    href="style.css?v=10"
-  >
-
+  <link rel="stylesheet" href="style.css?v=11">
 </head>
-
 
 <body>
 
-
-  <!-- =====================================================
-       HEADER
-  ====================================================== -->
-
   <header class="site-header">
-
-    <button
-      class="identity"
-      id="profileButton"
-      type="button"
-      aria-label="Open portrait of Rasool Fattahi"
-    >
-
+    <button class="identity" id="profileButton" type="button" aria-label="Open portrait of Rasool Fattahi">
       <span class="identity-copy">
-
-        <span class="identity-kicker">
-          Photos by
-        </span>
-
-        <span class="identity-name">
-          Rasool Fattahi
-        </span>
-
+        <span class="identity-kicker">Photos by</span>
+        <span class="identity-name">Rasool Fattahi</span>
       </span>
-
-
       <span class="portrait-frame">
-
-        <img
-          src="images/profile.png"
-          alt="Portrait of Rasool Fattahi"
-        >
-
+        <img src="images/profile.png" alt="Portrait of Rasool Fattahi">
       </span>
-
     </button>
-
   </header>
 
-
-
-  <!-- =====================================================
-       MAIN
-  ====================================================== -->
-
   <main>
-
-
-    <!-- CATEGORY FILTER -->
-
-    <nav
-      class="category-filter"
-      aria-label="Photography categories"
-    >
-
-      <button
-        class="category-button is-active"
-        data-category="All"
-        type="button"
-      >
-        All
-      </button>
-
-
-      <button
-        class="category-button"
-        data-category="People"
-        type="button"
-      >
-        People
-      </button>
-
-
-      <button
-        class="category-button"
-        data-category="Places"
-        type="button"
-      >
-        Places
-      </button>
-
-
-      <button
-        class="category-button"
-        data-category="Street"
-        type="button"
-      >
-        Street
-      </button>
-
+    <nav class="category-filter" aria-label="Photography categories">
+      <button class="category-button is-active" data-category="All" type="button">All</button>
+      <button class="category-button" data-category="People" type="button">People</button>
+      <button class="category-button" data-category="Places" type="button">Places</button>
+      <button class="category-button" data-category="Street" type="button">Street</button>
     </nav>
 
-
-
-    <!-- GALLERY -->
-
-    <section
-      class="gallery"
-      id="gallery"
-      aria-label="Photography portfolio"
-    >
-
-      <!-- JavaScript creates the photographs here -->
-
-    </section>
-
-
+    <section class="gallery" id="gallery" aria-label="Photography portfolio"></section>
   </main>
 
-
-
-  <!-- =====================================================
-       FOOTER
-  ====================================================== -->
-
   <footer class="site-footer">
-
     © <span id="year"></span> Rasool Fattahi
-
   </footer>
 
-
-
-  <!-- =====================================================
-       LIGHTBOX
-  ====================================================== -->
-
-  <div
-    class="lightbox"
-    id="lightbox"
-    aria-hidden="true"
-  >
-
-    <button
-      class="lightbox-close"
-      id="lightboxClose"
-      type="button"
-      aria-label="Close image"
-    >
-      ×
-    </button>
-
-
-    <img
-      class="lightbox-image"
-      id="lightboxImage"
-      src=""
-      alt=""
-    >
-
-
-    <div
-      class="lightbox-caption"
-      id="lightboxCaption"
-    ></div>
-
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image">×</button>
+    <img class="lightbox-image" id="lightboxImage" src="" alt="">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
   </div>
 
-
-
-  <!-- =====================================================
-       SCRIPTS
-  ====================================================== -->
-
-  <script src="photos.js?v=10"></script>
-
-  <script src="script.js?v=10"></script>
-
+  <script src="photos.js?v=11"></script>
+  <script src="script.js?v=11"></script>
 
 </body>
-
 </html>
