@@ -3,10 +3,7 @@
 ========================================================= */
 
 const yearElement = document.getElementById("year");
-
-if (yearElement) {
-  yearElement.textContent = new Date().getFullYear();
-}
+if (yearElement) yearElement.textContent = new Date().getFullYear();
 
 
 /* =========================================================
@@ -23,6 +20,54 @@ const lightboxClose = document.getElementById("lightboxClose");
 
 
 /* =========================================================
+   KEYBOARD SCROLLING
+   The page itself is locked; therefore arrow keys are routed
+   explicitly to the gallery scroll container.
+========================================================= */
+
+document.addEventListener("keydown", function (event) {
+  if (lightbox.classList.contains("is-open")) return;
+
+  const keys = [
+    "ArrowDown",
+    "ArrowUp",
+    "PageDown",
+    "PageUp",
+    "Home",
+    "End",
+    " "
+  ];
+
+  if (!keys.includes(event.key)) return;
+
+  const active = document.activeElement;
+  const isTextField =
+    active &&
+    (active.tagName === "INPUT" ||
+      active.tagName === "TEXTAREA" ||
+      active.isContentEditable);
+
+  if (isTextField) return;
+
+  event.preventDefault();
+
+  if (event.key === "ArrowDown") {
+    gallery.scrollBy({ top: 140, behavior: "smooth" });
+  } else if (event.key === "ArrowUp") {
+    gallery.scrollBy({ top: -140, behavior: "smooth" });
+  } else if (event.key === "PageDown" || event.key === " ") {
+    gallery.scrollBy({ top: gallery.clientHeight * 0.85, behavior: "smooth" });
+  } else if (event.key === "PageUp") {
+    gallery.scrollBy({ top: -gallery.clientHeight * 0.85, behavior: "smooth" });
+  } else if (event.key === "Home") {
+    gallery.scrollTo({ top: 0, behavior: "smooth" });
+  } else if (event.key === "End") {
+    gallery.scrollTo({ top: gallery.scrollHeight, behavior: "smooth" });
+  }
+});
+
+
+/* =========================================================
    LIGHTBOX
 ========================================================= */
 
@@ -30,7 +75,6 @@ function openLightbox(imageSrc, imageAlt, caption) {
   lightboxImage.src = imageSrc;
   lightboxImage.alt = imageAlt;
   lightboxCaption.textContent = caption || "";
-
   lightbox.classList.add("is-open");
   lightbox.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
@@ -42,11 +86,6 @@ function closeLightbox() {
   document.body.style.overflow = "";
   lightboxImage.src = "";
 }
-
-
-/* =========================================================
-   PROFILE LIGHTBOX
-========================================================= */
 
 profileButton.addEventListener("click", function () {
   openLightbox(
@@ -63,15 +102,8 @@ profileButton.addEventListener("click", function () {
 
 function getImageOrientation(width, height) {
   const ratio = width / height;
-
-  if (ratio > 1.15) {
-    return "landscape";
-  }
-
-  if (ratio < 0.87) {
-    return "portrait";
-  }
-
+  if (ratio > 1.15) return "landscape";
+  if (ratio < 0.87) return "portrait";
   return "square";
 }
 
@@ -90,29 +122,18 @@ function createPhotoCard(photo) {
   button.type = "button";
   button.dataset.src = "images/" + photo.file;
   button.dataset.caption = photo.caption;
-  button.setAttribute(
-    "aria-label",
-    "Open photograph: " + photo.caption
-  );
+  button.setAttribute("aria-label", "Open photograph: " + photo.caption);
 
   const image = document.createElement("img");
   image.src = "images/" + photo.file;
   image.alt = photo.caption;
-
-  /*
-    Load images immediately so their dimensions are available
-    consistently on desktop and mobile before layout settles.
-  */
   image.loading = "eager";
   image.decoding = "async";
 
   image.addEventListener("load", function () {
-    const orientation = getImageOrientation(
-      image.naturalWidth,
-      image.naturalHeight
+    figure.classList.add(
+      "is-" + getImageOrientation(image.naturalWidth, image.naturalHeight)
     );
-
-    figure.classList.add("is-" + orientation);
   });
 
   button.appendChild(image);
@@ -123,11 +144,7 @@ function createPhotoCard(photo) {
   figure.appendChild(caption);
 
   button.addEventListener("click", function () {
-    openLightbox(
-      button.dataset.src,
-      image.alt,
-      button.dataset.caption
-    );
+    openLightbox(button.dataset.src, image.alt, button.dataset.caption);
   });
 
   return figure;
@@ -177,14 +194,8 @@ categoryButtons.forEach(function (button) {
     button.classList.add("is-active");
     renderGallery(category);
 
-    /*
-      The gallery, not the document, is the scroll container.
-      Reset it directly so filtering behaves identically on
-      desktop and mobile.
-    */
-    gallery.scrollTo({
-      top: 0,
-      behavior: "smooth"
+    requestAnimationFrame(function () {
+      gallery.scrollTo({ top: 0, behavior: "auto" });
     });
   });
 });
@@ -197,21 +208,12 @@ categoryButtons.forEach(function (button) {
 lightboxClose.addEventListener("click", closeLightbox);
 
 lightbox.addEventListener("click", function (event) {
-  if (event.target === lightbox) {
-    closeLightbox();
-  }
+  if (event.target === lightbox) closeLightbox();
 });
 
 
-/* =========================================================
-   ESCAPE KEY
-========================================================= */
-
 document.addEventListener("keydown", function (event) {
-  if (
-    event.key === "Escape" &&
-    lightbox.classList.contains("is-open")
-  ) {
+  if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
     closeLightbox();
   }
 });
