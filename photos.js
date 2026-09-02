@@ -9,7 +9,7 @@ const photos = [
   {
     file: "photo-02.jpg",
     caption: "",
-    category: "Portrait"
+    category: "People"
   },
 
   {
@@ -21,7 +21,7 @@ const photos = [
   {
     file: "photo-04.jpg",
     caption: "",
-    category: "Documentary"
+    category: "Places"
   }
 
 ];
