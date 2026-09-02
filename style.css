@@ -10,6 +10,8 @@
   --header-right: 30px;
   --footer-bottom: 28px;
   --footer-left: 32px;
+  --gallery-top: 178px;
+  --gallery-bottom: 80px;
 }
 
 * { box-sizing: border-box; }
@@ -32,6 +34,7 @@ body {
 body { overscroll-behavior: none; }
 button { font: inherit; color: inherit; }
 
+/* HEADER — always attached to the browser viewport */
 .site-header {
   position: fixed;
   top: var(--header-top);
@@ -98,25 +101,31 @@ button { font: inherit; color: inherit; }
   filter: grayscale(100%);
 }
 
+/* MAIN — static viewport shell; it never scrolls */
 main {
+  position: relative;
   width: min(calc(100% - 56px), var(--page-width));
   height: 100dvh;
   margin: 0 auto;
-  padding: 118px 0 100px;
-  display: flex;
-  flex-direction: column;
+  padding: 0;
   overflow: hidden;
 }
 
+/* CATEGORY NAV — static inside the viewport shell */
 .category-filter {
-  flex: 0 0 auto;
+  position: absolute;
+  top: 126px;
+  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 24px;
   width: 100%;
-  margin: 0 0 58px;
+  height: 20px;
+  margin: 0;
   padding: 0;
+  z-index: 10;
 }
 
 .category-button {
@@ -136,37 +145,54 @@ main {
 .category-button:hover,
 .category-button.is-active { color: var(--text); }
 
+/*
+   THE ONLY SCROLLABLE ELEMENT.
+   It is deliberately positioned independently of main's flex layout.
+   This removes all flex-height / overflow interactions and makes the
+   gallery scroll reliably in Chrome, Safari and mobile browsers.
+*/
 .gallery {
-  flex: 1 1 auto;
-  min-height: 0;
-  min-width: 0;
+  position: absolute;
+  top: var(--gallery-top);
+  right: 0;
+  bottom: var(--gallery-bottom);
+  left: 0;
   width: 100%;
-  overflow-y: auto;
+  height: auto;
+  margin: 0;
+  padding: 0 0 120px;
+  overflow-y: scroll;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 128px;
-  margin: 0;
-  padding: 0 0 120px;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
+  touch-action: pan-y;
 }
 
-.gallery::-webkit-scrollbar { display: none; }
+.gallery::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
 
 .photo-card {
   flex: 0 0 auto;
-  width: 100%;
+  width: min(100%, 760px);
   min-width: 0;
   margin: 0;
   padding: 0;
 }
 
-.photo-card.is-landscape { width: min(100%, 760px); }
-.photo-card.is-portrait { width: min(100%, 620px); }
-.photo-card.is-square { width: min(100%, 680px); }
+/* Keep image width deterministic; do not wait for JS orientation classes. */
+.photo-card.is-portrait,
+.photo-card.is-square,
+.photo-card.is-landscape {
+  flex: 0 0 auto;
+}
 
 .photo-button {
   display: block;
@@ -206,6 +232,7 @@ figcaption {
   text-align: center;
 }
 
+/* FOOTER — always attached to the browser viewport */
 .site-footer {
   position: fixed;
   bottom: var(--footer-bottom);
@@ -223,6 +250,7 @@ figcaption {
   background: transparent;
 }
 
+/* LIGHTBOX */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -276,6 +304,11 @@ figcaption {
 }
 
 @media (max-width: 700px) {
+  :root {
+    --gallery-top: 162px;
+    --gallery-bottom: 70px;
+  }
+
   .site-header {
     top: 18px;
     right: 18px;
@@ -289,12 +322,12 @@ figcaption {
   main {
     width: calc(100% - 28px);
     height: 100dvh;
-    padding: 100px 0 100px;
   }
 
   .category-filter {
+    top: 106px;
     gap: 16px;
-    margin-bottom: 42px;
+    height: 18px;
     overflow-x: auto;
     scrollbar-width: none;
   }
