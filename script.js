@@ -2,15 +2,10 @@
    YEAR
 ========================================================= */
 
-const yearElement =
-  document.getElementById("year");
-
+const yearElement = document.getElementById("year");
 
 if (yearElement) {
-
-  yearElement.textContent =
-    new Date().getFullYear();
-
+  yearElement.textContent = new Date().getFullYear();
 }
 
 
@@ -18,101 +13,34 @@ if (yearElement) {
    ELEMENTS
 ========================================================= */
 
-const gallery =
-  document.getElementById("gallery");
-
-
-const categoryButtons =
-  document.querySelectorAll(
-    ".category-button"
-  );
-
-
-const profileButton =
-  document.getElementById(
-    "profileButton"
-  );
-
-
-const lightbox =
-  document.getElementById(
-    "lightbox"
-  );
-
-
-const lightboxImage =
-  document.getElementById(
-    "lightboxImage"
-  );
-
-
-const lightboxCaption =
-  document.getElementById(
-    "lightboxCaption"
-  );
-
-
-const lightboxClose =
-  document.getElementById(
-    "lightboxClose"
-  );
+const gallery = document.getElementById("gallery");
+const categoryButtons = document.querySelectorAll(".category-button");
+const profileButton = document.getElementById("profileButton");
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxCaption = document.getElementById("lightboxCaption");
+const lightboxClose = document.getElementById("lightboxClose");
 
 
 /* =========================================================
    LIGHTBOX
 ========================================================= */
 
-function openLightbox(
-  imageSrc,
-  imageAlt,
-  caption
-) {
+function openLightbox(imageSrc, imageAlt, caption) {
+  lightboxImage.src = imageSrc;
+  lightboxImage.alt = imageAlt;
+  lightboxCaption.textContent = caption || "";
 
-  lightboxImage.src =
-    imageSrc;
-
-  lightboxImage.alt =
-    imageAlt;
-
-  lightboxCaption.textContent =
-    caption || "";
-
-
-  lightbox.classList.add(
-    "is-open"
-  );
-
-
-  lightbox.setAttribute(
-    "aria-hidden",
-    "false"
-  );
-
-
-  document.body.style.overflow =
-    "hidden";
+  lightbox.classList.add("is-open");
+  lightbox.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
 }
 
-
 function closeLightbox() {
-
-  lightbox.classList.remove(
-    "is-open"
-  );
-
-
-  lightbox.setAttribute(
-    "aria-hidden",
-    "true"
-  );
-
-
-  document.body.style.overflow =
-    "";
-
-
+  lightbox.classList.remove("is-open");
+  lightbox.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
   lightboxImage.src = "";
-
 }
 
 
@@ -120,49 +48,31 @@ function closeLightbox() {
    PROFILE LIGHTBOX
 ========================================================= */
 
-profileButton.addEventListener(
-  "click",
-  function () {
-
-    openLightbox(
-      "images/profile.png",
-      "Portrait of Rasool Fattahi",
-      "Rasool Fattahi"
-    );
-
-  }
-);
+profileButton.addEventListener("click", function () {
+  openLightbox(
+    "images/profile.png",
+    "Portrait of Rasool Fattahi",
+    "Rasool Fattahi"
+  );
+});
 
 
 /* =========================================================
    IMAGE ASPECT RATIO
 ========================================================= */
 
-function getImageOrientation(
-  width,
-  height
-) {
-
-  const ratio =
-    width / height;
-
+function getImageOrientation(width, height) {
+  const ratio = width / height;
 
   if (ratio > 1.15) {
-
     return "landscape";
-
   }
-
 
   if (ratio < 0.87) {
-
     return "portrait";
-
   }
 
-
   return "square";
-
 }
 
 
@@ -171,132 +81,56 @@ function getImageOrientation(
 ========================================================= */
 
 function createPhotoCard(photo) {
+  const figure = document.createElement("figure");
+  figure.className = "photo-card";
+  figure.dataset.category = photo.category;
 
-  const figure =
-    document.createElement(
-      "figure"
-    );
-
-
-  figure.className =
-    "photo-card";
-
-
-  figure.dataset.category =
-    photo.category;
-
-
-  const button =
-    document.createElement(
-      "button"
-    );
-
-
-  button.className =
-    "photo-button";
-
-
-  button.type =
-    "button";
-
-
-  button.dataset.src =
-    "images/" + photo.file;
-
-
-  button.dataset.caption =
-    photo.caption;
-
-
+  const button = document.createElement("button");
+  button.className = "photo-button";
+  button.type = "button";
+  button.dataset.src = "images/" + photo.file;
+  button.dataset.caption = photo.caption;
   button.setAttribute(
     "aria-label",
-    "Open photograph: " +
-      photo.caption
+    "Open photograph: " + photo.caption
   );
 
+  const image = document.createElement("img");
+  image.src = "images/" + photo.file;
+  image.alt = photo.caption;
 
-  const image =
-    document.createElement(
-      "img"
+  /*
+    Load images immediately so their dimensions are available
+    consistently on desktop and mobile before layout settles.
+  */
+  image.loading = "eager";
+  image.decoding = "async";
+
+  image.addEventListener("load", function () {
+    const orientation = getImageOrientation(
+      image.naturalWidth,
+      image.naturalHeight
     );
 
+    figure.classList.add("is-" + orientation);
+  });
 
-  image.src =
-    "images/" + photo.file;
+  button.appendChild(image);
+  figure.appendChild(button);
 
+  const caption = document.createElement("figcaption");
+  caption.textContent = photo.caption;
+  figure.appendChild(caption);
 
-  image.alt =
-    photo.caption;
-
-
-  image.loading =
-    "lazy";
-
-
-  image.decoding =
-    "async";
-
-
-  image.addEventListener(
-    "load",
-    function () {
-
-      const orientation =
-        getImageOrientation(
-          image.naturalWidth,
-          image.naturalHeight
-        );
-
-
-      figure.classList.add(
-        "is-" + orientation
-      );
-
-    }
-  );
-
-
-  button.appendChild(
-    image
-  );
-
-
-  figure.appendChild(
-    button
-  );
-
-
-  const caption =
-    document.createElement(
-      "figcaption"
+  button.addEventListener("click", function () {
+    openLightbox(
+      button.dataset.src,
+      image.alt,
+      button.dataset.caption
     );
-
-
-  caption.textContent =
-    photo.caption;
-
-
-  figure.appendChild(
-    caption
-  );
-
-
-  button.addEventListener(
-    "click",
-    function () {
-
-      openLightbox(
-        button.dataset.src,
-        image.alt,
-        button.dataset.caption
-      );
-
-    }
-  );
-
+  });
 
   return figure;
-
 }
 
 
@@ -304,68 +138,27 @@ function createPhotoCard(photo) {
    RENDER GALLERY
 ========================================================= */
 
-function renderGallery(
-  category = "All"
-) {
-
+function renderGallery(category = "All") {
   gallery.innerHTML = "";
-
 
   const filteredPhotos =
     category === "All"
-
       ? photos
+      : photos.filter(function (photo) {
+          return photo.category === category;
+        });
 
-      : photos.filter(
-          function (photo) {
-
-            return (
-              photo.category ===
-              category
-            );
-
-          }
-        );
-
-
-  if (
-    filteredPhotos.length === 0
-  ) {
-
-    const empty =
-      document.createElement(
-        "p"
-      );
-
-
-    empty.className =
-      "empty-gallery";
-
-
-    empty.textContent =
-      "No photographs in this category.";
-
-
-    gallery.appendChild(
-      empty
-    );
-
-
+  if (filteredPhotos.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "empty-gallery";
+    empty.textContent = "No photographs in this category.";
+    gallery.appendChild(empty);
     return;
-
   }
 
-
-  filteredPhotos.forEach(
-    function (photo) {
-
-      gallery.appendChild(
-        createPhotoCard(photo)
-      );
-
-    }
-  );
-
+  filteredPhotos.forEach(function (photo) {
+    gallery.appendChild(createPhotoCard(photo));
+  });
 }
 
 
@@ -373,98 +166,55 @@ function renderGallery(
    CATEGORY FILTER
 ========================================================= */
 
-categoryButtons.forEach(
-  function (button) {
+categoryButtons.forEach(function (button) {
+  button.addEventListener("click", function () {
+    const category = button.dataset.category;
 
-    button.addEventListener(
-      "click",
-      function () {
+    categoryButtons.forEach(function (item) {
+      item.classList.remove("is-active");
+    });
 
-        const category =
-          button.dataset.category;
+    button.classList.add("is-active");
+    renderGallery(category);
 
-
-        categoryButtons.forEach(
-          function (item) {
-
-            item.classList.remove(
-              "is-active"
-            );
-
-          }
-        );
-
-
-        button.classList.add(
-          "is-active"
-        );
-
-
-        renderGallery(
-          category
-        );
-
-
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-
-      }
-    );
-
-  }
-);
+    /*
+      The gallery, not the document, is the scroll container.
+      Reset it directly so filtering behaves identically on
+      desktop and mobile.
+    */
+    gallery.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+});
 
 
 /* =========================================================
    CLOSE LIGHTBOX
 ========================================================= */
 
-lightboxClose.addEventListener(
-  "click",
-  closeLightbox
-);
+lightboxClose.addEventListener("click", closeLightbox);
 
-
-lightbox.addEventListener(
-  "click",
-  function (event) {
-
-    if (
-      event.target ===
-      lightbox
-    ) {
-
-      closeLightbox();
-
-    }
-
+lightbox.addEventListener("click", function (event) {
+  if (event.target === lightbox) {
+    closeLightbox();
   }
-);
+});
 
 
 /* =========================================================
    ESCAPE KEY
 ========================================================= */
 
-document.addEventListener(
-  "keydown",
-  function (event) {
-
-    if (
-      event.key === "Escape" &&
-      lightbox.classList.contains(
-        "is-open"
-      )
-    ) {
-
-      closeLightbox();
-
-    }
-
+document.addEventListener("keydown", function (event) {
+  if (
+    event.key === "Escape" &&
+    lightbox.classList.contains("is-open")
+  ) {
+    closeLightbox();
   }
-);
+});
 
 
 /* =========================================================
