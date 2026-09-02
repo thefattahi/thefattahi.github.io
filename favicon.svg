@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">RF — Rasool Fattahi</title>
+  <desc id="desc">Minimal RF monogram for Rasool Fattahi Photography</desc>
+  <rect width="64" height="64" rx="12" fill="#11110f"/>
+  <g fill="#f6f5f2" font-family="Georgia, 'Times New Roman', serif" font-weight="400">
+    <text x="10" y="43" font-size="42">R</text>
+    <text x="29" y="50" font-size="38">F</text>
+  </g>
+</svg>
