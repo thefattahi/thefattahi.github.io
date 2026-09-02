@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thefattahi.github.io/sitemap.xml
