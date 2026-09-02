@@ -34,7 +34,6 @@ body {
 body { overscroll-behavior: none; }
 button { font: inherit; color: inherit; }
 
-/* HEADER — always attached to the browser viewport */
 .site-header {
   position: fixed;
   top: var(--header-top);
@@ -101,7 +100,6 @@ button { font: inherit; color: inherit; }
   filter: grayscale(100%);
 }
 
-/* MAIN — static viewport shell; it never scrolls */
 main {
   position: relative;
   width: min(calc(100% - 56px), var(--page-width));
@@ -111,7 +109,6 @@ main {
   overflow: hidden;
 }
 
-/* CATEGORY NAV — static inside the viewport shell */
 .category-filter {
   position: absolute;
   top: 126px;
@@ -145,12 +142,12 @@ main {
 .category-button:hover,
 .category-button.is-active { color: var(--text); }
 
-/*
-   THE ONLY SCROLLABLE ELEMENT.
-   It is deliberately positioned independently of main's flex layout.
-   This removes all flex-height / overflow interactions and makes the
-   gallery scroll reliably in Chrome, Safari and mobile browsers.
-*/
+/* =========================================================
+   GALLERY SCROLL AREA
+   The gallery is the sole scrolling surface.
+   Native scrollbar is intentionally visible and styled subtly.
+========================================================= */
+
 .gallery {
   position: absolute;
   top: var(--gallery-top);
@@ -160,23 +157,36 @@ main {
   width: 100%;
   height: auto;
   margin: 0;
-  padding: 0 0 120px;
+  padding: 0 12px 120px 0;
   overflow-y: scroll;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 128px;
-  scrollbar-width: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(17, 17, 15, 0.38) transparent;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   touch-action: pan-y;
+  outline: none;
 }
 
 .gallery::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
+  width: 5px;
+}
+
+.gallery::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.gallery::-webkit-scrollbar-thumb {
+  background: rgba(17, 17, 15, 0.38);
+  border-radius: 10px;
+}
+
+.gallery::-webkit-scrollbar-thumb:hover {
+  background: rgba(17, 17, 15, 0.58);
 }
 
 .photo-card {
@@ -187,7 +197,6 @@ main {
   padding: 0;
 }
 
-/* Keep image width deterministic; do not wait for JS orientation classes. */
 .photo-card.is-portrait,
 .photo-card.is-square,
 .photo-card.is-landscape {
@@ -232,7 +241,6 @@ figcaption {
   text-align: center;
 }
 
-/* FOOTER — always attached to the browser viewport */
 .site-footer {
   position: fixed;
   bottom: var(--footer-bottom);
@@ -250,7 +258,6 @@ figcaption {
   background: transparent;
 }
 
-/* LIGHTBOX */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -337,7 +344,13 @@ figcaption {
 
   .gallery {
     gap: 72px;
-    padding-bottom: 100px;
+    padding: 0 8px 100px 0;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(17, 17, 15, 0.38) transparent;
+  }
+
+  .gallery::-webkit-scrollbar {
+    width: 4px;
   }
 
   .photo-card,
