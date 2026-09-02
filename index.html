@@ -4,10 +4,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Photography archive by Rasool Fattahi.">
+
+  <title>Rasool Fattahi — Photography</title>
+  <meta name="description" content="Photography by Rasool Fattahi — a curated archive of street, people, and place photography from Berlin, Germany, Iran, and beyond.">
+  <meta name="author" content="Rasool Fattahi">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#f6f5f2">
-  <title>Fattahi - Photo Archive</title>
-  <link rel="stylesheet" href="style.css?v=12">
+
+  <link rel="canonical" href="https://thefattahi.github.io/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rasool Fattahi Photography">
+  <meta property="og:title" content="Rasool Fattahi — Photography">
+  <meta property="og:description" content="A curated photography archive by Rasool Fattahi, featuring street, people, and place photography from Berlin, Germany, Iran, and beyond.">
+  <meta property="og:url" content="https://thefattahi.github.io/">
+  <meta property="og:image" content="https://thefattahi.github.io/images/profile.png">
+  <meta property="og:image:alt" content="Portrait of photographer Rasool Fattahi">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rasool Fattahi — Photography">
+  <meta name="twitter:description" content="A curated photography archive by Rasool Fattahi.">
+  <meta name="twitter:image" content="https://thefattahi.github.io/images/profile.png">
+  <meta name="twitter:image:alt" content="Portrait of photographer Rasool Fattahi">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://thefattahi.github.io/#person",
+        "name": "Rasool Fattahi",
+        "url": "https://thefattahi.github.io/",
+        "jobTitle": "Photographer",
+        "image": "https://thefattahi.github.io/images/profile.png"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://thefattahi.github.io/#website",
+        "url": "https://thefattahi.github.io/",
+        "name": "Rasool Fattahi Photography",
+        "description": "A curated photography archive by Rasool Fattahi.",
+        "author": { "@id": "https://thefattahi.github.io/#person" }
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": "https://thefattahi.github.io/#portfolio",
+        "url": "https://thefattahi.github.io/",
+        "name": "Rasool Fattahi Photography Archive",
+        "description": "A curated archive of street, people, and place photography by Rasool Fattahi.",
+        "isPartOf": { "@id": "https://thefattahi.github.io/#website" },
+        "about": { "@id": "https://thefattahi.github.io/#person" }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css?v=13">
 </head>
 
 <body>
@@ -19,7 +72,7 @@
         <span class="identity-name">Rasool Fattahi</span>
       </span>
       <span class="portrait-frame">
-        <img src="images/profile.png" alt="Portrait of Rasool Fattahi">
+        <img src="images/profile.png" alt="Portrait of photographer Rasool Fattahi">
       </span>
     </button>
   </header>
@@ -45,8 +98,8 @@
     <div class="lightbox-caption" id="lightboxCaption"></div>
   </div>
 
-  <script src="photos.js?v=12"></script>
-  <script src="script.js?v=12"></script>
+  <script src="photos.js?v=13"></script>
+  <script src="script.js?v=13"></script>
 
   <!-- Cloudflare Web Analytics -->
   <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"bc43ace4e5184a408048feac1afca00f"}'></script>
