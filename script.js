@@ -21,34 +21,19 @@ const lightboxClose = document.getElementById("lightboxClose");
 
 /* =========================================================
    KEYBOARD SCROLLING
-   The page itself is locked; therefore arrow keys are routed
-   explicitly to the gallery scroll container.
 ========================================================= */
 
 document.addEventListener("keydown", function (event) {
   if (lightbox.classList.contains("is-open")) return;
 
-  const keys = [
-    "ArrowDown",
-    "ArrowUp",
-    "PageDown",
-    "PageUp",
-    "Home",
-    "End",
-    " "
-  ];
-
+  const keys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", " "];
   if (!keys.includes(event.key)) return;
 
   const active = document.activeElement;
-  const isTextField =
-    active &&
-    (active.tagName === "INPUT" ||
-      active.tagName === "TEXTAREA" ||
-      active.isContentEditable);
+  const isTextField = active &&
+    (active.tagName === "INPUT" || active.tagName === "TEXTAREA" || active.isContentEditable);
 
   if (isTextField) return;
-
   event.preventDefault();
 
   if (event.key === "ArrowDown") {
@@ -73,7 +58,7 @@ document.addEventListener("keydown", function (event) {
 
 function openLightbox(imageSrc, imageAlt, caption) {
   lightboxImage.src = imageSrc;
-  lightboxImage.alt = imageAlt;
+  lightboxImage.alt = imageAlt || "Photograph by Rasool Fattahi";
   lightboxCaption.textContent = caption || "";
   lightbox.classList.add("is-open");
   lightbox.setAttribute("aria-hidden", "false");
@@ -90,7 +75,7 @@ function closeLightbox() {
 profileButton.addEventListener("click", function () {
   openLightbox(
     "images/profile.png",
-    "Portrait of Rasool Fattahi",
+    "Portrait of photographer Rasool Fattahi",
     "Rasool Fattahi"
   );
 });
@@ -110,37 +95,38 @@ function getImageOrientation(width, height) {
 
 /* =========================================================
    CREATE PHOTO CARD
+   Expected photo object:
+   file, caption, alt, title, description, category, location, date
 ========================================================= */
 
 function createPhotoCard(photo) {
   const figure = document.createElement("figure");
   figure.className = "photo-card";
-  figure.dataset.category = photo.category;
+  figure.dataset.category = photo.category || "Other";
 
   const button = document.createElement("button");
   button.className = "photo-button";
   button.type = "button";
   button.dataset.src = "images/" + photo.file;
-  button.dataset.caption = photo.caption;
-  button.setAttribute("aria-label", "Open photograph: " + photo.caption);
+  button.dataset.caption = photo.caption || "";
+  button.setAttribute("aria-label", "Open photograph: " + (photo.title || photo.alt || "Photograph"));
 
   const image = document.createElement("img");
   image.src = "images/" + photo.file;
-  image.alt = photo.caption;
-  image.loading = "eager";
+  image.alt = photo.alt || photo.caption || "Photograph by Rasool Fattahi";
+  if (photo.title) image.title = photo.title;
+  image.loading = "lazy";
   image.decoding = "async";
 
   image.addEventListener("load", function () {
-    figure.classList.add(
-      "is-" + getImageOrientation(image.naturalWidth, image.naturalHeight)
-    );
+    figure.classList.add("is-" + getImageOrientation(image.naturalWidth, image.naturalHeight));
   });
 
   button.appendChild(image);
   figure.appendChild(button);
 
   const caption = document.createElement("figcaption");
-  caption.textContent = photo.caption;
+  caption.textContent = photo.caption || "";
   figure.appendChild(caption);
 
   button.addEventListener("click", function () {
@@ -158,17 +144,16 @@ function createPhotoCard(photo) {
 function renderGallery(category = "All") {
   gallery.innerHTML = "";
 
-  const filteredPhotos =
-    category === "All"
-      ? photos
-      : photos.filter(function (photo) {
-          return photo.category === category;
-        });
+  const filteredPhotos = category === "All"
+    ? photos
+    : photos.filter(function (photo) {
+        return photo.category === category;
+      });
 
   if (filteredPhotos.length === 0) {
     const empty = document.createElement("p");
     empty.className = "empty-gallery";
-    empty.textContent = "No photographs in this category.";
+    empty.textContent = "The archive is being curated.";
     gallery.appendChild(empty);
     return;
   }
@@ -210,7 +195,6 @@ lightboxClose.addEventListener("click", closeLightbox);
 lightbox.addEventListener("click", function (event) {
   if (event.target === lightbox) closeLightbox();
 });
-
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
