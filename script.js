@@ -15,6 +15,16 @@ const lightboxCaption = document.getElementById("lightboxCaption");
 const lightboxClose = document.getElementById("lightboxClose");
 
 /* =========================================================
+   PHOTO ORDER
+   Photos are stored in publication order in photos.js:
+   oldest first, newest last. The gallery displays a reversed
+   copy so newly published photographs appear first.
+========================================================= */
+function getOrderedPhotos() {
+  return Array.isArray(photos) ? photos.slice().reverse() : [];
+}
+
+/* =========================================================
    PHOTO STRUCTURED DATA
    Categories are intentionally not used as public navigation.
    Per-photo keywords, locations, dates and descriptions remain
@@ -25,12 +35,13 @@ function absoluteImageUrl(file) {
 }
 
 function addPhotoStructuredData() {
-  if (!Array.isArray(photos) || photos.length === 0) return;
+  const orderedPhotos = getOrderedPhotos();
+  if (orderedPhotos.length === 0) return;
 
   const existing = document.getElementById("photo-structured-data");
   if (existing) existing.remove();
 
-  const imageObjects = photos.map(function (photo) {
+  const imageObjects = orderedPhotos.map(function (photo) {
     const image = {
       "@type": "ImageObject",
       "contentUrl": absoluteImageUrl(photo.file),
@@ -189,7 +200,9 @@ function createPhotoCard(photo, index) {
 function renderGallery() {
   gallery.innerHTML = "";
 
-  if (!Array.isArray(photos) || photos.length === 0) {
+  const orderedPhotos = getOrderedPhotos();
+
+  if (orderedPhotos.length === 0) {
     const empty = document.createElement("p");
     empty.className = "empty-gallery";
     empty.textContent = "The archive is being curated.";
@@ -197,7 +210,7 @@ function renderGallery() {
     return;
   }
 
-  photos.forEach(function (photo, index) {
+  orderedPhotos.forEach(function (photo, index) {
     gallery.appendChild(createPhotoCard(photo, index));
   });
 }
