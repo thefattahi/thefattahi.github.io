@@ -16,16 +16,14 @@ const lightboxCaption = document.getElementById("lightboxCaption");
 const lightboxClose = document.getElementById("lightboxClose");
 
 /* =========================================================
-   SEO HELPERS
-   Photo metadata is deliberately centralized in photos.js.
-   Empty caption fields remain empty; we never invent captions.
+   PHOTO STRUCTURED DATA
 ========================================================= */
 function absoluteImageUrl(file) {
   return new URL("images/" + file, window.location.href).href;
 }
 
 function addPhotoStructuredData() {
-  if (!Array.isArray(window.photos) || photos.length === 0) return;
+  if (!Array.isArray(photos) || photos.length === 0) return;
 
   const existing = document.getElementById("photo-structured-data");
   if (existing) existing.remove();
@@ -37,20 +35,18 @@ function addPhotoStructuredData() {
       "url": absoluteImageUrl(photo.file),
       "name": photo.title || photo.alt || "Photograph by Rasool Fattahi",
       "description": photo.description || photo.caption || photo.alt || "Photograph by Rasool Fattahi",
-      "caption": photo.caption || undefined,
       "author": { "@id": "https://thefattahi.github.io/#person" },
       "creator": { "@id": "https://thefattahi.github.io/#person" },
       "creditText": "Rasool Fattahi"
     };
 
+    if (photo.caption) image.caption = photo.caption;
     if (photo.category) image.genre = photo.category;
     if (photo.location) image.contentLocation = { "@type": "Place", "name": photo.location };
     if (photo.date) image.dateCreated = photo.date;
     if (Array.isArray(photo.keywords) && photo.keywords.length) image.keywords = photo.keywords.join(", ");
-
-    Object.keys(image).forEach(function (key) {
-      if (image[key] === undefined) delete image[key];
-    });
+    if (photo.width) image.width = photo.width;
+    if (photo.height) image.height = photo.height;
     return image;
   });
 
@@ -130,7 +126,7 @@ function getImageOrientation(width, height) {
 /* =========================================================
    CREATE PHOTO CARD
    Expected:
-   file, caption, alt, title, description, category, location, date, keywords
+   file, caption, alt, title, description, category, location, date, keywords, width, height
 ========================================================= */
 function createPhotoCard(photo, index) {
   const figure = document.createElement("figure");
@@ -159,8 +155,8 @@ function createPhotoCard(photo, index) {
   image.loading = index < 2 ? "eager" : "lazy";
   image.fetchPriority = index < 2 ? "high" : "auto";
   image.decoding = "async";
-  image.width = photo.width || undefined;
-  image.height = photo.height || undefined;
+  if (photo.width) image.width = photo.width;
+  if (photo.height) image.height = photo.height;
 
   image.addEventListener("load", function () {
     figure.classList.add("is-" + getImageOrientation(image.naturalWidth, image.naturalHeight));
