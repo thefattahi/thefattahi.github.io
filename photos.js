@@ -2,29 +2,29 @@
   PHOTO PUBLISHING FORMAT
   -----------------------
   file        : exact filename inside /images
-  title       : SEO-friendly but human title (English)
+  title       : specific, natural, SEO-friendly title (English)
   alt         : factual visual description; never keyword-stuffed
-  description : optional longer editorial description
+  description : optional longer editorial description with real context
   caption     : optional visible caption; leave empty/omit for captionless images
-  categories  : one or more of Animal | Documentary | People | Places
   location    : optional city/country or specific place
   date        : optional YYYY-MM-DD
   keywords    : optional search-intent phrases in English and Persian
   width       : optional original pixel width
   height      : optional original pixel height
 
-  CATEGORY RULES
-  -------------
-  All is automatic and is never stored on a photo.
+  SEO RULES
+  ---------
+  There are intentionally no public photo categories. Each photograph is part of
+  one curated archive. Use metadata to describe the actual subject and context.
 
-  Animal       : an animal is a primary subject or important narrative element.
-  Documentary  : the photograph records a real event, social reality or documentary story.
-  People       : a person or human presence is the primary subject or narrative element.
-  Places       : a place, architecture, cityscape or natural landscape is the primary subject.
+  Titles should identify the image naturally, ideally including a real place,
+  subject or event when relevant. Avoid generic titles and keyword stuffing.
 
-  A photograph may have multiple categories. Choose only categories that genuinely
-  describe the photograph. Use keywords for secondary characteristics such as
-  street, night, portrait, travel, architecture, landscape, Berlin, Iran, etc.
+  Alt text should describe what is visibly present in the image for accessibility
+  and image search. Do not write SEO copy as alt text.
+
+  Keywords may include genuine secondary subjects, locations, photography terms,
+  and useful Persian search phrases. Only add terms that truly describe the image.
 
   Example:
   {
@@ -33,13 +33,14 @@
     alt: "A passenger standing alone inside a Berlin U-Bahn carriage",
     description: "A quiet moment on the Berlin underground during an ordinary commute.",
     caption: "Quiet Commute",
-    categories: ["People", "Documentary"],
     location: "Berlin, Germany",
     date: "2026-09-07",
     keywords: [
       "Berlin U-Bahn photography",
+      "Berlin documentary photography",
       "urban photography Berlin",
-      "عکاسی مترو برلین"
+      "عکاسی مترو برلین",
+      "عکاسی برلین"
     ],
     width: 2400,
     height: 1600
