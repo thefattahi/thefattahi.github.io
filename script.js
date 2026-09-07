@@ -17,10 +17,10 @@ const lightboxClose = document.getElementById("lightboxClose");
 
 /* =========================================================
    CATEGORY HELPERS
-   Final public categories: Animal | Documentary | People | Places
+   Final public categories: Animals | Documentary | People | Places
    All is a filter state, not a photo category.
 ========================================================= */
-const allowedCategories = ["Animal", "Documentary", "People", "Places"];
+const allowedCategories = ["Animals", "Documentary", "People", "Places"];
 
 function getPhotoCategories(photo) {
   if (Array.isArray(photo.categories)) {
@@ -30,8 +30,9 @@ function getPhotoCategories(photo) {
   }
 
   // Backward compatibility for any older photo records.
-  if (typeof photo.category === "string" && allowedCategories.includes(photo.category)) {
-    return [photo.category];
+  if (typeof photo.category === "string") {
+    const normalized = photo.category === "Animal" ? "Animals" : photo.category;
+    if (allowedCategories.includes(normalized)) return [normalized];
   }
 
   return [];
@@ -148,9 +149,6 @@ function getImageOrientation(width, height) {
 
 /* =========================================================
    CREATE PHOTO CARD
-   Expected:
-   file, caption, alt, title, description, categories, location, date,
-   keywords, width, height
 ========================================================= */
 function createPhotoCard(photo, index) {
   const figure = document.createElement("figure");
