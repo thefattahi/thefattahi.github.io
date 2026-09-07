@@ -64,7 +64,7 @@ const photos = [
     title: "Autumn Tree, Frankfurt",
     alt: "A large autumn tree with rust-coloured leaves beside a park path and pond in Frankfurt, Germany, with two people walking beneath it.",
     description: "An autumn scene in Frankfurt, photographed in 2022. A large tree with dense rust-coloured foliage dominates the frame, while two people walk along a quiet path beside the water.",
-    caption: "Frankfurt\n2022",
+    caption: "Frankfurt, 2022",
     location: "Frankfurt, Germany",
     date: "2022",
     keywords: [
