@@ -8,7 +8,6 @@ if (yearElement) yearElement.textContent = new Date().getFullYear();
    ELEMENTS
 ========================================================= */
 const gallery = document.getElementById("gallery");
-const categoryButtons = document.querySelectorAll(".category-button");
 const profileButton = document.getElementById("profileButton");
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightboxImage");
@@ -16,30 +15,10 @@ const lightboxCaption = document.getElementById("lightboxCaption");
 const lightboxClose = document.getElementById("lightboxClose");
 
 /* =========================================================
-   CATEGORY HELPERS
-   Final public categories: Animals | Documentary | People | Places
-   All is a filter state, not a photo category.
-========================================================= */
-const allowedCategories = ["Animals", "Documentary", "People", "Places"];
-
-function getPhotoCategories(photo) {
-  if (Array.isArray(photo.categories)) {
-    return photo.categories.filter(function (category) {
-      return allowedCategories.includes(category);
-    });
-  }
-
-  // Backward compatibility for any older photo records.
-  if (typeof photo.category === "string") {
-    const normalized = photo.category === "Animal" ? "Animals" : photo.category;
-    if (allowedCategories.includes(normalized)) return [normalized];
-  }
-
-  return [];
-}
-
-/* =========================================================
    PHOTO STRUCTURED DATA
+   Categories are intentionally not used as public navigation.
+   Per-photo keywords, locations, dates and descriptions remain
+   available for search engines through ImageObject metadata.
 ========================================================= */
 function absoluteImageUrl(file) {
   return new URL("images/" + file, window.location.href).href;
@@ -63,8 +42,6 @@ function addPhotoStructuredData() {
       "creditText": "Rasool Fattahi"
     };
 
-    const categories = getPhotoCategories(photo);
-    if (categories.length) image.genre = categories;
     if (photo.caption) image.caption = photo.caption;
     if (photo.location) image.contentLocation = { "@type": "Place", "name": photo.location };
     if (photo.date) image.dateCreated = photo.date;
@@ -153,9 +130,6 @@ function getImageOrientation(width, height) {
 function createPhotoCard(photo, index) {
   const figure = document.createElement("figure");
   figure.className = "photo-card";
-
-  const categories = getPhotoCategories(photo);
-  figure.dataset.categories = categories.join(",");
   figure.setAttribute("itemscope", "");
   figure.setAttribute("itemtype", "https://schema.org/ImageObject");
 
@@ -212,16 +186,10 @@ function createPhotoCard(photo, index) {
 /* =========================================================
    RENDER GALLERY
 ========================================================= */
-function renderGallery(category = "All") {
+function renderGallery() {
   gallery.innerHTML = "";
 
-  const filteredPhotos = category === "All"
-    ? photos
-    : photos.filter(function (photo) {
-        return getPhotoCategories(photo).includes(category);
-      });
-
-  if (filteredPhotos.length === 0) {
+  if (!Array.isArray(photos) || photos.length === 0) {
     const empty = document.createElement("p");
     empty.className = "empty-gallery";
     empty.textContent = "The archive is being curated.";
@@ -229,23 +197,10 @@ function renderGallery(category = "All") {
     return;
   }
 
-  filteredPhotos.forEach(function (photo, index) {
+  photos.forEach(function (photo, index) {
     gallery.appendChild(createPhotoCard(photo, index));
   });
 }
-
-/* =========================================================
-   CATEGORY FILTER
-========================================================= */
-categoryButtons.forEach(function (button) {
-  button.addEventListener("click", function () {
-    const category = button.dataset.category;
-    categoryButtons.forEach(function (item) { item.classList.remove("is-active"); });
-    button.classList.add("is-active");
-    renderGallery(category);
-    requestAnimationFrame(function () { gallery.scrollTo({ top: 0, behavior: "auto" }); });
-  });
-});
 
 /* =========================================================
    CLOSE LIGHTBOX
@@ -262,4 +217,4 @@ document.addEventListener("keydown", function (event) {
    INITIAL RENDER
 ========================================================= */
 addPhotoStructuredData();
-renderGallery("All");
+renderGallery();
