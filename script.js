@@ -1,15 +1,12 @@
 /* =========================================================
    YEAR
 ========================================================= */
-
 const yearElement = document.getElementById("year");
 if (yearElement) yearElement.textContent = new Date().getFullYear();
-
 
 /* =========================================================
    ELEMENTS
 ========================================================= */
-
 const gallery = document.getElementById("gallery");
 const categoryButtons = document.querySelectorAll(".category-button");
 const profileButton = document.getElementById("profileButton");
@@ -18,44 +15,88 @@ const lightboxImage = document.getElementById("lightboxImage");
 const lightboxCaption = document.getElementById("lightboxCaption");
 const lightboxClose = document.getElementById("lightboxClose");
 
+/* =========================================================
+   SEO HELPERS
+   Photo metadata is deliberately centralized in photos.js.
+   Empty caption fields remain empty; we never invent captions.
+========================================================= */
+function absoluteImageUrl(file) {
+  return new URL("images/" + file, window.location.href).href;
+}
+
+function addPhotoStructuredData() {
+  if (!Array.isArray(window.photos) || photos.length === 0) return;
+
+  const existing = document.getElementById("photo-structured-data");
+  if (existing) existing.remove();
+
+  const imageObjects = photos.map(function (photo) {
+    const image = {
+      "@type": "ImageObject",
+      "contentUrl": absoluteImageUrl(photo.file),
+      "url": absoluteImageUrl(photo.file),
+      "name": photo.title || photo.alt || "Photograph by Rasool Fattahi",
+      "description": photo.description || photo.caption || photo.alt || "Photograph by Rasool Fattahi",
+      "caption": photo.caption || undefined,
+      "author": { "@id": "https://thefattahi.github.io/#person" },
+      "creator": { "@id": "https://thefattahi.github.io/#person" },
+      "creditText": "Rasool Fattahi"
+    };
+
+    if (photo.category) image.genre = photo.category;
+    if (photo.location) image.contentLocation = { "@type": "Place", "name": photo.location };
+    if (photo.date) image.dateCreated = photo.date;
+    if (Array.isArray(photo.keywords) && photo.keywords.length) image.keywords = photo.keywords.join(", ");
+
+    Object.keys(image).forEach(function (key) {
+      if (image[key] === undefined) delete image[key];
+    });
+    return image;
+  });
+
+  const script = document.createElement("script");
+  script.id = "photo-structured-data";
+  script.type = "application/ld+json";
+  script.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ImageGallery",
+        "@id": "https://thefattahi.github.io/#photo-gallery",
+        "url": "https://thefattahi.github.io/",
+        "name": "Rasool Fattahi Photography Archive",
+        "author": { "@id": "https://thefattahi.github.io/#person" },
+        "image": imageObjects
+      },
+      ...imageObjects
+    ]
+  });
+  document.head.appendChild(script);
+}
 
 /* =========================================================
    KEYBOARD SCROLLING
 ========================================================= */
-
 document.addEventListener("keydown", function (event) {
   if (lightbox.classList.contains("is-open")) return;
-
   const keys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", " "];
   if (!keys.includes(event.key)) return;
-
   const active = document.activeElement;
-  const isTextField = active &&
-    (active.tagName === "INPUT" || active.tagName === "TEXTAREA" || active.isContentEditable);
-
+  const isTextField = active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA" || active.isContentEditable);
   if (isTextField) return;
   event.preventDefault();
 
-  if (event.key === "ArrowDown") {
-    gallery.scrollBy({ top: 140, behavior: "smooth" });
-  } else if (event.key === "ArrowUp") {
-    gallery.scrollBy({ top: -140, behavior: "smooth" });
-  } else if (event.key === "PageDown" || event.key === " ") {
-    gallery.scrollBy({ top: gallery.clientHeight * 0.85, behavior: "smooth" });
-  } else if (event.key === "PageUp") {
-    gallery.scrollBy({ top: -gallery.clientHeight * 0.85, behavior: "smooth" });
-  } else if (event.key === "Home") {
-    gallery.scrollTo({ top: 0, behavior: "smooth" });
-  } else if (event.key === "End") {
-    gallery.scrollTo({ top: gallery.scrollHeight, behavior: "smooth" });
-  }
+  if (event.key === "ArrowDown") gallery.scrollBy({ top: 140, behavior: "smooth" });
+  else if (event.key === "ArrowUp") gallery.scrollBy({ top: -140, behavior: "smooth" });
+  else if (event.key === "PageDown" || event.key === " ") gallery.scrollBy({ top: gallery.clientHeight * 0.85, behavior: "smooth" });
+  else if (event.key === "PageUp") gallery.scrollBy({ top: -gallery.clientHeight * 0.85, behavior: "smooth" });
+  else if (event.key === "Home") gallery.scrollTo({ top: 0, behavior: "smooth" });
+  else if (event.key === "End") gallery.scrollTo({ top: gallery.scrollHeight, behavior: "smooth" });
 });
-
 
 /* =========================================================
    LIGHTBOX
 ========================================================= */
-
 function openLightbox(imageSrc, imageAlt, caption) {
   lightboxImage.src = imageSrc;
   lightboxImage.alt = imageAlt || "Photograph by Rasool Fattahi";
@@ -73,18 +114,12 @@ function closeLightbox() {
 }
 
 profileButton.addEventListener("click", function () {
-  openLightbox(
-    "images/profile.png",
-    "Portrait of photographer Rasool Fattahi",
-    "Rasool Fattahi"
-  );
+  openLightbox("images/profile.png", "Portrait of photographer Rasool Fattahi", "Rasool Fattahi");
 });
-
 
 /* =========================================================
    IMAGE ASPECT RATIO
 ========================================================= */
-
 function getImageOrientation(width, height) {
   const ratio = width / height;
   if (ratio > 1.15) return "landscape";
@@ -92,63 +127,77 @@ function getImageOrientation(width, height) {
   return "square";
 }
 
-
 /* =========================================================
    CREATE PHOTO CARD
-   Expected photo object:
-   file, caption, alt, title, description, category, location, date
+   Expected:
+   file, caption, alt, title, description, category, location, date, keywords
 ========================================================= */
-
-function createPhotoCard(photo) {
+function createPhotoCard(photo, index) {
   const figure = document.createElement("figure");
   figure.className = "photo-card";
   figure.dataset.category = photo.category || "Other";
+  figure.setAttribute("itemscope", "");
+  figure.setAttribute("itemtype", "https://schema.org/ImageObject");
 
-  const button = document.createElement("button");
-  button.className = "photo-button";
-  button.type = "button";
-  button.dataset.src = "images/" + photo.file;
-  button.dataset.caption = photo.caption || "";
-  button.setAttribute("aria-label", "Open photograph: " + (photo.title || photo.alt || "Photograph"));
+  const imageUrl = "images/" + photo.file;
+  const imageTitle = photo.title || photo.alt || "Photograph by Rasool Fattahi";
+  const imageAlt = photo.alt || photo.caption || photo.title || "Photograph by Rasool Fattahi";
+
+  const link = document.createElement("a");
+  link.className = "photo-button";
+  link.href = imageUrl;
+  link.dataset.src = imageUrl;
+  link.dataset.caption = photo.caption || "";
+  link.setAttribute("aria-label", "Open photograph: " + imageTitle);
+  link.setAttribute("itemprop", "url");
 
   const image = document.createElement("img");
-  image.src = "images/" + photo.file;
-  image.alt = photo.alt || photo.caption || "Photograph by Rasool Fattahi";
-  if (photo.title) image.title = photo.title;
-  image.loading = "lazy";
+  image.src = imageUrl;
+  image.alt = imageAlt;
+  image.title = imageTitle;
+  image.setAttribute("itemprop", "contentUrl");
+  image.loading = index < 2 ? "eager" : "lazy";
+  image.fetchPriority = index < 2 ? "high" : "auto";
   image.decoding = "async";
+  image.width = photo.width || undefined;
+  image.height = photo.height || undefined;
 
   image.addEventListener("load", function () {
     figure.classList.add("is-" + getImageOrientation(image.naturalWidth, image.naturalHeight));
   });
 
-  button.appendChild(image);
-  figure.appendChild(button);
+  link.appendChild(image);
+  figure.appendChild(link);
 
-  const caption = document.createElement("figcaption");
-  caption.textContent = photo.caption || "";
-  figure.appendChild(caption);
+  if (photo.caption) {
+    const caption = document.createElement("figcaption");
+    caption.textContent = photo.caption;
+    caption.setAttribute("itemprop", "caption");
+    figure.appendChild(caption);
+  }
 
-  button.addEventListener("click", function () {
-    openLightbox(button.dataset.src, image.alt, button.dataset.caption);
+  const metadata = document.createElement("meta");
+  metadata.setAttribute("itemprop", "name");
+  metadata.content = imageTitle;
+  figure.appendChild(metadata);
+
+  link.addEventListener("click", function (event) {
+    event.preventDefault();
+    openLightbox(imageUrl, imageAlt, photo.caption || "");
   });
 
   return figure;
 }
 
-
 /* =========================================================
    RENDER GALLERY
 ========================================================= */
-
 function renderGallery(category = "All") {
   gallery.innerHTML = "";
 
   const filteredPhotos = category === "All"
     ? photos
-    : photos.filter(function (photo) {
-        return photo.category === category;
-      });
+    : photos.filter(function (photo) { return photo.category === category; });
 
   if (filteredPhotos.length === 0) {
     const empty = document.createElement("p");
@@ -158,53 +207,37 @@ function renderGallery(category = "All") {
     return;
   }
 
-  filteredPhotos.forEach(function (photo) {
-    gallery.appendChild(createPhotoCard(photo));
+  filteredPhotos.forEach(function (photo, index) {
+    gallery.appendChild(createPhotoCard(photo, index));
   });
 }
-
 
 /* =========================================================
    CATEGORY FILTER
 ========================================================= */
-
 categoryButtons.forEach(function (button) {
   button.addEventListener("click", function () {
     const category = button.dataset.category;
-
-    categoryButtons.forEach(function (item) {
-      item.classList.remove("is-active");
-    });
-
+    categoryButtons.forEach(function (item) { item.classList.remove("is-active"); });
     button.classList.add("is-active");
     renderGallery(category);
-
-    requestAnimationFrame(function () {
-      gallery.scrollTo({ top: 0, behavior: "auto" });
-    });
+    requestAnimationFrame(function () { gallery.scrollTo({ top: 0, behavior: "auto" }); });
   });
 });
-
 
 /* =========================================================
    CLOSE LIGHTBOX
 ========================================================= */
-
 lightboxClose.addEventListener("click", closeLightbox);
-
 lightbox.addEventListener("click", function (event) {
   if (event.target === lightbox) closeLightbox();
 });
-
 document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
-    closeLightbox();
-  }
+  if (event.key === "Escape" && lightbox.classList.contains("is-open")) closeLightbox();
 });
-
 
 /* =========================================================
    INITIAL RENDER
 ========================================================= */
-
+addPhotoStructuredData();
 renderGallery("All");
