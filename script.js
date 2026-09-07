@@ -16,6 +16,28 @@ const lightboxCaption = document.getElementById("lightboxCaption");
 const lightboxClose = document.getElementById("lightboxClose");
 
 /* =========================================================
+   CATEGORY HELPERS
+   Final public categories: Animal | Documentary | People | Places
+   All is a filter state, not a photo category.
+========================================================= */
+const allowedCategories = ["Animal", "Documentary", "People", "Places"];
+
+function getPhotoCategories(photo) {
+  if (Array.isArray(photo.categories)) {
+    return photo.categories.filter(function (category) {
+      return allowedCategories.includes(category);
+    });
+  }
+
+  // Backward compatibility for any older photo records.
+  if (typeof photo.category === "string" && allowedCategories.includes(photo.category)) {
+    return [photo.category];
+  }
+
+  return [];
+}
+
+/* =========================================================
    PHOTO STRUCTURED DATA
 ========================================================= */
 function absoluteImageUrl(file) {
@@ -40,8 +62,9 @@ function addPhotoStructuredData() {
       "creditText": "Rasool Fattahi"
     };
 
+    const categories = getPhotoCategories(photo);
+    if (categories.length) image.genre = categories;
     if (photo.caption) image.caption = photo.caption;
-    if (photo.category) image.genre = photo.category;
     if (photo.location) image.contentLocation = { "@type": "Place", "name": photo.location };
     if (photo.date) image.dateCreated = photo.date;
     if (Array.isArray(photo.keywords) && photo.keywords.length) image.keywords = photo.keywords.join(", ");
@@ -126,12 +149,15 @@ function getImageOrientation(width, height) {
 /* =========================================================
    CREATE PHOTO CARD
    Expected:
-   file, caption, alt, title, description, category, location, date, keywords, width, height
+   file, caption, alt, title, description, categories, location, date,
+   keywords, width, height
 ========================================================= */
 function createPhotoCard(photo, index) {
   const figure = document.createElement("figure");
   figure.className = "photo-card";
-  figure.dataset.category = photo.category || "Other";
+
+  const categories = getPhotoCategories(photo);
+  figure.dataset.categories = categories.join(",");
   figure.setAttribute("itemscope", "");
   figure.setAttribute("itemtype", "https://schema.org/ImageObject");
 
@@ -193,7 +219,9 @@ function renderGallery(category = "All") {
 
   const filteredPhotos = category === "All"
     ? photos
-    : photos.filter(function (photo) { return photo.category === category; });
+    : photos.filter(function (photo) {
+        return getPhotoCategories(photo).includes(category);
+      });
 
   if (filteredPhotos.length === 0) {
     const empty = document.createElement("p");
