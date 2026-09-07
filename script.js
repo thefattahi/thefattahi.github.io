@@ -16,12 +16,17 @@ const lightboxClose = document.getElementById("lightboxClose");
 
 /* =========================================================
    PHOTO ORDER
-   Photos are stored in publication order in photos.js:
-   oldest first, newest last. The gallery displays a reversed
-   copy so newly published photographs appear first.
+   The archive is ordered automatically by publication/upload
+   timestamp, newest first. This is separate from the date the
+   photograph was taken.
 ========================================================= */
 function getOrderedPhotos() {
-  return Array.isArray(photos) ? photos.slice().reverse() : [];
+  if (!Array.isArray(photos)) return [];
+  return photos.slice().sort(function (a, b) {
+    const aTime = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
+    const bTime = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
+    return bTime - aTime;
+  });
 }
 
 /* =========================================================
@@ -56,6 +61,7 @@ function addPhotoStructuredData() {
     if (photo.caption) image.caption = photo.caption;
     if (photo.location) image.contentLocation = { "@type": "Place", "name": photo.location };
     if (photo.date) image.dateCreated = photo.date;
+    if (photo.publishedAt) image.datePublished = photo.publishedAt;
     if (Array.isArray(photo.keywords) && photo.keywords.length) image.keywords = photo.keywords.join(", ");
     if (photo.width) image.width = photo.width;
     if (photo.height) image.height = photo.height;
