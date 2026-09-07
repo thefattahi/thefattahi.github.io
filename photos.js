@@ -26,27 +26,36 @@
   Keywords may include genuine secondary subjects, locations, photography terms,
   and useful Persian search phrases. Only add terms that truly describe the image.
 
-  Example:
-  {
-    file: "berlin-u-bahn-quiet-commute.jpg",
-    title: "Quiet Commute — Berlin U-Bahn",
-    alt: "A passenger standing alone inside a Berlin U-Bahn carriage",
-    description: "A quiet moment on the Berlin underground during an ordinary commute.",
-    caption: "Quiet Commute",
-    location: "Berlin, Germany",
-    date: "2026-09-07",
-    keywords: [
-      "Berlin U-Bahn photography",
-      "Berlin documentary photography",
-      "urban photography Berlin",
-      "عکاسی مترو برلین",
-      "عکاسی برلین"
-    ],
-    width: 2400,
-    height: 1600
-  }
+  PHOTO 01: Hafez–Goethe Monument, Weimar — 2022
 */
 
 const photos = [
-  // Curated photographs will be added here.
+  {
+    file: "hafez-goethe-monument-weimar-2022.jpg",
+    title: "Hafez–Goethe Monument, Weimar",
+    alt: "Two monumental granite chairs facing each other at the Hafez–Goethe Monument in Weimar, Germany, surrounded by autumn trees and a historic white building.",
+    description: "The Hafez–Goethe Monument on Beethovenplatz in Weimar, photographed in autumn 2022. Two monumental granite chairs face one another, symbolising the imagined dialogue between the Persian poet Hafez and the German poet Johann Wolfgang von Goethe.",
+    caption: "HAFEZ-Goethe — Weimar, 2022\nبنای یادبود حافظ گوته در شهر وایمار آلمان",
+    location: "Weimar, Germany",
+    date: "2022",
+    keywords: [
+      "Hafez-Goethe Monument",
+      "Hafis-Goethe-Denkmal",
+      "Hafez Goethe Weimar",
+      "Hafez monument Weimar",
+      "Goethe monument Weimar",
+      "Beethovenplatz Weimar",
+      "Weimar Germany photography",
+      "Hafez photography",
+      "Persian poetry in Germany",
+      "Goethe and Hafez",
+      "East-West cultural dialogue",
+      "عکاسی وایمار",
+      "بنای حافظ گوته",
+      "حافظ و گوته",
+      "وایمار آلمان"
+    ],
+    width: 1536,
+    height: 1024
+  }
 ];
