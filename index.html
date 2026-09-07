@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Rasool Fattahi – Photo Archive</title>
-  <meta name="description" content="Photography by Rasool Fattahi — a curated archive of street, people, and place photography from Berlin, Germany, Iran, and beyond.">
+  <title>Rasool Fattahi – Photography Archive | Berlin & Iran</title>
+  <meta name="description" content="Rasool Fattahi is a photographer documenting street, people, places and quiet moments in Berlin, Germany, Iran and beyond.">
   <meta name="author" content="Rasool Fattahi">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="theme-color" content="#f6f5f2">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <link rel="canonical" href="https://thefattahi.github.io/">
+  <link rel="alternate" hreflang="en" href="https://thefattahi.github.io/">
+  <link rel="alternate" hreflang="x-default" href="https://thefattahi.github.io/">
   <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
   <link rel="alternate icon" href="/favicon.svg?v=2" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta name="apple-mobile-web-app-title" content="Rasool Fattahi">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Rasool Fattahi Photography">
-  <meta property="og:title" content="Rasool Fattahi – Photo Archive">
-  <meta property="og:description" content="A curated photography archive by Rasool Fattahi, featuring street, people, and place photography from Berlin, Germany, Iran, and beyond.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="fa_IR">
+  <meta property="og:title" content="Rasool Fattahi – Photography Archive | Berlin & Iran">
+  <meta property="og:description" content="Street, people and place photography by Rasool Fattahi, documenting Berlin, Germany, Iran and beyond.">
   <meta property="og:url" content="https://thefattahi.github.io/">
   <meta property="og:image" content="https://thefattahi.github.io/images/profile.png">
   <meta property="og:image:alt" content="Portrait of photographer Rasool Fattahi">
+  <meta property="og:image:type" content="image/png">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Rasool Fattahi – Photo Archive">
-  <meta name="twitter:description" content="A curated photography archive by Rasool Fattahi.">
+  <meta name="twitter:title" content="Rasool Fattahi – Photography Archive">
+  <meta name="twitter:description" content="Street, people and place photography by Rasool Fattahi.">
   <meta name="twitter:image" content="https://thefattahi.github.io/images/profile.png">
   <meta name="twitter:image:alt" content="Portrait of photographer Rasool Fattahi">
 
@@ -40,7 +47,8 @@
         "name": "Rasool Fattahi",
         "url": "https://thefattahi.github.io/",
         "jobTitle": "Photographer",
-        "image": "https://thefattahi.github.io/images/profile.png"
+        "image": "https://thefattahi.github.io/images/profile.png",
+        "knowsAbout": ["Photography", "Street photography", "Documentary photography", "Portrait photography", "Berlin photography", "Iran photography"]
       },
       {
         "@type": "WebSite",
@@ -48,34 +56,35 @@
         "url": "https://thefattahi.github.io/",
         "name": "Rasool Fattahi Photography",
         "description": "A curated photography archive by Rasool Fattahi.",
-        "author": { "@id": "https://thefattahi.github.io/#person" }
+        "inLanguage": "en",
+        "publisher": { "@id": "https://thefattahi.github.io/#person" }
       },
       {
         "@type": "CollectionPage",
         "@id": "https://thefattahi.github.io/#portfolio",
         "url": "https://thefattahi.github.io/",
         "name": "Rasool Fattahi Photography Archive",
-        "description": "A curated archive of street, people, and place photography by Rasool Fattahi.",
+        "description": "A curated archive of street, people and place photography by Rasool Fattahi.",
+        "inLanguage": "en",
         "isPartOf": { "@id": "https://thefattahi.github.io/#website" },
-        "about": { "@id": "https://thefattahi.github.io/#person" }
+        "about": { "@id": "https://thefattahi.github.io/#person" },
+        "mainEntity": { "@id": "https://thefattahi.github.io/#person" }
       }
     ]
   }
   </script>
 
-  <link rel="stylesheet" href="style.css?v=13">
+  <link rel="stylesheet" href="style.css?v=14">
 </head>
-
 <body>
-
   <header class="site-header">
-    <button class="identity" id="profileButton" type="button" aria-label="Open portrait of Rasool Fattahi">
+    <button class="identity" id="profileButton" type="button" aria-label="Open portrait of photographer Rasool Fattahi">
       <span class="identity-copy">
         <span class="identity-kicker">Photos by</span>
         <span class="identity-name">Rasool Fattahi</span>
       </span>
       <span class="portrait-frame">
-        <img src="images/profile.png" alt="Portrait of photographer Rasool Fattahi">
+        <img src="images/profile.png" alt="Portrait of photographer Rasool Fattahi" width="52" height="66" fetchpriority="high">
       </span>
     </button>
   </header>
@@ -87,13 +96,10 @@
       <button class="category-button" data-category="Places" type="button">Places</button>
       <button class="category-button" data-category="Street" type="button">Street</button>
     </nav>
-
     <section class="gallery" id="gallery" aria-label="Photography portfolio"></section>
   </main>
 
-  <footer class="site-footer">
-    © <span id="year"></span> Rasool Fattahi
-  </footer>
+  <footer class="site-footer">© <span id="year"></span> Rasool Fattahi</footer>
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image">×</button>
@@ -101,12 +107,11 @@
     <div class="lightbox-caption" id="lightboxCaption"></div>
   </div>
 
-  <script src="photos.js?v=13"></script>
-  <script src="script.js?v=13"></script>
+  <script src="photos.js?v=14"></script>
+  <script src="script.js?v=14"></script>
 
   <!-- Cloudflare Web Analytics -->
   <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"bc43ace4e5184a408048feac1afca00f"}'></script>
   <!-- End Cloudflare Web Analytics -->
-
 </body>
 </html>
