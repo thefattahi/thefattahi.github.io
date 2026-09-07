@@ -35,7 +35,7 @@ const photos = [
     title: "Hafez–Goethe Monument, Weimar",
     alt: "Two monumental granite chairs facing each other at the Hafez–Goethe Monument in Weimar, Germany, surrounded by autumn trees and a historic white building.",
     description: "The Hafez–Goethe Monument on Beethovenplatz in Weimar, photographed in autumn 2022. Two monumental granite chairs face one another, symbolising the imagined dialogue between the Persian poet Hafez and the German poet Johann Wolfgang von Goethe.",
-    caption: "HAFEZ–Goethe — Weimar, 2022",
+    caption: "HAFEZ-Goethe\nWeimar, 2022",
     location: "Weimar, Germany",
     date: "2022",
     keywords: [
