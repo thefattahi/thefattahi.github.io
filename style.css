@@ -32,7 +32,8 @@ body {
 }
 
 body { overscroll-behavior: none; }
-button { font: inherit; color: inherit; }
+button, a { font: inherit; color: inherit; }
+a { text-decoration: none; }
 
 .site-header {
   position: fixed;
@@ -142,12 +143,6 @@ main {
 .category-button:hover,
 .category-button.is-active { color: var(--text); }
 
-/* =========================================================
-   GALLERY SCROLL AREA
-   The gallery is the sole scrolling surface.
-   Native scrollbar is intentionally visible and styled subtly.
-========================================================= */
-
 .gallery {
   position: absolute;
   top: var(--gallery-top);
@@ -172,22 +167,13 @@ main {
   outline: none;
 }
 
-.gallery::-webkit-scrollbar {
-  width: 5px;
-}
-
-.gallery::-webkit-scrollbar-track {
-  background: transparent;
-}
-
+.gallery::-webkit-scrollbar { width: 5px; }
+.gallery::-webkit-scrollbar-track { background: transparent; }
 .gallery::-webkit-scrollbar-thumb {
   background: rgba(17, 17, 15, 0.38);
   border-radius: 10px;
 }
-
-.gallery::-webkit-scrollbar-thumb:hover {
-  background: rgba(17, 17, 15, 0.58);
-}
+.gallery::-webkit-scrollbar-thumb:hover { background: rgba(17, 17, 15, 0.58); }
 
 .photo-card {
   flex: 0 0 auto;
@@ -199,9 +185,7 @@ main {
 
 .photo-card.is-portrait,
 .photo-card.is-square,
-.photo-card.is-landscape {
-  flex: 0 0 auto;
-}
+.photo-card.is-landscape { flex: 0 0 auto; }
 
 .photo-button {
   display: block;
@@ -316,11 +300,7 @@ figcaption {
     --gallery-bottom: 70px;
   }
 
-  .site-header {
-    top: 18px;
-    right: 18px;
-  }
-
+  .site-header { top: 18px; right: 18px; }
   .identity { gap: 8px; }
   .identity-kicker { font-size: 8px; }
   .identity-name { font-size: 10px; }
@@ -349,9 +329,7 @@ figcaption {
     scrollbar-color: rgba(17, 17, 15, 0.38) transparent;
   }
 
-  .gallery::-webkit-scrollbar {
-    width: 4px;
-  }
+  .gallery::-webkit-scrollbar { width: 4px; }
 
   .photo-card,
   .photo-card.is-landscape,
@@ -361,16 +339,8 @@ figcaption {
     width: 100%;
   }
 
-  figcaption {
-    margin-top: 9px;
-    font-size: 9px;
-  }
-
-  .site-footer {
-    bottom: 20px;
-    left: 18px;
-  }
-
+  figcaption { margin-top: 9px; font-size: 9px; }
+  .site-footer { bottom: 20px; left: 18px; }
   .lightbox { padding: 50px 18px; }
   .lightbox-image { max-width: 94vw; max-height: 82vh; }
   .lightbox-close { top: 12px; right: 14px; }
