@@ -29,15 +29,45 @@
 
   The gallery is ordered automatically by publishedAt, newest first.
 
-  PHOTO 01: Nordhausen — 2022
-  PHOTO 02: Hamburg — 2022
-  PHOTO 03: Berlin — 2022
-  PHOTO 04: Cologne — 2022
-  PHOTO 05: Autumn Tree, Frankfurt — 2022
-  PHOTO 06: Hafez–Goethe Monument, Weimar — 2022
+  PHOTO 01: Prague — 2023
+  PHOTO 02: Nordhausen — 2022
+  PHOTO 03: Hamburg — 2022
+  PHOTO 04: Berlin — 2022
+  PHOTO 05: Cologne — 2022
+  PHOTO 06: Autumn Tree, Frankfurt — 2022
+  PHOTO 07: Hafez–Goethe Monument, Weimar — 2022
 */
 
 const photos = [
+  {
+    file: "prague-night-view-2023.jpg",
+    title: "Prague at Night",
+    alt: "Night view over Prague with illuminated historic buildings, the Vltava River and Charles Bridge seen from a hillside path.",
+    description: "A night view across Prague, photographed in 2023. The illuminated historic cityscape and Vltava River unfold beyond a descending cobblestone path, framed by bare trees and warm street lights.",
+    caption: "Prague, 2023",
+    location: "Prague, Czech Republic",
+    date: "2023",
+    publishedAt: "2026-09-08T17:54:00+02:00",
+    keywords: [
+      "Prague at night",
+      "Prague night photography",
+      "Prague cityscape",
+      "Prague Czech Republic photography",
+      "Vltava River Prague",
+      "Prague old town night",
+      "Prague landscape photography",
+      "Charles Bridge Prague",
+      "Prague travel photography",
+      "Czech Republic photography",
+      "عکاسی پراگ",
+      "پراگ در شب",
+      "منظره شبانه پراگ",
+      "رود ولتاوا پراگ",
+      "پراگ جمهوری چک"
+    ],
+    width: 896,
+    height: 1195
+  },
   {
     file: "nordhausen-fog-2022.jpg",
     title: "Foggy Street, Nordhausen",
