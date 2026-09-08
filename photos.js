@@ -29,12 +29,41 @@
 
   The gallery is ordered automatically by publishedAt, newest first.
 
-  PHOTO 01: Cologne — 2022
-  PHOTO 02: Autumn Tree, Frankfurt — 2022
-  PHOTO 03: Hafez–Goethe Monument, Weimar — 2022
+  PHOTO 01: Berlin — 2022
+  PHOTO 02: Cologne — 2022
+  PHOTO 03: Autumn Tree, Frankfurt — 2022
+  PHOTO 04: Hafez–Goethe Monument, Weimar — 2022
 */
 
 const photos = [
+  {
+    file: "berlin-victory-column-2022.jpg",
+    title: "Berlin Victory Column",
+    alt: "The Berlin Victory Column with the gilded Victoria statue viewed from a broad staircase between stone walls under a clear sky.",
+    description: "The Berlin Victory Column (Siegessäule), photographed from the entrance staircase in Berlin in 2022. The symmetrical staircase and surrounding stone walls lead the eye toward the column and its gilded Victoria statue.",
+    caption: "Berlin, 2022",
+    location: "Berlin, Germany",
+    date: "2022",
+    publishedAt: "2026-09-08T03:18:00+02:00",
+    keywords: [
+      "Berlin Victory Column",
+      "Siegessäule Berlin",
+      "Goldelse Berlin",
+      "Victory Column Germany",
+      "Berlin landmark",
+      "Berlin monument",
+      "Berlin photography",
+      "Berlin architecture photography",
+      "Tiergarten Berlin",
+      "Germany photography",
+      "عکاسی برلین",
+      "ستون پیروزی برلین",
+      "زیگس زویله برلین",
+      "برلین آلمان"
+    ],
+    width: 1024,
+    height: 1536
+  },
   {
     file: "cologne-cathedral-2022.jpg",
     title: "Cologne Cathedral and Equestrian Monument",
