@@ -29,14 +29,41 @@
 
   The gallery is ordered automatically by publishedAt, newest first.
 
-  PHOTO 01: Hamburg — 2022
-  PHOTO 02: Berlin — 2022
-  PHOTO 03: Cologne — 2022
-  PHOTO 04: Autumn Tree, Frankfurt — 2022
-  PHOTO 05: Hafez–Goethe Monument, Weimar — 2022
+  PHOTO 01: Nordhausen — 2022
+  PHOTO 02: Hamburg — 2022
+  PHOTO 03: Berlin — 2022
+  PHOTO 04: Cologne — 2022
+  PHOTO 05: Autumn Tree, Frankfurt — 2022
+  PHOTO 06: Hafez–Goethe Monument, Weimar — 2022
 */
 
 const photos = [
+  {
+    file: "nordhausen-fog-2022.jpg",
+    title: "Foggy Street, Nordhausen",
+    alt: "A fog-covered urban intersection in Nordhausen, Germany, with tram tracks, overhead wires, traffic lights and a Rossmann building fading into the mist.",
+    description: "A foggy street scene in Nordhausen, photographed in 2022. Tram tracks, overhead wires and traffic lights disappear gradually into dense mist, creating a quiet and atmospheric urban landscape.",
+    caption: "Nordhausen, 2022",
+    location: "Nordhausen, Germany",
+    date: "2022",
+    publishedAt: "2026-09-08T15:55:00+02:00",
+    keywords: [
+      "Nordhausen fog",
+      "Nordhausen Germany photography",
+      "foggy street Nordhausen",
+      "Nordhausen tram",
+      "Nordhausen urban photography",
+      "fog photography Germany",
+      "misty city street",
+      "atmospheric urban photography",
+      "عکاسی نوردهاوزن",
+      "مه نوردهاوزن",
+      "خیابان مه آلود",
+      "نوردهاوزن آلمان"
+    ],
+    width: 1024,
+    height: 1536
+  },
   {
     file: "hamburg-speicherstadt-2022.jpg",
     title: "Hamburg Speicherstadt",
