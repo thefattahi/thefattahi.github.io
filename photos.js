@@ -29,13 +29,43 @@
 
   The gallery is ordered automatically by publishedAt, newest first.
 
-  PHOTO 01: Berlin — 2022
-  PHOTO 02: Cologne — 2022
-  PHOTO 03: Autumn Tree, Frankfurt — 2022
-  PHOTO 04: Hafez–Goethe Monument, Weimar — 2022
+  PHOTO 01: Hamburg — 2022
+  PHOTO 02: Berlin — 2022
+  PHOTO 03: Cologne — 2022
+  PHOTO 04: Autumn Tree, Frankfurt — 2022
+  PHOTO 05: Hafez–Goethe Monument, Weimar — 2022
 */
 
 const photos = [
+  {
+    file: "hamburg-speicherstadt-2022.jpg",
+    title: "Hamburg Speicherstadt",
+    alt: "Historic red-brick warehouse buildings lining a canal in Hamburg's Speicherstadt, with a bridge in the distance.",
+    description: "A symmetrical view through Hamburg's historic Speicherstadt, photographed in 2022. Red-brick warehouse buildings line both sides of the canal, creating strong architectural perspective and leading lines toward the distant bridge.",
+    caption: "Hamburg, 2022",
+    location: "Speicherstadt, Hamburg, Germany",
+    date: "2022",
+    publishedAt: "2026-09-08T15:55:00+02:00",
+    keywords: [
+      "Hamburg Speicherstadt",
+      "Speicherstadt Hamburg",
+      "Hamburg canal",
+      "Hamburg warehouse district",
+      "Hamburg architecture",
+      "Hamburg photography",
+      "Speicherstadt photography",
+      "UNESCO Hamburg",
+      "red brick architecture",
+      "Germany photography",
+      "عکاسی هامبورگ",
+      "اشپایشرشتات هامبورگ",
+      "کانال هامبورگ",
+      "معماری هامبورگ",
+      "هامبورگ آلمان"
+    ],
+    width: 1024,
+    height: 1536
+  },
   {
     file: "berlin-victory-column-2022.jpg",
     title: "Berlin Victory Column",
