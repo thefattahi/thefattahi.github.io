@@ -30,15 +30,44 @@
   The gallery is ordered automatically by publishedAt, newest first.
 
   PHOTO 01: Prague — 2023
-  PHOTO 02: Nordhausen — 2022
-  PHOTO 03: Hamburg — 2022
-  PHOTO 04: Berlin — 2022
-  PHOTO 05: Cologne — 2022
-  PHOTO 06: Autumn Tree, Frankfurt — 2022
-  PHOTO 07: Hafez–Goethe Monument, Weimar — 2022
+  PHOTO 02: Prague — 2023
+  PHOTO 03: Nordhausen — 2022
+  PHOTO 04: Hamburg — 2022
+  PHOTO 05: Berlin — 2022
+  PHOTO 06: Cologne — 2022
+  PHOTO 07: Autumn Tree, Frankfurt — 2022
+  PHOTO 08: Hafez–Goethe Monument, Weimar — 2022
 */
 
 const photos = [
+  {
+    file: "prague-wenceslas-square-night-2023.jpg",
+    title: "Wenceslas Square at Night",
+    alt: "Wenceslas Square at night in Prague, with illuminated historic buildings, Christmas lights, a central monument and a bench in the foreground.",
+    description: "Wenceslas Square at night in Prague, photographed in 2023. The illuminated historic buildings, festive trees and central monument form a symmetrical urban scene, with a rain-darkened square and bench in the foreground.",
+    caption: "Prague, 2023",
+    location: "Wenceslas Square, Prague, Czech Republic",
+    date: "2023",
+    publishedAt: "2026-09-08T17:54:01+02:00",
+    keywords: [
+      "Wenceslas Square Prague",
+      "Václavské náměstí",
+      "Wenceslas Square at night",
+      "Prague night photography",
+      "Prague Christmas lights",
+      "Prague city centre",
+      "Prague architecture",
+      "Prague photography",
+      "Czech Republic photography",
+      "عکاسی پراگ",
+      "میدان ونسسلاس پراگ",
+      "میدان واتسلاو پراگ",
+      "پراگ در شب",
+      "جمهوری چک"
+    ],
+    width: 1086,
+    height: 1630
+  },
   {
     file: "prague-night-view-2023.jpg",
     title: "Prague at Night",
@@ -50,20 +79,19 @@ const photos = [
     publishedAt: "2026-09-08T17:54:00+02:00",
     keywords: [
       "Prague at night",
-      "Prague night photography",
-      "Prague cityscape",
-      "Prague Czech Republic photography",
+      "Prague night view",
+      "Prague skyline",
       "Vltava River Prague",
-      "Prague old town night",
-      "Prague landscape photography",
       "Charles Bridge Prague",
-      "Prague travel photography",
+      "Prague cityscape",
+      "Prague night photography",
+      "Prague photography",
       "Czech Republic photography",
       "عکاسی پراگ",
       "پراگ در شب",
-      "منظره شبانه پراگ",
-      "رود ولتاوا پراگ",
-      "پراگ جمهوری چک"
+      "نمای شبانه پراگ",
+      "رود ولتاوا",
+      "پل چارلز"
     ],
     width: 896,
     height: 1195
