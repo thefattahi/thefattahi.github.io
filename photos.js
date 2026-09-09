@@ -29,17 +29,47 @@
 
   The gallery is ordered automatically by publishedAt, newest first.
 
-  PHOTO 01: Prague — 2023
+  PHOTO 01: Cottbus — 2023
   PHOTO 02: Prague — 2023
-  PHOTO 03: Nordhausen — 2022
-  PHOTO 04: Hamburg — 2022
-  PHOTO 05: Berlin — 2022
-  PHOTO 06: Cologne — 2022
-  PHOTO 07: Autumn Tree, Frankfurt — 2022
-  PHOTO 08: Hafez–Goethe Monument, Weimar — 2022
+  PHOTO 03: Prague — 2023
+  PHOTO 04: Nordhausen — 2022
+  PHOTO 05: Hamburg — 2022
+  PHOTO 06: Berlin — 2022
+  PHOTO 07: Cologne — 2022
+  PHOTO 08: Autumn Tree, Frankfurt — 2022
+  PHOTO 09: Hafez–Goethe Monument, Weimar — 2022
 */
 
 const photos = [
+  {
+    file: "cottbus-ikmz-library-2023.jpg",
+    title: "IKMZ Library, Cottbus",
+    alt: "The curved glass facade of the IKMZ University Library in Cottbus, covered with a pattern of letters, seen above a snow-covered landscape.",
+    description: "The IKMZ University Library in Cottbus, designed by Herzog & de Meuron, photographed in winter 2023. Its distinctive curved double-glass facade is covered with a pattern of letters and rises above the snow-covered grounds.",
+    caption: "Cottbus, 2023",
+    location: "IKMZ University Library, Cottbus, Germany",
+    date: "2023",
+    publishedAt: "2026-09-09T02:37:00+02:00",
+    keywords: [
+      "IKMZ Library Cottbus",
+      "University Library Cottbus",
+      "IKMZ Cottbus",
+      "BTU Cottbus library",
+      "Herzog & de Meuron Cottbus",
+      "Cottbus architecture",
+      "Cottbus photography",
+      "modern architecture Germany",
+      "curved glass architecture",
+      "winter Cottbus",
+      "عکاسی کوتبوس",
+      "کتابخانه دانشگاه کوتبوس",
+      "کتابخانه IKMZ",
+      "معماری مدرن آلمان",
+      "کوتبوس آلمان"
+    ],
+    width: 1024,
+    height: 1536
+  },
   {
     file: "prague-wenceslas-square-night-2023.jpg",
     title: "Wenceslas Square at Night",
