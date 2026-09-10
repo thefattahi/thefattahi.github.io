@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://thefattahi.github.io/sitemap.xml
+
+# The site includes English and Persian language variants plus indexable photo pages.
