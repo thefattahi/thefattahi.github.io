@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+
+:root { color-scheme: light; --bg: #f6f5f2; --text: #171717; --muted: #777; }
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body { background: var(--bg); color: var(--text); font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.photo-page { min-height: 100vh; display: flex; flex-direction: column; }
+.photo-header { display: flex; justify-content: space-between; align-items: center; padding: 28px 32px; }
+.photo-brand { color: var(--text); text-decoration: none; font-size: 14px; letter-spacing: .01em; }
+.photo-back { color: var(--muted); text-decoration: none; font-size: 13px; transition: color .2s ease; }
+.photo-back:hover { color: var(--text); }
+.photo-main { width: min(1200px, calc(100% - 48px)); margin: 0 auto; padding: 18px 0 64px; flex: 1; }
+.photo-figure { margin: 0; }
+.photo-image { display: block; width: 100%; max-height: 78vh; object-fit: contain; margin: 0 auto; }
+.photo-info { display: flex; justify-content: space-between; gap: 32px; align-items: baseline; padding-top: 18px; border-top: 1px solid rgba(0,0,0,.1); margin-top: 18px; }
+.photo-title { margin: 0; font-size: 15px; font-weight: 500; }
+.photo-meta { margin: 0; color: var(--muted); font-size: 13px; }
+.photo-description { max-width: 720px; margin: 14px 0 0; color: #555; font-size: 13px; line-height: 1.7; }
+.photo-footer { padding: 0 32px 28px; color: var(--muted); font-size: 12px; }
+@media (max-width: 640px) { .photo-header { padding: 22px 20px; } .photo-main { width: min(100% - 32px, 1200px); padding-top: 12px; } .photo-image { max-height: 72vh; } .photo-info { display: block; } .photo-meta { margin-top: 7px; } .photo-footer { padding: 0 20px 22px; } }
