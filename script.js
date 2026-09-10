@@ -30,6 +30,63 @@ function getOrderedPhotos() {
 }
 
 /* =========================================================
+   PHOTO STRUCTURED DATA
+   The main ImageObject graph is present in the initial HTML.
+   This function remains as a fallback for future dynamically
+   added photos, but is not injected on the current static archive.
+========================================================= */
+function absoluteImageUrl(file) {
+  return new URL("images/" + file, window.location.href).href;
+}
+
+function addPhotoStructuredData() {
+  const orderedPhotos = getOrderedPhotos();
+  if (orderedPhotos.length === 0) return;
+  if (document.querySelector('script[type="application/ld+json"]')) return;
+
+  const imageObjects = orderedPhotos.map(function (photo) {
+    const image = {
+      "@type": "ImageObject",
+      "contentUrl": absoluteImageUrl(photo.file),
+      "url": absoluteImageUrl(photo.file),
+      "name": photo.title || photo.alt || "Photograph by Rasool Fattahi",
+      "description": photo.description || photo.caption || photo.alt || "Photograph by Rasool Fattahi",
+      "author": { "@id": "https://thefattahi.github.io/#person" },
+      "creator": { "@id": "https://thefattahi.github.io/#person" },
+      "creditText": "Rasool Fattahi"
+    };
+
+    if (photo.caption) image.caption = photo.caption;
+    if (photo.location) image.contentLocation = { "@type": "Place", "name": photo.location };
+    if (photo.date) image.dateCreated = photo.date;
+    if (photo.publishedAt) image.datePublished = photo.publishedAt;
+    if (Array.isArray(photo.keywords) && photo.keywords.length) image.keywords = photo.keywords.join(", ");
+    if (photo.width) image.width = photo.width;
+    if (photo.height) image.height = photo.height;
+    return image;
+  });
+
+  const script = document.createElement("script");
+  script.id = "photo-structured-data";
+  script.type = "application/ld+json";
+  script.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ImageGallery",
+        "@id": "https://thefattahi.github.io/#photo-gallery",
+        "url": "https://thefattahi.github.io/",
+        "name": "Rasool Fattahi Photography Archive",
+        "author": { "@id": "https://thefattahi.github.io/#person" },
+        "image": imageObjects
+      },
+      ...imageObjects
+    ]
+  });
+  document.head.appendChild(script);
+}
+
+/* =========================================================
    KEYBOARD SCROLLING
 ========================================================= */
 document.addEventListener("keydown", function (event) {
