@@ -31,9 +31,9 @@ function getOrderedPhotos() {
 
 /* =========================================================
    PHOTO STRUCTURED DATA
-   Categories are intentionally not used as public navigation.
-   Per-photo keywords, locations, dates and descriptions remain
-   available for search engines through ImageObject metadata.
+   The main ImageObject graph is present in the initial HTML.
+   This function remains as a fallback for future dynamically
+   added photos, but is not injected on the current static archive.
 ========================================================= */
 function absoluteImageUrl(file) {
   return new URL("images/" + file, window.location.href).href;
@@ -42,9 +42,7 @@ function absoluteImageUrl(file) {
 function addPhotoStructuredData() {
   const orderedPhotos = getOrderedPhotos();
   if (orderedPhotos.length === 0) return;
-
-  const existing = document.getElementById("photo-structured-data");
-  if (existing) existing.remove();
+  if (document.querySelector('script[type="application/ld+json"]')) return;
 
   const imageObjects = orderedPhotos.map(function (photo) {
     const image = {
@@ -192,19 +190,42 @@ function createPhotoCard(photo, index) {
   metadata.content = imageTitle;
   figure.appendChild(metadata);
 
-  link.addEventListener("click", function (event) {
-    event.preventDefault();
-    openLightbox(imageUrl, imageAlt, photo.caption || "");
-  });
-
+  bindPhotoButton(link);
   return figure;
 }
 
 /* =========================================================
+   BIND STATIC HTML GALLERY
+   The portfolio cards now exist in the initial HTML for crawlability.
+   JavaScript only enhances them with the existing lightbox behavior.
+========================================================= */
+function bindPhotoButton(link) {
+  if (link.dataset.lightboxBound === "true") return;
+  link.dataset.lightboxBound = "true";
+
+  link.addEventListener("click", function (event) {
+    event.preventDefault();
+    const image = link.querySelector("img");
+    const caption = link.dataset.caption || "";
+    openLightbox(link.dataset.src || link.getAttribute("href"), image ? image.alt : "", caption);
+  });
+}
+
+function bindStaticGallery() {
+  const staticButtons = gallery.querySelectorAll(".photo-button");
+  staticButtons.forEach(bindPhotoButton);
+}
+
+/* =========================================================
    RENDER GALLERY
+   Preserve server-rendered cards when available. The dynamic
+   renderer remains only as a fallback if the gallery is empty.
 ========================================================= */
 function renderGallery() {
-  gallery.innerHTML = "";
+  if (gallery.children.length > 0) {
+    bindStaticGallery();
+    return;
+  }
 
   const orderedPhotos = getOrderedPhotos();
 
@@ -235,5 +256,4 @@ document.addEventListener("keydown", function (event) {
 /* =========================================================
    INITIAL RENDER
 ========================================================= */
-addPhotoStructuredData();
 renderGallery();
