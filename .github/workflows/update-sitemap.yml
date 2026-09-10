@@ -16,27 +16,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Restore pre-static-gallery homepage and script
-        run: |
-          git checkout 1a5e5356171a4d10f24e2b5389392dec3d6a8353 -- index.html script.js
-          python - <<'PY'
-          from pathlib import Path
-          path = Path("index.html")
-          text = path.read_text(encoding="utf-8")
-          text = text.replace(
-              '<title>Rasool Fattahi | Photographer in Berlin, Germany & Iran</title>',
-              '<title>Rasool Fattahi – Photo Archive</title>',
-              1,
-          )
-          marker = '  <link rel="alternate" hreflang="en" href="https://thefattahi.github.io/">\n'
-          fa = '  <link rel="alternate" hreflang="fa" href="https://thefattahi.github.io/fa/">\n'
-          if fa not in text:
-              text = text.replace(marker, marker + fa, 1)
-          path.write_text(text, encoding="utf-8")
-          PY
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -46,10 +25,10 @@ jobs:
       - name: Generate sitemap
         run: node scripts/generate-sitemap.mjs
 
-      - name: Commit restored visual files and sitemap
+      - name: Commit sitemap when changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html script.js sitemap.xml
-          git diff --cached --quiet || git commit -m "restore original gallery rendering"
+          git add sitemap.xml
+          git diff --cached --quiet || git commit -m "chore: update image sitemap"
           git push
