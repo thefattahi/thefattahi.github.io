@@ -29,19 +29,50 @@
 
   The gallery is ordered automatically by publishedAt, newest first.
 
-  PHOTO 01: Bam — 2023
-  PHOTO 02: Cottbus — 2023
-  PHOTO 03: Prague — 2023
+  PHOTO 01: Reichstag at Night, Berlin — 2024
+  PHOTO 02: Bam — 2023
+  PHOTO 03: Cottbus — 2023
   PHOTO 04: Prague — 2023
-  PHOTO 05: Nordhausen — 2022
-  PHOTO 06: Hamburg — 2022
-  PHOTO 07: Berlin — 2022
-  PHOTO 08: Cologne — 2022
-  PHOTO 09: Autumn Tree, Frankfurt — 2022
-  PHOTO 10: Hafez–Goethe Monument, Weimar — 2022
+  PHOTO 05: Prague — 2023
+  PHOTO 06: Nordhausen — 2022
+  PHOTO 07: Hamburg — 2022
+  PHOTO 08: Berlin — 2022
+  PHOTO 09: Cologne — 2022
+  PHOTO 10: Autumn Tree, Frankfurt — 2022
+  PHOTO 11: Hafez–Goethe Monument, Weimar — 2022
 */
 
 const photos = [
+  {
+    file: "berlin-reichstag-christmas-2024.jpg",
+    title: "Reichstag at Night, Berlin",
+    alt: "The Reichstag building in Berlin at night, illuminated through winter fog with German flags, a Christmas tree and people in the foreground.",
+    description: "The Reichstag building in Berlin photographed at night in winter 2024. The illuminated glass dome and historic facade emerge through the mist, with German flags, a Christmas tree and visitors in the foreground.",
+    caption: "Berlin, 2024",
+    location: "Reichstag Building, Berlin, Germany",
+    date: "2024",
+    publishedAt: "2026-09-12T13:56:00+02:00",
+    keywords: [
+      "Reichstag Berlin",
+      "Reichstag at night",
+      "Reichstag dome",
+      "Berlin night photography",
+      "Berlin winter photography",
+      "Berlin Christmas",
+      "Berlin landmarks",
+      "German Bundestag",
+      "Reichstag building Germany",
+      "Berlin architecture photography",
+      "عکاسی برلین",
+      "رایشستاگ برلین",
+      "رایشستاگ در شب",
+      "گنبد رایشستاگ",
+      "عکاسی شب برلین",
+      "برلین آلمان"
+    ],
+    width: 2475,
+    height: 2258
+  },
   {
     file: "bam-palm-grove-2023.jpg",
     title: "Bam Palm Grove",
