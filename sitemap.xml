@@ -4,6 +4,11 @@
     <loc>https://thefattahi.github.io/</loc>
     <lastmod>2026-09-13</lastmod>
     <image:image>
+      <image:loc>https://thefattahi.github.io/images/berlin-train-station-night.jpg</image:loc>
+      <image:title>Waiting at the Station</image:title>
+      <image:caption>A quiet night scene at a railway station in Berlin. A lone person sits in a blue armchair on the platform, surrounded by the architecture, tracks and warm street lights of the city.</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://thefattahi.github.io/images/brussels-street-2024-final.jpg</image:loc>
       <image:title>Walking Through Brussels</image:title>
       <image:caption>Brussels, 2024</image:caption>
@@ -72,6 +77,10 @@ Weimar, 2022</image:caption>
   </url>
   <url>
     <loc>https://thefattahi.github.io/fa/</loc>
+    <lastmod>2026-09-13</lastmod>
+  </url>
+  <url>
+    <loc>https://thefattahi.github.io/photos/berlin-train-station-night.html</loc>
     <lastmod>2026-09-13</lastmod>
   </url>
   <url>
