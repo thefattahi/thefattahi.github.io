@@ -1,5 +1,17 @@
 const photos = [
   {
+    file: "berlin-train-station-night.jpg",
+    title: "Waiting at the Station",
+    alt: "A lone person sitting in a blue armchair on a Berlin railway station platform at night, with historic buildings and warm street lights beyond the tracks.",
+    description: "A quiet night scene at a railway station in Berlin. A lone person sits in a blue armchair on the platform, surrounded by the architecture, tracks and warm street lights of the city.",
+    caption: "",
+    location: "Berlin, Germany",
+    publishedAt: "2026-09-13T19:50:00+02:00",
+    keywords: ["Berlin railway station","Berlin train station","Berlin night photography","Berlin street photography","Berlin urban photography","railway station photography","train station at night","candid photography Berlin","urban solitude","Berlin Germany","عکاسی برلین","ایستگاه قطار برلین","برلین در شب","عکاسی خیابانی برلین","عکاسی شهری برلین"],
+    width: 1191,
+    height: 1536
+  },
+  {
     file: "brussels-street-2024-final.jpg",
     title: "Walking Through Brussels",
     alt: "Three people walking along a cobblestone street in Brussels, Belgium, beside historic buildings and ornate street lamps.",
