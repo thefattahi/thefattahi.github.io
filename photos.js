@@ -29,20 +29,34 @@
 
   The gallery is ordered automatically by publishedAt, newest first.
 
-  PHOTO 01: Reichstag at Night, Berlin — 2024
-  PHOTO 02: Bam — 2023
-  PHOTO 03: Cottbus — 2023
-  PHOTO 04: Prague — 2023
+  PHOTO 01: Atomium, Brussels — 2024
+  PHOTO 02: Reichstag at Night, Berlin — 2024
+  PHOTO 03: Bam — 2023
+  PHOTO 04: Cottbus — 2023
   PHOTO 05: Prague — 2023
-  PHOTO 06: Nordhausen — 2022
-  PHOTO 07: Hamburg — 2022
-  PHOTO 08: Berlin — 2022
-  PHOTO 09: Cologne — 2022
-  PHOTO 10: Autumn Tree, Frankfurt — 2022
-  PHOTO 11: Hafez–Goethe Monument, Weimar — 2022
+  PHOTO 06: Prague — 2023
+  PHOTO 07: Nordhausen — 2022
+  PHOTO 08: Hamburg — 2022
+  PHOTO 09: Berlin — 2022
+  PHOTO 10: Cologne — 2022
+  PHOTO 11: Autumn Tree, Frankfurt — 2022
+  PHOTO 12: Hafez–Goethe Monument, Weimar — 2022
 */
 
 const photos = [
+  {
+    file: "brussels-atomium-2024.jpg",
+    title: "Atomium, Brussels",
+    alt: "The Atomium in Brussels rising above a tree-lined avenue, with its steel spheres reflecting the winter sky and a car on the road below.",
+    description: "The Atomium in Brussels, photographed in 2024. The monumental steel structure rises above a tree-lined avenue, with its reflective spheres set against a pale winter sky and a lone car approaching along the road.",
+    caption: "Brussels, 2024",
+    location: "Atomium, Brussels, Belgium",
+    date: "2024",
+    publishedAt: "2026-09-13T16:09:00+02:00",
+    keywords: ["Atomium Brussels","Brussels Atomium","Brussels Belgium","Atomium photography","Brussels architecture","Brussels landmark","Brussels street photography","Belgium photography","modern architecture Brussels","عکاسی بروکسل","اتمیوم بروکسل","بروکسل بلژیک","معماری بروکسل","عکاسی بلژیک"],
+    width: 1086,
+    height: 1448
+  },
   {
     file: "berlin-reichstag-christmas-2024.jpg",
     title: "Reichstag at Night, Berlin",
@@ -52,24 +66,7 @@ const photos = [
     location: "Reichstag Building, Berlin, Germany",
     date: "2024",
     publishedAt: "2026-09-12T13:56:00+02:00",
-    keywords: [
-      "Reichstag Berlin",
-      "Reichstag at night",
-      "Reichstag dome",
-      "Berlin night photography",
-      "Berlin winter photography",
-      "Berlin Christmas",
-      "Berlin landmarks",
-      "German Bundestag",
-      "Reichstag building Germany",
-      "Berlin architecture photography",
-      "عکاسی برلین",
-      "رایشستاگ برلین",
-      "رایشستاگ در شب",
-      "گنبد رایشستاگ",
-      "عکاسی شب برلین",
-      "برلین آلمان"
-    ],
+    keywords: ["Reichstag Berlin","Reichstag at night","Reichstag dome","Berlin night photography","Berlin winter photography","Berlin Christmas","Berlin landmarks","German Bundestag","Reichstag building Germany","Berlin architecture photography","عکاسی برلین","رایشستاگ برلین","رایشستاگ در شب","گنبد رایشستاگ","عکاسی شب برلین","برلین آلمان"],
     width: 2475,
     height: 2258
   },
@@ -82,24 +79,7 @@ const photos = [
     location: "Bam, Iran",
     date: "2023",
     publishedAt: "2026-09-09T02:38:00+02:00",
-    keywords: [
-      "Bam Iran",
-      "Bam palm grove",
-      "Bam date palms",
-      "Bam photography",
-      "Iran photography",
-      "Iranian landscape photography",
-      "documentary photography Iran",
-      "rural Iran",
-      "palm grove Iran",
-      "date palm photography",
-      "عکاسی بم",
-      "بم ایران",
-      "نخلستان بم",
-      "نخلستان",
-      "عکاسی ایران",
-      "روستایی ایران"
-    ],
+    keywords: ["Bam Iran","Bam palm grove","Bam date palms","Bam photography","Iran photography","Iranian landscape photography","documentary photography Iran","rural Iran","palm grove Iran","date palm photography","عکاسی بم","بم ایران","نخلستان بم","نخلستان","عکاسی ایران","روستایی ایران"],
     width: 1536,
     height: 1024
   },
@@ -112,23 +92,7 @@ const photos = [
     location: "IKMZ University Library, Cottbus, Germany",
     date: "2023",
     publishedAt: "2026-09-09T02:37:00+02:00",
-    keywords: [
-      "IKMZ Library Cottbus",
-      "University Library Cottbus",
-      "IKMZ Cottbus",
-      "BTU Cottbus library",
-      "Herzog & de Meuron Cottbus",
-      "Cottbus architecture",
-      "Cottbus photography",
-      "modern architecture Germany",
-      "curved glass architecture",
-      "winter Cottbus",
-      "عکاسی کوتبوس",
-      "کتابخانه دانشگاه کوتبوس",
-      "کتابخانه IKMZ",
-      "معماری مدرن آلمان",
-      "کوتبوس آلمان"
-    ],
+    keywords: ["IKMZ Library Cottbus","University Library Cottbus","IKMZ Cottbus","BTU Cottbus library","Herzog & de Meuron Cottbus","Cottbus architecture","Cottbus photography","modern architecture Germany","curved glass architecture","winter Cottbus","عکاسی کوتبوس","کتابخانه دانشگاه کوتبوس","کتابخانه IKMZ","معماری مدرن آلمان","کوتبوس آلمان"],
     width: 1024,
     height: 1536
   },
@@ -141,22 +105,7 @@ const photos = [
     location: "Wenceslas Square, Prague, Czech Republic",
     date: "2023",
     publishedAt: "2026-09-08T17:54:01+02:00",
-    keywords: [
-      "Wenceslas Square Prague",
-      "Václavské náměstí",
-      "Wenceslas Square at night",
-      "Prague night photography",
-      "Prague Christmas lights",
-      "Prague city centre",
-      "Prague architecture",
-      "Prague photography",
-      "Czech Republic photography",
-      "عکاسی پراگ",
-      "میدان ونسسلاس پراگ",
-      "میدان واتسلاو پراگ",
-      "پراگ در شب",
-      "جمهوری چک"
-    ],
+    keywords: ["Wenceslas Square Prague","Václavské náměstí","Wenceslas Square at night","Prague night photography","Prague Christmas lights","Prague city centre","Prague architecture","Prague photography","Czech Republic photography","عکاسی پراگ","میدان ونسسلاس پراگ","میدان واتسلاو پراگ","پراگ در شب","جمهوری چک"],
     width: 1086,
     height: 1630
   },
@@ -169,22 +118,7 @@ const photos = [
     location: "Prague, Czech Republic",
     date: "2023",
     publishedAt: "2026-09-08T17:54:00+02:00",
-    keywords: [
-      "Prague at night",
-      "Prague night view",
-      "Prague skyline",
-      "Vltava River Prague",
-      "Charles Bridge Prague",
-      "Prague cityscape",
-      "Prague night photography",
-      "Prague photography",
-      "Czech Republic photography",
-      "عکاسی پراگ",
-      "پراگ در شب",
-      "نمای شبانه پراگ",
-      "رود ولتاوا",
-      "پل چارلز"
-    ],
+    keywords: ["Prague at night","Prague night view","Prague skyline","Vltava River Prague","Charles Bridge Prague","Prague cityscape","Prague night photography","Prague photography","Czech Republic photography","عکاسی پراگ","پراگ در شب","نمای شبانه پراگ","رود ولتاوا","پل چارلز"],
     width: 896,
     height: 1195
   },
@@ -197,20 +131,7 @@ const photos = [
     location: "Nordhausen, Germany",
     date: "2022",
     publishedAt: "2026-09-08T15:55:00+02:00",
-    keywords: [
-      "Nordhausen fog",
-      "Nordhausen Germany photography",
-      "foggy street Nordhausen",
-      "Nordhausen tram",
-      "Nordhausen urban photography",
-      "fog photography Germany",
-      "misty city street",
-      "atmospheric urban photography",
-      "عکاسی نوردهاوزن",
-      "مه نوردهاوزن",
-      "خیابان مه آلود",
-      "نوردهاوزن آلمان"
-    ],
+    keywords: ["Nordhausen fog","Nordhausen Germany photography","foggy street Nordhausen","Nordhausen tram","Nordhausen urban photography","fog photography Germany","misty city street","atmospheric urban photography","عکاسی نوردهاوزن","مه نوردهاوزن","خیابان مه آلود","نوردهاوزن آلمان"],
     width: 1024,
     height: 1536
   },
@@ -223,23 +144,7 @@ const photos = [
     location: "Speicherstadt, Hamburg, Germany",
     date: "2022",
     publishedAt: "2026-09-08T15:55:00+02:00",
-    keywords: [
-      "Hamburg Speicherstadt",
-      "Speicherstadt Hamburg",
-      "Hamburg canal",
-      "Hamburg warehouse district",
-      "Hamburg architecture",
-      "Hamburg photography",
-      "Speicherstadt photography",
-      "UNESCO Hamburg",
-      "red brick architecture",
-      "Germany photography",
-      "عکاسی هامبورگ",
-      "اشپایشرشتات هامبورگ",
-      "کانال هامبورگ",
-      "معماری هامبورگ",
-      "هامبورگ آلمان"
-    ],
+    keywords: ["Hamburg Speicherstadt","Speicherstadt Hamburg","Hamburg canal","Hamburg warehouse district","Hamburg architecture","Hamburg photography","Speicherstadt photography","UNESCO Hamburg","red brick architecture","Germany photography","عکاسی هامبورگ","اشپایشرشتات هامبورگ","کانال هامبورگ","معماری هامبورگ","هامبورگ آلمان"],
     width: 1024,
     height: 1536
   },
@@ -252,22 +157,7 @@ const photos = [
     location: "Berlin, Germany",
     date: "2022",
     publishedAt: "2026-09-08T03:18:00+02:00",
-    keywords: [
-      "Berlin Victory Column",
-      "Siegessäule Berlin",
-      "Goldelse Berlin",
-      "Victory Column Germany",
-      "Berlin landmark",
-      "Berlin monument",
-      "Berlin photography",
-      "Berlin architecture photography",
-      "Tiergarten Berlin",
-      "Germany photography",
-      "عکاسی برلین",
-      "ستون پیروزی برلین",
-      "زیگس زویله برلین",
-      "برلین آلمان"
-    ],
+    keywords: ["Berlin Victory Column","Siegessäule Berlin","Goldelse Berlin","Victory Column Germany","Berlin landmark","Berlin monument","Berlin photography","Berlin architecture photography","Tiergarten Berlin","Germany photography","عکاسی برلین","ستون پیروزی برلین","زیگس زویله برلین","برلین آلمان"],
     width: 1024,
     height: 1536
   },
@@ -280,21 +170,7 @@ const photos = [
     location: "Cologne, Germany",
     date: "2022",
     publishedAt: "2026-09-08T00:28:00+02:00",
-    keywords: [
-      "Cologne Cathedral",
-      "Kölner Dom",
-      "Cologne Germany photography",
-      "Cologne photography",
-      "Hohenzollern Bridge",
-      "equestrian monument Cologne",
-      "Cologne train photography",
-      "urban photography Cologne",
-      "Gothic architecture Cologne",
-      "عکاسی کلن",
-      "کلیسای جامع کلن",
-      "کلن آلمان",
-      "پل هوهنزولرن"
-    ],
+    keywords: ["Cologne Cathedral","Kölner Dom","Cologne Germany photography","Cologne photography","Hohenzollern Bridge","equestrian monument Cologne","Cologne train photography","urban photography Cologne","Gothic architecture Cologne","عکاسی کلن","کلیسای جامع کلن","کلن آلمان","پل هوهنزولرن"],
     width: 1024,
     height: 1536
   },
@@ -307,20 +183,7 @@ const photos = [
     location: "Frankfurt, Germany",
     date: "2022",
     publishedAt: "2026-09-07T22:18:43+02:00",
-    keywords: [
-      "Frankfurt autumn",
-      "Frankfurt Germany photography",
-      "autumn tree Frankfurt",
-      "Frankfurt park",
-      "Frankfurt nature photography",
-      "autumn photography Germany",
-      "fall foliage Frankfurt",
-      "urban nature Frankfurt",
-      "عکاسی فرانکفورت",
-      "پاییز فرانکفورت",
-      "درخت پاییزی",
-      "فرانکفورت آلمان"
-    ],
+    keywords: ["Frankfurt autumn","Frankfurt Germany photography","autumn tree Frankfurt","Frankfurt park","Frankfurt nature photography","autumn photography Germany","fall foliage Frankfurt","urban nature Frankfurt","عکاسی فرانکفورت","پاییز فرانکفورت","درخت پاییزی","فرانکفورت آلمان"],
     width: 1024,
     height: 1536
   },
@@ -333,23 +196,7 @@ const photos = [
     location: "Weimar, Germany",
     date: "2022",
     publishedAt: "2026-09-07T17:12:35+02:00",
-    keywords: [
-      "Hafez-Goethe Monument",
-      "Hafis-Goethe-Denkmal",
-      "Hafez Goethe Weimar",
-      "Hafez monument Weimar",
-      "Goethe monument Weimar",
-      "Beethovenplatz Weimar",
-      "Weimar Germany photography",
-      "Hafez photography",
-      "Persian poetry in Germany",
-      "Goethe and Hafez",
-      "East-West cultural dialogue",
-      "عکاسی وایمار",
-      "بنای حافظ گوته",
-      "حافظ و گوته",
-      "وایمار آلمان"
-    ],
+    keywords: ["Hafez-Goethe Monument","Hafis-Goethe-Denkmal","Hafez Goethe Weimar","Hafez monument Weimar","Goethe monument Weimar","Beethovenplatz Weimar","Weimar Germany photography","Hafez photography","Persian poetry in Germany","Goethe and Hafez","East-West cultural dialogue","عکاسی وایمار","بنای حافظ گوته","حافظ و گوته","وایمار آلمان"],
     width: 1536,
     height: 1024
   }
