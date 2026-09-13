@@ -1,17 +1,20 @@
-name: Update image sitemap
+name: Update photo SEO pages and sitemap
 
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - sitemap.xml
+    paths:
+      - 'images/**'
+      - 'photos.js'
+      - 'scripts/generate-photo-pages.mjs'
+      - 'scripts/generate-sitemap.mjs'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  sitemap:
+  seo-assets:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -22,13 +25,16 @@ jobs:
         with:
           node-version: 22
 
+      - name: Generate photo detail pages
+        run: node scripts/generate-photo-pages.mjs
+
       - name: Generate sitemap
         run: node scripts/generate-sitemap.mjs
 
-      - name: Commit sitemap when changed
+      - name: Commit generated SEO assets when changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add sitemap.xml
-          git diff --cached --quiet || git commit -m "chore: update image sitemap"
+          git add photos sitemap.xml
+          git diff --cached --quiet || git commit -m "chore: sync photo SEO pages and sitemap"
           git push
