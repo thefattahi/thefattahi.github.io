@@ -4,6 +4,11 @@
     <loc>https://thefattahi.github.io/</loc>
     <lastmod>2026-09-13</lastmod>
     <image:image>
+      <image:loc>https://thefattahi.github.io/images/brussels-atomium-2024.jpg</image:loc>
+      <image:title>Atomium, Brussels</image:title>
+      <image:caption>Brussels, 2024</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://thefattahi.github.io/images/berlin-reichstag-christmas-2024.jpg</image:loc>
       <image:title>Reichstag at Night, Berlin</image:title>
       <image:caption>Berlin, 2024</image:caption>
@@ -62,6 +67,10 @@ Weimar, 2022</image:caption>
   </url>
   <url>
     <loc>https://thefattahi.github.io/fa/</loc>
+    <lastmod>2026-09-13</lastmod>
+  </url>
+  <url>
+    <loc>https://thefattahi.github.io/photos/brussels-atomium-2024.html</loc>
     <lastmod>2026-09-13</lastmod>
   </url>
   <url>
