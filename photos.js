@@ -1,49 +1,17 @@
-/*
-  PHOTO PUBLISHING FORMAT
-  -----------------------
-  file        : exact filename inside /images
-  title       : specific, natural, SEO-friendly title (English)
-  alt         : factual visual description; never keyword-stuffed
-  description : optional longer editorial description with real context
-  caption     : optional visible caption; leave empty/omit for captionless images
-  location    : optional city/country or specific place
-  date        : optional YYYY-MM-DD (when the photograph was taken)
-  publishedAt : publication/upload timestamp used for archive order
-  keywords    : optional search-intent phrases in English and Persian
-  width       : optional original pixel width
-  height      : optional original pixel height
-
-  SEO RULES
-  ---------
-  There are intentionally no public photo categories. Each photograph is part of
-  one curated archive. Use metadata to describe the actual subject and context.
-
-  Titles should identify the image naturally, ideally including a real place,
-  subject or event when relevant. Avoid generic titles and keyword stuffing.
-
-  Alt text should describe what is visibly present in the image for accessibility
-  and image search. Do not write SEO copy as alt text.
-
-  Keywords may include genuine secondary subjects, locations, photography terms,
-  and useful Persian search phrases. Only add terms that truly describe the image.
-
-  The gallery is ordered automatically by publishedAt, newest first.
-
-  PHOTO 01: Atomium, Brussels — 2024
-  PHOTO 02: Reichstag at Night, Berlin — 2024
-  PHOTO 03: Bam — 2023
-  PHOTO 04: Cottbus — 2023
-  PHOTO 05: Prague — 2023
-  PHOTO 06: Prague — 2023
-  PHOTO 07: Nordhausen — 2022
-  PHOTO 08: Hamburg — 2022
-  PHOTO 09: Berlin — 2022
-  PHOTO 10: Cologne — 2022
-  PHOTO 11: Autumn Tree, Frankfurt — 2022
-  PHOTO 12: Hafez–Goethe Monument, Weimar — 2022
-*/
-
 const photos = [
+  {
+    file: "brussels-street-2024-final.jpg",
+    title: "Walking Through Brussels",
+    alt: "Three people walking along a cobblestone street in Brussels, Belgium, beside historic buildings and ornate street lamps.",
+    description: "A candid street scene in Brussels, photographed in 2024. Three people walk along a narrow cobblestone street lined with historic buildings and ornate lamps, creating a quiet sense of movement through the city.",
+    caption: "Brussels, 2024",
+    location: "Brussels, Belgium",
+    date: "2024",
+    publishedAt: "2026-09-13T17:14:00+02:00",
+    keywords: ["Brussels street photography","Brussels Belgium","Brussels architecture","Brussels old town","cobblestone street Brussels","candid photography Brussels","urban photography Belgium","Brussels city life","عکاسی بروکسل","خیابان های بروکسل","بروکسل بلژیک"],
+    width: 657,
+    height: 1536
+  },
   {
     file: "brussels-atomium-2024.jpg",
     title: "Atomium, Brussels",
