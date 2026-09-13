@@ -29,12 +29,6 @@ function getOrderedPhotos() {
   });
 }
 
-/* =========================================================
-   PHOTO STRUCTURED DATA
-   The main ImageObject graph is present in the initial HTML.
-   This function remains as a fallback for future dynamically
-   added photos, but is not injected on the current static archive.
-========================================================= */
 function absoluteImageUrl(file) {
   return new URL("images/" + file, window.location.href).href;
 }
@@ -55,7 +49,6 @@ function addPhotoStructuredData() {
       "creator": { "@id": "https://thefattahi.github.io/#person" },
       "creditText": "Rasool Fattahi"
     };
-
     if (photo.caption) image.caption = photo.caption;
     if (photo.location) image.contentLocation = { "@type": "Place", "name": photo.location };
     if (photo.date) image.dateCreated = photo.date;
@@ -97,7 +90,6 @@ document.addEventListener("keydown", function (event) {
   const isTextField = active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA" || active.isContentEditable);
   if (isTextField) return;
   event.preventDefault();
-
   if (event.key === "ArrowDown") gallery.scrollBy({ top: 140, behavior: "smooth" });
   else if (event.key === "ArrowUp") gallery.scrollBy({ top: -140, behavior: "smooth" });
   else if (event.key === "PageDown" || event.key === " ") gallery.scrollBy({ top: gallery.clientHeight * 0.85, behavior: "smooth" });
@@ -194,15 +186,9 @@ function createPhotoCard(photo, index) {
   return figure;
 }
 
-/* =========================================================
-   BIND STATIC HTML GALLERY
-   The portfolio cards now exist in the initial HTML for crawlability.
-   JavaScript only enhances them with the existing lightbox behavior.
-========================================================= */
 function bindPhotoButton(link) {
   if (link.dataset.lightboxBound === "true") return;
   link.dataset.lightboxBound = "true";
-
   link.addEventListener("click", function (event) {
     event.preventDefault();
     const image = link.querySelector("img");
@@ -218,16 +204,31 @@ function bindStaticGallery() {
 
 /* =========================================================
    RENDER GALLERY
-   Preserve server-rendered cards when available. The dynamic
-   renderer remains only as a fallback if the gallery is empty.
+   Preserve server-rendered cards, but automatically add any
+   newly published photos that are present in photos.js. This
+   keeps the archive visually current without changing the design.
 ========================================================= */
 function renderGallery() {
+  const orderedPhotos = getOrderedPhotos();
+
   if (gallery.children.length > 0) {
+    const existingFiles = new Set(
+      Array.from(gallery.querySelectorAll("img")).map(function (image) {
+        return (image.getAttribute("src") || "").replace(/^images\//, "");
+      })
+    );
+
+    const missingPhotos = orderedPhotos.filter(function (photo) {
+      return !existingFiles.has(photo.file);
+    });
+
+    missingPhotos.slice().reverse().forEach(function (photo, reverseIndex) {
+      gallery.insertBefore(createPhotoCard(photo, reverseIndex), gallery.firstChild);
+    });
+
     bindStaticGallery();
     return;
   }
-
-  const orderedPhotos = getOrderedPhotos();
 
   if (orderedPhotos.length === 0) {
     const empty = document.createElement("p");
