@@ -1,5 +1,18 @@
 const photos = [
   {
+    file: "munich-eisbach-surfers-2024.jpg",
+    title: "Eisbach Surfers, Munich",
+    alt: "A surfer in a wetsuit riding a board in the fast-flowing Eisbach in Munich, with surfboards behind a fence and a German warning sign reading ‘Lebensgefahr’.",
+    description: "A documentary photograph of the Eisbach in Munich, photographed in 2024. A surfer moves through the fast-flowing river behind a fence, while surfboards and a prominent ‘Lebensgefahr’ warning sign create a striking contrast between recreation and danger.",
+    caption: "Munich, 2024",
+    location: "Eisbachwelle, Munich, Germany",
+    date: "2024",
+    publishedAt: "2026-09-13T19:51:00+02:00",
+    keywords: ["Eisbach surfers Munich","Eisbachwelle","Munich surfing","Munich street photography","Munich documentary photography","Munich Germany","Lebensgefahr","Eisbach wave","surfing Germany","عکاسی مونیخ","موج سواری مونیخ","ایس باخ مونیخ","عکاسی خیابانی مونیخ","مونیخ آلمان"],
+    width: 1178,
+    height: 1335
+  },
+  {
     file: "berlin-train-station-night.jpg",
     title: "Waiting at the Station",
     alt: "A lone person sitting in a blue armchair on a Berlin railway station platform at night, with historic buildings and warm street lights beyond the tracks.",
@@ -46,7 +59,7 @@ const photos = [
     location: "Reichstag Building, Berlin, Germany",
     date: "2024",
     publishedAt: "2026-09-12T13:56:00+02:00",
-    keywords: ["Reichstag Berlin","Reichstag at night","Reichstag dome","Berlin night photography","Berlin winter photography","Berlin Christmas","Berlin landmarks","German Bundestag","Reichstag building Germany","Berlin architecture photography","عکاسی برلین","رایشستاگ برلین","رایشستاگ در شب","گنبد رایشستاگ","عکاسی شب برلین","برلین آلمان"],
+    keywords: ["Reichstag Berlin","Reichstag at night","Reichstag dome","Berlin night photography","Berlin winter photography","Berlin Christmas","Berlin landmarks","German Bundestag","Reichstag building Germany","عکاسی برلین","رایشستاگ برلین","رایشستاگ در شب","گنبد رایشستاگ","عکاسی شب برلین","برلین آلمان"],
     width: 2475,
     height: 2258
   },
