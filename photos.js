@@ -1,5 +1,18 @@
 const photos = [
   {
+    file: "berlin-vintage-volkswagen-2024.jpg",
+    title: "Vintage Volkswagen, Berlin",
+    alt: "A vintage Volkswagen van parked on a Berlin street beneath trees, with political campaign posters visible behind it.",
+    description: "A vintage Volkswagen van parked on a Berlin street, photographed in 2024. The pale vehicle is framed by trees and urban shadows, while political campaign posters behind it add a distinctly contemporary Berlin context to the classic vehicle.",
+    caption: "Berlin, 2024",
+    location: "Berlin, Germany",
+    date: "2024",
+    publishedAt: "2026-09-14T00:14:00+02:00",
+    keywords: ["vintage Volkswagen Berlin","Volkswagen van Berlin","Volkswagen bus Berlin","Berlin street photography","Berlin documentary photography","Berlin urban photography","classic Volkswagen Germany","vintage car Berlin","Berlin Germany","German street photography","عکاسی برلین","فولکس واگن قدیمی برلین","ون فولکس واگن برلین","ماشین قدیمی برلین","عکاسی خیابانی برلین","برلین آلمان"],
+    width: 1248,
+    height: 1536
+  },
+  {
     file: "munich-eisbach-surfers-2024.jpg",
     title: "Eisbach Surfers, Munich",
     alt: "A surfer in a wetsuit riding a board in the fast-flowing Eisbach in Munich, with surfboards behind a fence and a German warning sign reading ‘Lebensgefahr’.",
