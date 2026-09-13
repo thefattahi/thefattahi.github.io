@@ -1,5 +1,18 @@
 const photos = [
   {
+    file: "munich-surfers-life-danger-2024.jpg",
+    title: "Surfers at the Eisbach, Munich",
+    alt: "Surfers standing beside the fast-flowing Eisbach wave in Munich, with surfboards and a ‘Lebensgefahr’ warning sign behind a fence.",
+    description: "Surfers gather beside the fast-flowing Eisbach wave in Munich, photographed in 2024. Surfboards lean against the fence beneath a prominent ‘Lebensgefahr’ warning sign, capturing the striking contrast between urban recreation and a dangerous river current.",
+    caption: "Munich, 2024",
+    location: "Eisbachwelle, Munich, Germany",
+    date: "2024",
+    publishedAt: "2026-09-13T21:07:00+02:00",
+    keywords: ["Munich street photography","Munich Germany","Eisbach surfers","Eisbachwelle","surfing Munich","Munich urban photography","Munich documentary photography","surfers in Munich","Lebensgefahr","Eisbach wave","Germany street photography","عکاسی مونیخ","موج سواری مونیخ","ایس باخ مونیخ","عکاسی خیابانی مونیخ","مونیخ آلمان"],
+    width: 1344,
+    height: 932
+  },
+  {
     file: "berlin-train-station-night.jpg",
     title: "Waiting at the Station",
     alt: "A lone person sitting in a blue armchair on a Berlin railway station platform at night, with historic buildings and warm street lights beyond the tracks.",
