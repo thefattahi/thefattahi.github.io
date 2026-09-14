@@ -1,5 +1,34 @@
 const photos = [
   {
+    "file": "amsterdam-no-public-peeing.jpg",
+    "title": "No Public Peeing, Amsterdam",
+    "alt": "Amsterdam municipal signs warning that public peeing is illegal, with a €140 fine, mounted on a street pole in Amsterdam, Netherlands.",
+    "description": "A street photograph in Amsterdam showing municipal signs in Dutch and English warning that public peeing is illegal and carries a €140 fine. The signs carry the Gemeente Amsterdam and How to Amsterdam branding.",
+    "caption": "",
+    "location": "Amsterdam, Netherlands",
+    "date": "2024",
+    "publishedAt": "2026-09-14T19:39:00+02:00",
+    "keywords": [
+      "Amsterdam",
+      "Amsterdam street photography",
+      "Amsterdam municipal signs",
+      "public urination Amsterdam",
+      "Gemeente Amsterdam",
+      "How to Amsterdam",
+      "Amsterdam urban photography",
+      "Amsterdam documentary photography",
+      "Netherlands photography",
+      "عکاسی آمستردام",
+      "آمستردام",
+      "تابلوهای آمستردام",
+      "عکاسی خیابانی آمستردام",
+      "عکاسی شهری آمستردام",
+      "هلند"
+    ],
+    "width": 1080,
+    "height": 1536
+  },
+  {
     file: "parisi-udvar-budapest-2024.jpg",
     title: "Párisi Udvar, Budapest",
     alt: "Párisi Udvar in Budapest, Hungary, with its ornate historic facade, tower and street scene under a blue sky.",
