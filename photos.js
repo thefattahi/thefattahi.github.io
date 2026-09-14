@@ -13,6 +13,19 @@ const photos = [
     height: 1536
   },
   {
+    file: "munich-eisbach-surfers-2024.jpg",
+    title: "Eisbach Surfers, Munich",
+    alt: "A surfer in a wetsuit riding a board in the fast-flowing Eisbach in Munich, with surfboards behind a fence and a German warning sign reading ‘Lebensgefahr’.",
+    description: "A documentary photograph of the Eisbach in Munich, photographed in 2024. A surfer moves through the fast-flowing river behind a fence, while surfboards and a prominent ‘Lebensgefahr’ warning sign create a striking contrast between recreation and danger.",
+    caption: "Munich, 2024",
+    location: "Eisbachwelle, Munich, Germany",
+    date: "2024",
+    publishedAt: "2026-09-14T00:15:00+02:00",
+    keywords: ["Eisbach surfers Munich","Eisbachwelle","Munich surfing","Munich street photography","Munich documentary photography","Munich Germany","Lebensgefahr","Eisbach wave","surfing Germany","عکاسی مونیخ","موج سواری مونیخ","ایس باخ مونیخ","عکاسی خیابانی مونیخ","مونیخ آلمان"],
+    width: 1178,
+    height: 1335
+  },
+  {
     file: "berlin-vintage-volkswagen-2024.jpg",
     title: "Vintage Volkswagen, Berlin",
     alt: "A vintage Volkswagen van parked on a Berlin street beneath trees, with political campaign posters visible behind it.",
@@ -24,19 +37,6 @@ const photos = [
     keywords: ["vintage Volkswagen Berlin","Volkswagen van Berlin","Volkswagen bus Berlin","Berlin street photography","Berlin documentary photography","Berlin urban photography","classic Volkswagen Germany","vintage car Berlin","Berlin Germany","German street photography","عکاسی برلین","فولکس واگن قدیمی برلین","ون فولکس واگن برلین","ماشین قدیمی برلین","عکاسی خیابانی برلین","برلین آلمان"],
     width: 1248,
     height: 1536
-  },
-  {
-    file: "munich-eisbach-surfers-2024.jpg",
-    title: "Eisbach Surfers, Munich",
-    alt: "A surfer in a wetsuit riding a board in the fast-flowing Eisbach in Munich, with surfboards behind a fence and a German warning sign reading ‘Lebensgefahr’.",
-    description: "A documentary photograph of the Eisbach in Munich, photographed in 2024. A surfer moves through the fast-flowing river behind a fence, while surfboards and a prominent ‘Lebensgefahr’ warning sign create a striking contrast between recreation and danger.",
-    caption: "Munich, 2024",
-    location: "Eisbachwelle, Munich, Germany",
-    date: "2024",
-    publishedAt: "2026-09-13T19:51:00+02:00",
-    keywords: ["Eisbach surfers Munich","Eisbachwelle","Munich surfing","Munich street photography","Munich documentary photography","Munich Germany","Lebensgefahr","Eisbach wave","surfing Germany","عکاسی مونیخ","موج سواری مونیخ","ایس باخ مونیخ","عکاسی خیابانی مونیخ","مونیخ آلمان"],
-    width: 1178,
-    height: 1335
   },
   {
     file: "berlin-train-station-night.jpg",
