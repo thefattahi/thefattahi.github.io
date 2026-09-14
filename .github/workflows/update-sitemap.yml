@@ -6,6 +6,7 @@ on:
     paths:
       - 'images/**'
       - 'photos.js'
+      - 'scripts/pending-photo.json'
       - 'scripts/generate-photo-pages.mjs'
       - 'scripts/generate-sitemap.mjs'
   workflow_dispatch:
@@ -25,6 +26,26 @@ jobs:
         with:
           node-version: 22
 
+      - name: Add pending photo metadata
+        if: ${{ hashFiles('scripts/pending-photo.json') != '' }}
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const pending = JSON.parse(fs.readFileSync('scripts/pending-photo.json', 'utf8'));
+          const path = 'photos.js';
+          let source = fs.readFileSync(path, 'utf8');
+          const marker = 'const photos = [';
+          if (!source.startsWith(marker)) throw new Error('Unexpected photos.js format');
+          if (!source.includes(`"file": "${pending.file}"`) && !source.includes(`file: "${pending.file}"`)) {
+            const block = '  ' + JSON.stringify(pending, null, 2).replace(/\n/g, '\n  ') + ',\n';
+            source = marker + '\n' + block + source.slice(marker.length + 1);
+            fs.writeFileSync(path, source);
+            console.log(`Prepended ${pending.file}`);
+          } else {
+            console.log(`${pending.file} already exists; skipping prepend.`);
+          }
+          NODE
+
       - name: Generate photo detail pages
         run: node scripts/generate-photo-pages.mjs
 
@@ -35,6 +56,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add photos sitemap.xml
+          rm -f scripts/pending-photo.json .github/workflows/process-pending-photo.yml images/.seo-trigger
+          git add photos.js photos sitemap.xml scripts/pending-photo.json .github/workflows/process-pending-photo.yml images/.seo-trigger
           git diff --cached --quiet || git commit -m "chore: sync photo SEO pages and sitemap"
           git push
