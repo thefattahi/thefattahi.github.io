@@ -1,5 +1,18 @@
 const photos = [
   {
+    file: "magere-brug-amsterdam-2024.jpg",
+    title: "Magere Brug, Amsterdam",
+    alt: "The illuminated Magere Brug over the Amstel in Amsterdam, Netherlands, at blue hour, with boats on the river and city buildings beyond.",
+    description: "The illuminated Magere Brug over the Amstel in Amsterdam, photographed at blue hour in 2024. Boats move across the river while the bridge lights reflect on the water and the city fades into the evening beyond.",
+    caption: "Amsterdam, 2024",
+    location: "Magere Brug, Amsterdam, Netherlands",
+    date: "2024",
+    publishedAt: "2026-09-14T23:23:00+02:00",
+    keywords: ["Magere Brug","Skinny Bridge","Amstel River","Amsterdam","Amsterdam photography","Amsterdam night photography","Amsterdam bridge","Amsterdam cityscape","Netherlands photography","blue hour Amsterdam","Amsterdam lights","عکاسی آمستردام","پل ماگره بروگ","پل لاغر آمستردام","رود آمستل","آمستردام در شب"],
+    width: 1536,
+    height: 1152
+  },
+  {
     file: "rijksmuseum-sculpture-amsterdam-2024.jpg",
     title: "Sculpture, Rijksmuseum, Amsterdam",
     alt: "A historic sculpture displayed at the Rijksmuseum in Amsterdam, Netherlands.",
@@ -240,7 +253,7 @@ const photos = [
     location: "Speicherstadt, Hamburg, Germany",
     date: "2022",
     publishedAt: "2026-09-08T15:55:00+02:00",
-    keywords: ["Hamburg Speicherstadt","Speicherstadt Hamburg","Hamburg canal","Hamburg warehouse district","Hamburg architecture","Hamburg photography","Speicherstadt photography","UNESCO Hamburg","red brick architecture","Germany photography","عکاسی هامبورگ","اشپایشرشتات هامبورگ","کانال هامبورگ","معماری هامبورگ","هامبورگ آلمان"],
+    keywords: ["Hamburg Speicherstadt","Speicherstadt Hamburg","Hamburg canal","Hamburg warehouse district","Hamburg architecture","Hamburg photography","Speicherstadt photography","UNESCO Hamburg","red brick architecture","Germany photography","عکاسی هامبورگ","اشپایشرشتات هامبورگ","کانال هامبورگ","معماری هامبورگ"],
     width: 1024,
     height: 1536
   },
