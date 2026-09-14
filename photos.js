@@ -1,5 +1,18 @@
 const photos = [
   {
+    file: "vienna-gloriette-2024.jpg",
+    title: "Gloriette, Vienna",
+    alt: "The Gloriette at Schönbrunn Palace in Vienna, Austria, viewed from the palace gardens with its central fountain and visitors in the foreground.",
+    description: "The Gloriette at Schönbrunn Palace in Vienna, photographed in 2024. The monumental arcade rises above the formal gardens and central fountain, with visitors crossing the broad gravel path in the foreground.",
+    caption: "Vienna, 2024",
+    location: "Schönbrunn Palace, Vienna, Austria",
+    date: "2024",
+    publishedAt: "2026-09-14T04:21:00+02:00",
+    keywords: ["Gloriette Vienna","Schönbrunn Palace","Schönbrunn Vienna","Vienna photography","Vienna Austria","Gloriette photography","Schönbrunn gardens","Vienna architecture","Austria photography","عکاسی وین","گِلوریت وین","کاخ شون‌برون","شون‌برون وین","وین اتریش","عکاسی اتریش"],
+    width: 1173,
+    height: 1536
+  },
+  {
     file: "berlin-vintage-volkswagen-2024.jpg",
     title: "Vintage Volkswagen, Berlin",
     alt: "A vintage Volkswagen van parked on a Berlin street beneath trees, with political campaign posters visible behind it.",
@@ -20,7 +33,7 @@ const photos = [
     caption: "Munich, 2024",
     location: "Eisbachwelle, Munich, Germany",
     date: "2024",
-    publishedAt: "2026-09-14T00:15:00+02:00",
+    publishedAt: "2026-09-13T19:51:00+02:00",
     keywords: ["Eisbach surfers Munich","Eisbachwelle","Munich surfing","Munich street photography","Munich documentary photography","Munich Germany","Lebensgefahr","Eisbach wave","surfing Germany","عکاسی مونیخ","موج سواری مونیخ","ایس باخ مونیخ","عکاسی خیابانی مونیخ","مونیخ آلمان"],
     width: 1178,
     height: 1335
