@@ -4,6 +4,11 @@
     <loc>https://thefattahi.github.io/</loc>
     <lastmod>2026-09-14</lastmod>
     <image:image>
+      <image:loc>https://thefattahi.github.io/images/vienna-crow.jpg</image:loc>
+      <image:title>Crow, Vienna</image:title>
+      <image:caption>A black crow perched on a white railing in Vienna, photographed against a dense green backdrop of trees. The close framing and direct gaze create a quiet, watchful urban nature portrait.</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://thefattahi.github.io/images/vienna-gloriette-2024.jpg</image:loc>
       <image:title>Gloriette, Vienna</image:title>
       <image:caption>Vienna, 2024</image:caption>
@@ -92,6 +97,10 @@ Weimar, 2022</image:caption>
   </url>
   <url>
     <loc>https://thefattahi.github.io/fa/</loc>
+    <lastmod>2026-09-14</lastmod>
+  </url>
+  <url>
+    <loc>https://thefattahi.github.io/photos/vienna-crow.html</loc>
     <lastmod>2026-09-14</lastmod>
   </url>
   <url>
