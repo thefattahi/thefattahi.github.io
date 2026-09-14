@@ -1,0 +1,35 @@
+name: Publish pending photo
+on:
+  push:
+    paths:
+      - 'scripts/pending-photo.json'
+      - '.github/workflows/publish-pending-photo.yml'
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update photo archive
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const path = 'scripts/pending-photo.json';
+          if (!fs.existsSync(path)) process.exit(0);
+          const photo = JSON.parse(fs.readFileSync(path, 'utf8'));
+          const file = fs.readFileSync('photos.js', 'utf8');
+          const marker = 'const photos = [';
+          if (!file.includes(marker)) throw new Error('photos.js format not recognized');
+          const object = JSON.stringify(photo, null, 2).replace(/^/gm, '  ');
+          const next = file.replace(marker, marker + '\n' + object + ',');
+          fs.writeFileSync('photos.js', next);
+          NODE
+      - name: Remove pending files and commit
+        run: |
+          rm -f scripts/pending-photo.json .github/workflows/publish-pending-photo.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add photos.js scripts/pending-photo.json .github/workflows/publish-pending-photo.yml
+          git diff --cached --quiet || git commit -m 'Add Amsterdam 2024 photo as newest'
+          git push
