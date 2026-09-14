@@ -1,5 +1,18 @@
 const photos = [
   {
+    file: "parisi-udvar-budapest-2024.jpg",
+    title: "Párisi Udvar, Budapest",
+    alt: "Párisi Udvar in Budapest, Hungary, with its ornate historic facade, tower and street scene under a blue sky.",
+    description: "Párisi Udvar in Budapest, photographed in 2024. The ornate historic facade and distinctive tower rise above the city street, with parked cars and the wooded Buda hills visible beyond.",
+    caption: "Budapest, 2024",
+    location: "Párisi Udvar, Ferenciek tere 10, Budapest, Hungary",
+    date: "2024",
+    publishedAt: "2026-09-14T17:47:52+02:00",
+    keywords: ["Párisi Udvar","Parisian Court Budapest","Párisi Udvar Budapest","Párisi Udvar Hotel Budapest","Ferenciek tere","Budapest architecture","Budapest photography","Budapest Hungary","historic architecture Budapest","Art Nouveau Budapest","Budapest city photography","عکاسی بوداپست","پاریسی اودوار","پاریسی اودوار بوداپست","پاریسین کورت بوداپست","معماری بوداپست","بوداپست مجارستان","فرنچیک تر بوداپست"],
+    width: 1086,
+    height: 1448
+  },
+  {
     file: "budapest-2024.jpg",
     title: "Buda Castle Funicular, Budapest",
     alt: "The Buda Castle Funicular descending toward the Danube in Budapest, Hungary, with the Chain Bridge, river and city skyline beyond under a dramatic cloud-filled sky.",
@@ -175,46 +188,46 @@ const photos = [
     location: "Nordhausen, Germany",
     date: "2022",
     publishedAt: "2026-09-08T15:55:00+02:00",
-    keywords: ["Nordhausen fog","Nordhausen Germany","foggy street Germany","Nordhausen photography","street photography Nordhausen","urban fog photography","tram tracks fog","German street photography","عکاسی نوردهاوزن","مه نوردهاوزن","نوردهاوزن آلمان","عکاسی خیابانی آلمان"],
+    keywords: ["Nordhausen fog","Nordhausen Germany photography","foggy street Nordhausen","Nordhausen tram","Nordhausen urban photography","fog photography Germany","misty city street","atmospheric urban photography","عکاسی نوردهاوزن","مه نوردهاوزن","خیابان مه آلود","نوردهاوزن آلمان"],
     width: 1024,
     height: 1536
   },
   {
     file: "hamburg-speicherstadt-2022.jpg",
     title: "Hamburg Speicherstadt",
-    alt: "The historic red-brick warehouses of Speicherstadt in Hamburg, Germany, reflected in a canal under an overcast sky.",
-    description: "Speicherstadt in Hamburg, photographed in 2022. The historic red-brick warehouse buildings line the canal, their facades reflected in the calm water beneath an overcast sky.",
+    alt: "Historic red-brick warehouse buildings lining a canal in Hamburg's Speicherstadt, with a bridge in the distance.",
+    description: "A symmetrical view through Hamburg's historic Speicherstadt, photographed in 2022. Red-brick warehouse buildings line both sides of the canal, creating strong architectural perspective and leading lines toward the distant bridge.",
     caption: "Hamburg, 2022",
     location: "Speicherstadt, Hamburg, Germany",
     date: "2022",
     publishedAt: "2026-09-08T15:55:00+02:00",
-    keywords: ["Speicherstadt Hamburg","Hamburg Germany","Hamburg photography","Hamburg architecture","warehouse district Hamburg","Hamburg canal","Germany travel photography","عکاسی هامبورگ","اشپایشرشتات هامبورگ","هامبورگ آلمان","معماری هامبورگ"],
+    keywords: ["Hamburg Speicherstadt","Speicherstadt Hamburg","Hamburg canal","Hamburg warehouse district","Hamburg architecture","Hamburg photography","Speicherstadt photography","UNESCO Hamburg","red brick architecture","Germany photography","عکاسی هامبورگ","اشپایشرشتات هامبورگ","کانال هامبورگ","معماری هامبورگ","هامبورگ آلمان"],
     width: 1024,
     height: 1536
   },
   {
     file: "berlin-victory-column-2022.jpg",
     title: "Berlin Victory Column",
-    alt: "Berlin Victory Column rising above the trees at Großer Stern, with the golden statue of Victoria visible against a pale sky.",
-    description: "The Berlin Victory Column at Großer Stern, photographed in 2022. The gilded figure of Victoria rises above the surrounding trees and urban landscape.",
+    alt: "The Berlin Victory Column with the gilded Victoria statue viewed from a broad staircase between stone walls under a clear sky.",
+    description: "The Berlin Victory Column (Siegessäule), photographed from the entrance staircase in Berlin in 2022. The symmetrical staircase and surrounding stone walls lead the eye toward the column and its gilded Victoria statue.",
     caption: "Berlin, 2022",
     location: "Berlin, Germany",
     date: "2022",
     publishedAt: "2026-09-08T03:18:00+02:00",
-    keywords: ["Berlin Victory Column","Siegessäule Berlin","Großer Stern Berlin","Berlin landmark","Berlin photography","Berlin architecture","Goldelse Berlin","Victoria statue Berlin","عکاسی برلین","ستون پیروزی برلین","زیگس زویله","برلین آلمان"],
+    keywords: ["Berlin Victory Column","Siegessäule Berlin","Goldelse Berlin","Victory Column Germany","Berlin landmark","Berlin monument","Berlin photography","Berlin architecture photography","Tiergarten Berlin","Germany photography","عکاسی برلین","ستون پیروزی برلین","زیگس زویله برلین","برلین آلمان"],
     width: 1024,
     height: 1536
   },
   {
     file: "cologne-cathedral-2022.jpg",
     title: "Cologne Cathedral and Equestrian Monument",
-    alt: "Cologne Cathedral rising behind an equestrian monument in Cologne, Germany, with the cathedral towers framed against the sky.",
-    description: "Cologne Cathedral and a nearby equestrian monument, photographed in 2022. The monumental cathedral towers dominate the background while the rider and horse form a strong foreground silhouette.",
+    alt: "Cologne Cathedral rises behind a bronze equestrian monument, with orange trains crossing the railway tracks in the foreground under an overcast sky.",
+    description: "Cologne Cathedral and an equestrian monument near the Hohenzollern Bridge, photographed in Cologne in 2022. Orange trains pass through the foreground, contrasting with the Gothic cathedral and historic monument.",
     caption: "Cologne, 2022",
     location: "Cologne, Germany",
     date: "2022",
     publishedAt: "2026-09-08T00:28:00+02:00",
-    keywords: ["Cologne Cathedral","Kölner Dom","Cologne Germany","Cologne photography","Cologne architecture","equestrian monument Cologne","Friedrich Wilhelm IV Cologne","Germany photography","عکاسی کلن","کلیسای جامع کلن","کلن آلمان","مجسمه سوارکاری کلن"],
+    keywords: ["Cologne Cathedral","Kölner Dom","Cologne Germany photography","Cologne photography","Hohenzollern Bridge","equestrian monument Cologne","Cologne train photography","urban photography Cologne","Gothic architecture Cologne","عکاسی کلن","کلیسای جامع کلن","کلن آلمان","پل هوهنزولرن"],
     width: 1024,
     height: 1536
   },
@@ -227,7 +240,7 @@ const photos = [
     location: "Frankfurt, Germany",
     date: "2022",
     publishedAt: "2026-09-07T22:18:43+02:00",
-    keywords: ["Frankfurt autumn","Frankfurt Germany","autumn photography Frankfurt","Frankfurt park","autumn tree Germany","landscape photography Frankfurt","Germany autumn photography","عکاسی فرانکفورت","پاییز فرانکفورت","فرانکفورت آلمان","عکاسی پاییز آلمان"],
+    keywords: ["Frankfurt autumn","Frankfurt Germany photography","autumn tree Frankfurt","Frankfurt park","Frankfurt nature photography","autumn photography Germany","fall foliage Frankfurt","urban nature Frankfurt","عکاسی فرانکفورت","پاییز فرانکفورت","درخت پاییزی فرانکفورت","فرانکفورت آلمان"],
     width: 1024,
     height: 1536
   },
@@ -240,7 +253,7 @@ const photos = [
     location: "Weimar, Germany",
     date: "2022",
     publishedAt: "2026-09-07T17:12:35+02:00",
-    keywords: ["Hafez-Goethe Monument","Hafis-Goethe-Denkmal","Hafez Goethe Weimar","Beethovenplatz Weimar","Weimar Germany","Hafez photography","Persian poetry in Germany","Goethe Hafez","Weimar photography","عکاسی حافظ گوته","حافظ گوته","بنای یادبود حافظ گوته","وایمار آلمان","حافظ و گوته"],
+    keywords: ["Hafez-Goethe Monument","Hafis-Goethe-Denkmal","Hafez Goethe Weimar","Hafez monument Weimar","Goethe monument Weimar","Beethovenplatz Weimar","Weimar Germany photography","Hafez photography","Persian poetry in Germany","Goethe and Hafez","East-West cultural dialogue","عکاسی وایمار","بنای حافظ گوته","حافظ و گوته","وایمار آلمان"],
     width: 1536,
     height: 1024
   }
