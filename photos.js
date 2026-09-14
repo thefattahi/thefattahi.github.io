@@ -1,5 +1,32 @@
 const photos = [
   {
+    "file": "rijksmuseum-crucifix-amsterdam-2024.jpg",
+    "title": "Crucifix, Rijksmuseum, Amsterdam",
+    "alt": "A historic crucifix sculpture displayed at the Rijksmuseum in Amsterdam, Netherlands.",
+    "description": "A historic crucifix sculpture photographed inside the Rijksmuseum in Amsterdam, Netherlands, in 2024.",
+    "caption": "",
+    "location": "Rijksmuseum, Amsterdam, Netherlands",
+    "date": "2024",
+    "publishedAt": "2026-09-14T22:00:00+02:00",
+    "keywords": [
+      "Rijksmuseum",
+      "Rijksmuseum Amsterdam",
+      "Amsterdam museum",
+      "crucifix",
+      "religious sculpture",
+      "Amsterdam photography",
+      "Netherlands photography",
+      "museum photography",
+      "عکاسی آمستردام",
+      "موزه ملی آمستردام",
+      "صلیب مصلوب",
+      "مجسمه مذهبی",
+      "عکاسی موزه"
+    ],
+    "width": 1152,
+    "height": 1536
+  },
+  {
     "file": "amsterdam-no-public-peeing.jpg",
     "title": "No Public Peeing, Amsterdam",
     "alt": "Amsterdam municipal signs warning that public peeing is illegal, with a €140 fine, mounted on a street pole in Amsterdam, Netherlands.",

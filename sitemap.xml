@@ -4,6 +4,11 @@
     <loc>https://thefattahi.github.io/</loc>
     <lastmod>2026-09-14</lastmod>
     <image:image>
+      <image:loc>https://thefattahi.github.io/images/rijksmuseum-crucifix-amsterdam-2024.jpg</image:loc>
+      <image:title>Crucifix, Rijksmuseum, Amsterdam</image:title>
+      <image:caption>A historic crucifix sculpture photographed inside the Rijksmuseum in Amsterdam, Netherlands, in 2024.</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://thefattahi.github.io/images/amsterdam-no-public-peeing.jpg</image:loc>
       <image:title>No Public Peeing, Amsterdam</image:title>
       <image:caption>A street photograph in Amsterdam showing municipal signs in Dutch and English warning that public peeing is illegal and carries a €140 fine. The signs carry the Gemeente Amsterdam and How to Amsterdam branding.</image:caption>
@@ -112,6 +117,10 @@ Weimar, 2022</image:caption>
   </url>
   <url>
     <loc>https://thefattahi.github.io/fa/</loc>
+    <lastmod>2026-09-14</lastmod>
+  </url>
+  <url>
+    <loc>https://thefattahi.github.io/photos/rijksmuseum-crucifix-amsterdam-2024.html</loc>
     <lastmod>2026-09-14</lastmod>
   </url>
   <url>
