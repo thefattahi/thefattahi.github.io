@@ -1,5 +1,17 @@
 const photos = [
   {
+    file: "vienna-crow.jpg",
+    title: "Crow, Vienna",
+    alt: "A black crow perched on a white railing in Vienna, Austria, with dense green trees in the background.",
+    description: "A black crow perched on a white railing in Vienna, photographed against a dense green backdrop of trees. The close framing and direct gaze create a quiet, watchful urban nature portrait.",
+    caption: "",
+    location: "Vienna, Austria",
+    publishedAt: "2026-09-14T13:03:00+02:00",
+    keywords: ["crow Vienna","Vienna crow","crow photography Vienna","Vienna Austria","Vienna wildlife photography","urban wildlife Vienna","bird photography Vienna","black crow","Vienna nature photography","عکاسی وین","کلاغ وین","کلاغ","حیات وحش شهری وین","عکاسی پرنده وین","وین اتریش"],
+    width: 1152,
+    height: 1536
+  },
+  {
     file: "vienna-gloriette-2024.jpg",
     title: "Gloriette, Vienna",
     alt: "The Gloriette at Schönbrunn Palace in Vienna, Austria, viewed from the palace gardens with its central fountain and visitors in the foreground.",
@@ -85,7 +97,7 @@ const photos = [
     location: "Reichstag Building, Berlin, Germany",
     date: "2024",
     publishedAt: "2026-09-12T13:56:00+02:00",
-    keywords: ["Reichstag Berlin","Reichstag at night","Reichstag dome","Berlin night photography","Berlin winter photography","Berlin Christmas","Berlin landmarks","German Bundestag","Reichstag building Germany","عکاسی برلین","رایشستاگ برلین","رایشستاگ در شب","گنبد رایشستاگ","عکاسی شب برلین","برلین آلمان"],
+    keywords: ["Reichstag Berlin","Reichstag at night","Reichstag dome","Berlin night photography","Berlin winter photography","Berlin Christmas","Berlin landmarks","German Bundestag","Reichstag building Germany","Berlin architecture photography","عکاسی برلین","رایشستاگ برلین","رایشستاگ در شب","گنبد رایشستاگ","عکاسی شب برلین","برلین آلمان"],
     width: 2475,
     height: 2258
   },
