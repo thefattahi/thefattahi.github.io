@@ -1,14 +1,14 @@
 const photos = [
   {
     file: "budapest-2024.jpg",
-    title: "Budapest from Gellért Hill",
-    alt: "A historic funicular railway descending Gellért Hill toward the Danube in Budapest, Hungary, with a bridge and city skyline beyond under a dramatic cloud-filled sky.",
-    description: "A view over Budapest from Gellért Hill, photographed in 2024. The historic funicular railway leads down toward the Danube, while the bridge, river and city skyline unfold beneath a dramatic sky.",
+    title: "Buda Castle Funicular, Budapest",
+    alt: "The Buda Castle Funicular descending toward the Danube in Budapest, Hungary, with the Chain Bridge, river and city skyline beyond under a dramatic cloud-filled sky.",
+    description: "A view over Budapest from the Buda Castle Funicular, photographed in 2024. The historic railway descends toward the Danube, while the Chain Bridge, river and city skyline unfold beneath a dramatic sky.",
     caption: "Budapest, 2024",
-    location: "Gellért Hill, Budapest, Hungary",
+    location: "Buda Castle Funicular, Budapest, Hungary",
     date: "2024",
     publishedAt: "2026-09-14T17:10:00+02:00",
-    keywords: ["Budapest Hungary","Budapest photography","Budapest cityscape","Gellért Hill","Gellért Hill Budapest","Budapest funicular","Budapest Danube","Budapest skyline","Hungary photography","عکاسی بوداپست","بوداپست مجارستان","تپه گلرت","دانوب بوداپست","عکاسی مجارستان"],
+    keywords: ["Buda Castle Funicular","Budapest Funicular","Budavári Sikló","Budapest Hungary","Budapest photography","Budapest cityscape","Budapest skyline","Chain Bridge Budapest","Budapest Danube","Buda Castle District","Budapest travel photography","عکاسی بوداپست","بوداپست مجارستان","فونیکولار بوداپست","فونی کولار قلعه بودا","پل زنجیری بوداپست","دانوب بوداپست","قلعه بودا","عکاسی مجارستان"],
     width: 1178,
     height: 2013
   },
