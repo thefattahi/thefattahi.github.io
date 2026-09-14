@@ -240,7 +240,7 @@ const photos = [
     location: "Weimar, Germany",
     date: "2022",
     publishedAt: "2026-09-07T17:12:35+02:00",
-    keywords: ["Hafez-Goethe Monument","Hafis-Goethe-Denkmal","Hafez Goethe Weimar","Beethovenplatz Weimar","Weimar Germany","Hafez photography","Persian poetry in Germany","Goethe Hafez","Weimar photography","عکاسی هاینریش هافیز گوته","حافظ گوته","بنای یادبود حافظ گوته","وایمار آلمان","حافظ و گوته"],
+    keywords: ["Hafez-Goethe Monument","Hafis-Goethe-Denkmal","Hafez Goethe Weimar","Beethovenplatz Weimar","Weimar Germany","Hafez photography","Persian poetry in Germany","Goethe Hafez","Weimar photography","حافظ گوته","بنای یادبود حافظ گوته","وایمار آلمان","حافظ و گوته"],
     width: 1536,
     height: 1024
   }
