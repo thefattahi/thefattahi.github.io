@@ -1,5 +1,18 @@
 const photos = [
   {
+    file: "kerman-moon-city-2024.jpg",
+    title: "Moon Over Kerman",
+    alt: "A full moon rising over the rooftops of Kerman, Iran, with mountains and residential buildings in the evening light.",
+    description: "A full moon rising over the rooftops of Kerman, Iran, photographed in 2024. The warm evening light falls across the residential buildings while the mountains recede into the background.",
+    caption: "Kerman, 2024",
+    location: "Kerman, Iran",
+    date: "2024",
+    publishedAt: "2026-09-15T03:27:00+02:00",
+    keywords: ["Kerman","Kerman Iran","Kerman photography","Iran photography","Kerman cityscape","Kerman moon","moon photography Iran","Kerman mountains","Kerman architecture","evening photography Iran","عکاسی کرمان","کرمان ایران","ماه کرمان","عکاسی ایران","نمای شهر کرمان","کوه‌های کرمان"],
+    width: 1152,
+    height: 1536
+  },
+  {
     file: "magere-brug-amsterdam-2024.jpg",
     title: "Magere Brug, Amsterdam",
     alt: "The illuminated Magere Brug over the Amstel in Amsterdam, Netherlands, at blue hour, with boats on the river and city buildings beyond.",
