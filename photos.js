@@ -1,5 +1,38 @@
 const photos = [
   {
+    file: "tehran-at-night-2024.jpg",
+    title: "Tehran at Night",
+    alt: "A nighttime view of a tree-lined garden and tiled fountain in Tehran, Iran, after rain, illuminated by street and garden lights.",
+    description: "A quiet night scene in Tehran, Iran, photographed in 2024. A tiled fountain leads through a tree-lined garden after rain, with warm lights reflecting across the wet pavement and water.",
+    caption: "Tehran, 2024",
+    location: "Tehran, Iran",
+    date: "2024",
+    publishedAt: "2026-09-15T03:55:14+02:00",
+    keywords: [
+      "Tehran",
+      "Tehran Iran",
+      "Tehran photography",
+      "Iran photography",
+      "Tehran night photography",
+      "Tehran garden",
+      "Tehran fountain",
+      "Iran night photography",
+      "Tehran urban photography",
+      "Tehran street photography",
+      "Tehran after rain",
+      "عکاسی تهران",
+      "تهران ایران",
+      "عکاسی ایران",
+      "تهران در شب",
+      "باغ تهران",
+      "فواره تهران",
+      "عکاسی شب تهران",
+      "تهران بعد از باران"
+    ],
+    width: 1152,
+    height: 1536
+  },
+  {
     file: "kerman-moon-city-2024.jpg",
     title: "Moon Over Kerman",
     alt: "A full moon rising over the rooftops of Kerman, Iran, with mountains and residential buildings in the evening light.",
