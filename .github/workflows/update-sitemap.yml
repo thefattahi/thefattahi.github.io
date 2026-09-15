@@ -5,8 +5,10 @@ on:
     branches: [main]
     paths:
       - 'photos.js'
+      - 'scripts/pending-photo.json'
       - 'scripts/generate-photo-pages.mjs'
       - 'scripts/generate-sitemap.mjs'
+      - '.github/workflows/update-sitemap.yml'
   workflow_dispatch:
 
 concurrency:
@@ -31,6 +33,27 @@ jobs:
         with:
           node-version: 22
 
+      - name: Apply pending photo metadata
+        if: ${{ hashFiles('scripts/pending-photo.json') != '' }}
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const pendingPath = 'scripts/pending-photo.json';
+          const photosPath = 'photos.js';
+          const pending = JSON.parse(fs.readFileSync(pendingPath, 'utf8'));
+          const source = fs.readFileSync(photosPath, 'utf8');
+          const marker = `file: ${JSON.stringify(pending.file)}`;
+          if (!source.includes(marker)) {
+            const block = JSON.stringify(pending, null, 2)
+              .replace(/^/gm, '  ')
+              .replace(/"([A-Za-z_][A-Za-z0-9_]*)":/g, '$1:');
+            const updated = source.replace('const photos = [', `const photos = [\n${block},`);
+            if (updated === source) throw new Error('Could not locate photos array.');
+            fs.writeFileSync(photosPath, updated);
+          }
+          fs.rmSync(pendingPath);
+          NODE
+
       - name: Generate photo detail pages
         run: node scripts/generate-photo-pages.mjs
 
@@ -41,7 +64,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add photos sitemap.xml
+          git add -A photos.js photos sitemap.xml scripts/pending-photo.json
           if ! git diff --cached --quiet; then
             git commit -m "chore: sync photo SEO pages and sitemap"
             git push
