@@ -6,6 +6,7 @@ on:
     paths:
       - 'photos.js'
       - 'scripts/pending-photo.json'
+      - 'images/**'
       - 'scripts/generate-photo-pages.mjs'
       - 'scripts/generate-sitemap.mjs'
       - '.github/workflows/update-sitemap.yml'
@@ -33,7 +34,7 @@ jobs:
         with:
           node-version: 22
 
-      - name: Apply pending photo metadata
+      - name: Apply pending photo metadata when image exists
         if: ${{ hashFiles('scripts/pending-photo.json') != '' }}
         run: |
           node --input-type=module <<'NODE'
@@ -41,12 +42,17 @@ jobs:
           const pendingPath = 'scripts/pending-photo.json';
           const photosPath = 'photos.js';
           const pending = JSON.parse(fs.readFileSync(pendingPath, 'utf8'));
+          const imagePath = `images/${pending.file}`;
+          if (!fs.existsSync(imagePath)) {
+            console.log(`Pending photo kept: ${imagePath} is not in the repository yet.`);
+            process.exit(0);
+          }
           const source = fs.readFileSync(photosPath, 'utf8');
           const marker = `file: ${JSON.stringify(pending.file)}`;
           if (!source.includes(marker)) {
             const block = JSON.stringify(pending, null, 2)
               .replace(/^/gm, '  ')
-              .replace(/"([A-Za-z_][A-Za-z0-9_]*)":/g, '$1:');
+              .replace(/\"([A-Za-z_][A-Za-z0-9_]*)\":/g, '$1:');
             const updated = source.replace('const photos = [', `const photos = [\n${block},`);
             if (updated === source) throw new Error('Could not locate photos array.');
             fs.writeFileSync(photosPath, updated);
