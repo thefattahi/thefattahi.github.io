@@ -4,18 +4,22 @@ on:
   push:
     branches: [main]
     paths:
-      - 'images/**'
       - 'photos.js'
-      - 'scripts/pending-photo.json'
       - 'scripts/generate-photo-pages.mjs'
       - 'scripts/generate-sitemap.mjs'
   workflow_dispatch:
+
+concurrency:
+  group: photo-seo-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: write
 
 jobs:
   seo-assets:
+    # Generated SEO commits use [skip ci] so they do not start a second SEO run.
+    if: ${{ github.event_name != 'push' || !contains(github.event.head_commit.message, '[skip ci]') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,26 +29,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-
-      - name: Add pending photo metadata
-        if: ${{ hashFiles('scripts/pending-photo.json') != '' }}
-        run: |
-          node <<'NODE'
-          const fs = require('fs');
-          const pending = JSON.parse(fs.readFileSync('scripts/pending-photo.json', 'utf8'));
-          const path = 'photos.js';
-          let source = fs.readFileSync(path, 'utf8');
-          const marker = 'const photos = [';
-          if (!source.startsWith(marker)) throw new Error('Unexpected photos.js format');
-          if (!source.includes(`"file": "${pending.file}"`) && !source.includes(`file: "${pending.file}"`)) {
-            const block = '  ' + JSON.stringify(pending, null, 2).replace(/\n/g, '\n  ') + ',\n';
-            source = marker + '\n' + block + source.slice(marker.length + 1);
-            fs.writeFileSync(path, source);
-            console.log(`Prepended ${pending.file}`);
-          } else {
-            console.log(`${pending.file} already exists; skipping prepend.`);
-          }
-          NODE
 
       - name: Generate photo detail pages
         run: node scripts/generate-photo-pages.mjs
@@ -56,10 +40,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          rm -f scripts/pending-photo.json .github/workflows/process-pending-photo.yml images/.seo-trigger
-          git add -A
+          git add photos sitemap.xml
           if ! git diff --cached --quiet; then
-            git commit -m "chore: sync photo SEO pages and sitemap"
+            git commit -m "chore: sync photo SEO pages and sitemap [skip ci]"
             git push
           else
             echo "No generated changes to commit."
