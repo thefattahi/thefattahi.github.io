@@ -18,8 +18,9 @@ permissions:
 
 jobs:
   seo-assets:
-    # Generated SEO commits use [skip ci] so they do not start a second SEO run.
-    if: ${{ github.event_name != 'push' || !contains(github.event.head_commit.message, '[skip ci]') }}
+    # Generated SEO commits are already processed; skip only this workflow job
+    # while allowing the normal GitHub Pages deployment to run.
+    if: ${{ github.event_name != 'push' || !contains(github.event.head_commit.message, 'chore: sync photo SEO pages and sitemap') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -42,7 +43,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add photos sitemap.xml
           if ! git diff --cached --quiet; then
-            git commit -m "chore: sync photo SEO pages and sitemap [skip ci]"
+            git commit -m "chore: sync photo SEO pages and sitemap"
             git push
           else
             echo "No generated changes to commit."
