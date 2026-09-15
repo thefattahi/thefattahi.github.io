@@ -1,5 +1,38 @@
 const photos = [
   {
+    file: "tehran-rooftop-fox-2024.jpg",
+    title: "Fox on a Tehran Rooftop",
+    alt: "A fox standing on a sunlit rooftop courtyard in Tehran, Iran, surrounded by tiled roofs, stone paving and small chimney vents.",
+    description: "A fox pauses on a rooftop courtyard in Tehran, Iran, photographed in 2024. Terracotta roof tiles frame the scene while strong sunlight falls across the stone paving and the animal's shadow.",
+    caption: "Tehran, 2024",
+    location: "Tehran, Iran",
+    date: "2024",
+    publishedAt: "2026-09-15T04:33:00+02:00",
+    keywords: [
+      "Tehran",
+      "Tehran Iran",
+      "Tehran photography",
+      "Iran photography",
+      "Tehran rooftop",
+      "Tehran fox",
+      "fox photography",
+      "urban wildlife photography",
+      "Tehran wildlife",
+      "Iran wildlife",
+      "Tehran rooftop photography",
+      "Tehran street photography",
+      "عکاسی تهران",
+      "تهران ایران",
+      "عکاسی ایران",
+      "روباه تهران",
+      "روباه در تهران",
+      "عکاسی حیات وحش شهری",
+      "پشت بام تهران"
+    ],
+    width: 901,
+    height: 1159
+  },
+  {
     file: "tehran-at-night-2024.jpg",
     title: "Tehran at Night",
     alt: "A nighttime view of a tree-lined garden and tiled fountain in Tehran, Iran, after rain, illuminated by street and garden lights.",
