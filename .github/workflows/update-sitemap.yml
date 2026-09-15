@@ -21,9 +21,6 @@ permissions:
 
 jobs:
   seo-assets:
-    # Generated SEO commits are already processed; skip only this workflow job
-    # while allowing the normal GitHub Pages deployment to run.
-    if: ${{ github.event_name != 'push' || !contains(github.event.head_commit.message, 'chore: sync photo SEO pages and sitemap') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
